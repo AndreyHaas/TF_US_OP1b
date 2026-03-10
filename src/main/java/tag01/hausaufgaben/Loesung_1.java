@@ -23,8 +23,6 @@ public class Loesung_1 {
     IHK note = bestimmeNote(punktzahl);
 
     ergebnisZeigen(punktzahl, note, bereich);
-
-    scanner.close();
   }
 
   private static void ergebnisZeigen(int punktzahl, IHK note, String bereich) {
