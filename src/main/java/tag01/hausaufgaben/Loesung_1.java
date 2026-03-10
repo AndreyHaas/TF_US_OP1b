@@ -6,35 +6,32 @@ import org.jetbrains.annotations.NotNull;
 
 public class Loesung_1 {
 
-public static void main(String[] args) {
-
-    System.out.println("*******************************");
-    System.out.println("     IHK-NOTENBERECHNUNG    ");
-    System.out.println("*******************************");
-
-    System.out.println("\nNotenschema:");
+  public static void main(String[] args) {
 
     String bereich = StringUtils.EMPTY;
 
     for (IHK note : IHK.values()) {
       bereich = getBereich(note);
       int punkte = note.getPunkte();
-      System.out.printf("  • %-12s ab %3d Punkte %s%n", note, punkte, bereich);
+      System.out.printf("%-12s ab %3d Punkte %s%n", note, punkte, bereich);
     }
 
-    System.out.println("\n" + "─".repeat(40));
+    System.out.println("\n─".repeat(40));
     Scanner scanner = new Scanner(System.in);
     int punktzahl = einlesenPunktzahl(scanner);
 
     IHK note = bestimmeNote(punktzahl);
 
+    ergebnisZeigen(punktzahl, note, bereich);
+    scanner.close();
+  }
+
+  private static void ergebnisZeigen(int punktzahl, IHK note, String bereich) {
     System.out.println("\n" + "*".repeat(40));
     System.out.println("ERGEBNIS");
     System.out.println("Punktzahl: " + punktzahl);
     System.out.println("IHK-Note:  " + note + " (" + bereich + ")");
     System.out.println("*".repeat(40));
-
-    scanner.close();
   }
 
   public static int einlesenPunktzahl(@NotNull Scanner scanner) {
