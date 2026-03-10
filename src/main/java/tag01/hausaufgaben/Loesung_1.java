@@ -1,31 +1,31 @@
 package tag01.hausaufgaben;
 
 import java.util.Scanner;
-import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
 
 public class Loesung_1 {
 
   public static void main(String[] args) {
 
-    String bereich = StringUtils.EMPTY;
-
     for (IHK note : IHK.values()) {
-      bereich = getBereich(note);
+      String bereich = getBereich(note);
       int punkte = note.getPunkte();
       System.out.printf("%-12s ab %3d Punkte %s%n", note, punkte, bereich);
     }
 
-    System.out.println("\n" + "─".repeat(40));
+    System.out.println("\n" + "─*".repeat(20));
     Scanner scanner = new Scanner(System.in);
     int punktzahl = einlesenPunktzahl(scanner);
 
     IHK note = bestimmeNote(punktzahl);
+    ergebnisZeigen(punktzahl, note);
 
-    ergebnisZeigen(punktzahl, note, bereich);
+    scanner.close();
   }
 
-  private static void ergebnisZeigen(int punktzahl, IHK note, String bereich) {
+  private static void ergebnisZeigen(int punktzahl, IHK note) {
+    String bereich = getBereich(note);
+
     System.out.println("\n" + "*".repeat(40));
     System.out.println("ERGEBNIS");
     System.out.println("Punktzahl: " + punktzahl);
@@ -37,10 +37,10 @@ public class Loesung_1 {
     int punktzahl;
 
     while (true) {
-      System.out.println("Punktzahl eingeben (0-100): ");
+      System.out.print("Punktzahl eingeben (0-100): ");
       String eingabe = scanner.nextLine();
 
-      try (scanner) {
+      try {
         punktzahl = Integer.parseInt(eingabe);
 
         if (punktzahl >= 0 && punktzahl <= 100) {
@@ -49,12 +49,13 @@ public class Loesung_1 {
           System.out.println("Punktzahl muss zwischen 0 und 100 liegen!");
         }
       } catch (NumberFormatException e) {
-        System.out.println(e.getMessage() + "Bitte eine gültige Zahl eingeben!");
+        System.out.println(e.getMessage() + "\nBitte eine gültige Zahl eingeben!");
       }
     }
   }
 
   public static IHK bestimmeNote(int punktzahl) {
+
     for (IHK note : IHK.values()) {
       if (punktzahl >= note.getPunkte()) {
         return note;
@@ -64,7 +65,7 @@ public class Loesung_1 {
     return IHK.UNGENUEGEND;
   }
 
-  public static @NotNull String getBereich(@NotNull IHK note) {
+  public static String getBereich(@NotNull IHK note) {
     return switch (note) {
       case SEHR_GUT -> "(92-100 Punkte)";
       case GUT -> "(81-91 Punkte)";
