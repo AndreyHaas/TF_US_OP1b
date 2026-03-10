@@ -15,41 +15,43 @@ package tag01.materialen.fpa;
 import java.util.Scanner;
 
 enum Auswahl {
-    JA,
-    NEIN,
-    VIELLEICHT
+  JA, NEIN, VIELLEICHT
 }
 
 public class Lösung_0 {
-    static Scanner scanner = new Scanner(System.in);
-    public static void main(String[] args)    {
-        System.out.println("Macht Ihnen Java Spaß?");
 
-        Auswahl[] auswahlWerte = Auswahl.values();
+  static Scanner scanner = new Scanner(System.in);
 
-        for (int i = 0; i < auswahlWerte.length; i++)        {
-            System.out.print(auswahlWerte[i]);
-            if (i < auswahlWerte.length-1)
-                System.out.print("/");
-        }
-        System.out.print(": ");
+  public static void main(String[] args) {
+    System.out.println("Macht Ihnen Java Spaß?");
 
-        String auswahlString = scanner.nextLine();
+    Auswahl[] auswahlWerte = Auswahl.values();
 
-        try        {
-            Auswahl auswahl = Auswahl.valueOf(auswahlString.toUpperCase()); // toUpperCase macht aus der Eingabe Großbuchstaben.
-            switch (auswahl)            {
-                case JA:
-                    System.out.println("Super! Dann können wir so weitermachen!");
-                    break;
-                case NEIN:
-                    System.out.println("Kann ich verstehen. C# ist eh viel besser.");
-                    break;
-                case VIELLEICHT:
-                    System.out.println("Das wird bestimmt noch!");
-            }
-        } catch (IllegalArgumentException ex) {
-            System.out.println("Keine gültige Auswahl!");
-        }
+    for (int i = 0; i < auswahlWerte.length; i++) {
+      System.out.print(auswahlWerte[i]);
+      if (i < auswahlWerte.length - 1) {
+        System.out.print("/");
+      }
     }
+    System.out.print(": ");
+
+    String auswahlString = scanner.nextLine();
+
+    try {
+      Auswahl auswahl = Auswahl.valueOf(
+          auswahlString.toUpperCase()); // toUpperCase macht aus der Eingabe Großbuchstaben.
+      switch (auswahl) {
+        case JA:
+          System.out.println("Super! Dann können wir so weitermachen!");
+          break;
+        case NEIN:
+          System.out.println("Kann ich verstehen. C# ist eh viel besser.");
+          break;
+        case VIELLEICHT:
+          System.out.println("Das wird bestimmt noch!");
+      }
+    } catch (IllegalArgumentException ex) {
+      System.out.println("Keine gültige Auswahl!");
+    }
+  }
 }
