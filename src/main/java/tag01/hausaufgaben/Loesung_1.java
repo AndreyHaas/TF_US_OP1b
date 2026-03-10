@@ -16,13 +16,14 @@ public class Loesung_1 {
       System.out.printf("%-12s ab %3d Punkte %s%n", note, punkte, bereich);
     }
 
-    System.out.println("\n─".repeat(40));
+    System.out.println("\n" + "─".repeat(40));
     Scanner scanner = new Scanner(System.in);
     int punktzahl = einlesenPunktzahl(scanner);
 
     IHK note = bestimmeNote(punktzahl);
 
     ergebnisZeigen(punktzahl, note, bereich);
+
     scanner.close();
   }
 
