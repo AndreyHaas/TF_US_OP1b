@@ -12,28 +12,22 @@ package tag01.materialen.fpa;
     Hinweis: Die Auswahlmöglichkeiten können per Schleife mithilfe der Methode values() des Enums ausgegeben werden. Mit valueOf() kann aus einem String eine Enum-Konstante gemacht werden.
  */
 
-import java.util.Arrays;
 import java.util.Scanner;
 
-enum Auswahl
-{
+enum Auswahl {
     JA,
     NEIN,
     VIELLEICHT
 }
 
-
-public class Lösung_0
-{
+public class Lösung_0 {
     static Scanner scanner = new Scanner(System.in);
-    public static void main(String[] args)
-    {
+    public static void main(String[] args)    {
         System.out.println("Macht Ihnen Java Spaß?");
 
         Auswahl[] auswahlWerte = Auswahl.values();
 
-        for (int i = 0; i < auswahlWerte.length; i++)
-        {
+        for (int i = 0; i < auswahlWerte.length; i++)        {
             System.out.print(auswahlWerte[i]);
             if (i < auswahlWerte.length-1)
                 System.out.print("/");
@@ -42,11 +36,9 @@ public class Lösung_0
 
         String auswahlString = scanner.nextLine();
 
-        try
-        {
+        try        {
             Auswahl auswahl = Auswahl.valueOf(auswahlString.toUpperCase()); // toUpperCase macht aus der Eingabe Großbuchstaben.
-            switch (auswahl)
-            {
+            switch (auswahl)            {
                 case JA:
                     System.out.println("Super! Dann können wir so weitermachen!");
                     break;
@@ -56,9 +48,7 @@ public class Lösung_0
                 case VIELLEICHT:
                     System.out.println("Das wird bestimmt noch!");
             }
-        }
-        catch (IllegalArgumentException ex)
-        {
+        } catch (IllegalArgumentException ex) {
             System.out.println("Keine gültige Auswahl!");
         }
     }
