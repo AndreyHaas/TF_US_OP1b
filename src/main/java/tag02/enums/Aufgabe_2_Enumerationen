@@ -1,0 +1,849 @@
+Aufgabenstellung: Enumerationen in Java
+
+(Klasse „Enumerationen“ und Arbeiten mit mehreren Enum-Typen)
+
+⸻
+
+Ziel der Aufgabe
+
+In dieser Aufgabe analysieren und verwenden Sie mehrere Enumerationen (enum) in Java, die in einer gemeinsamen Klasse eingesetzt werden.
+
+Sie lernen dabei,
+
+• wie mehrere Enum-Typen in einem Programm verwendet werden,
+• wie Enum-Konstanten als feste Wertebereiche modelliert werden,
+• wie Methoden mit Enum-Parametern arbeiten,
+• wie Enums mit Attributen, Konstruktoren und eigenen Methoden erweitert werden können.
+
+Der Fokus liegt auf dem Verständnis, dass Enums in Java nicht nur einfache Konstantenlisten sind, sondern strukturierte, typsichere Klassen, die in unterschiedlichen Anwendungssituationen eingesetzt werden können.
+
+⸻
+
+Fachlicher Hintergrund
+
+Enumerationen werden in Java verwendet, um eine feste Menge von Konstanten zusammenzufassen.
+
+Typische Einsatzbereiche sind:
+
+• Statuswerte
+• Kategorien
+• Rollen
+• Fehlercodes
+• Zeit- und Ordnungsstrukturen wie Monate oder Wochentage
+
+In dieser Aufgabe werden drei verschiedene Enum-Beispiele verwendet:
+
+• Ampelfarbe zur Modellierung von Zuständen einer Ampel
+• Fehlercode zur Modellierung fester Fehlerwerte
+• Monat zur Modellierung von Monaten mit zusätzlicher Zahl und Quartalszuordnung
+
+Java stellt für Enums automatisch hilfreiche Methoden bereit:
+
+• values() – liefert alle Konstanten eines Enums
+• name() – liefert den Namen einer Konstante
+• ordinal() – liefert die Positionsnummer einer Konstante
+
+Zusätzlich können Enums selbst enthalten:
+
+• Attribute
+• Konstruktoren
+• Getter-Methoden
+• statische Such- und Hilfsmethoden
+
+Damit eignen sich Enums besonders gut, um feste Wertebereiche lesbar, sicher und strukturiert im Programm abzubilden.
+
+⸻
+
+Vorgegebene Klassenstruktur
+
+Im Package template ist folgende Klasse gegeben:
+
+• Enumerationen
+
+In dieser Klasse werden folgende Enum-Typen verwendet bzw. definiert:
+
+• Ampelfarbe
+• Fehlercode
+• Monat
+
+Die Klasse enthält außerdem eine main-Methode, in der die Enums verwendet und getestet werden.
+
+⸻
+
+Aufgabe 1: Analyse des Enums „Ampelfarbe“
+
+Ziel
+
+Sie analysieren ein einfaches Enum und verstehen, wie Konstanten als feste Werte in einer Methode verarbeitet werden können.
+
+⸻
+
+Vorgegebene Enum-Konstanten
+
+Das Enum Ampelfarbe enthält folgende Konstanten:
+
+• ROT
+• GELB
+• GRÜN
+
+Diese Konstanten stehen für die möglichen Zustände einer Ampel.
+
+⸻
+
+Vorgegebene Methode
+
+In der Klasse ist folgende Methode gegeben:
+
+static void info(Ampelfarbe farbe)
+
+Diese Methode erhält eine Enum-Konstante vom Typ Ampelfarbe als Parameter.
+
+Die Verarbeitung erfolgt mit einer switch-Anweisung.
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+
+Die Methode info(Ampelfarbe farbe) soll:
+
+• bei ROT eine passende Ausgabe zum Anhalten erzeugen
+• bei GELB eine passende Ausgabe zur Aufmerksamkeit erzeugen
+• bei GRÜN eine passende Ausgabe zum Weiterfahren erzeugen
+
+Zusätzlich soll mit ordinal() die Position der Konstante ausgegeben werden.
+
+Technische Anforderungen
+
+Verwenden Sie:
+
+• eine switch-Anweisung
+• Enum-Konstanten als Methodenparameter
+• die Methode ordinal(), um die Position einer Konstante zu bestimmen
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+
+• wie ein Enum als Parametertyp für Methoden verwendet wird
+• wie Enum-Konstanten mit switch verarbeitet werden
+• wie ordinal() die Reihenfolge der Konstanten beschreibt
+
+⸻
+
+Aufgabe 2: Analyse des Enums „Fehlercode“
+
+Ziel
+
+Sie analysieren ein Enum mit Attribut, Konstruktor, Getter und statischer Suchmethode.
+
+⸻
+
+Vorgegebene Enum-Konstanten
+
+Das Enum Fehlercode enthält folgende Konstanten:
+
+• ILLEGAL_ARGUMENT(123)
+• OUT_OF_BOUNDS(456)
+• NULL_REFERENCE(789)
+• NUMBER_FORMAT(147)
+
+Jede Konstante besitzt einen numerischen Fehlerwert.
+
+Dieser wird im Attribut
+
+private final int code;
+
+gespeichert.
+
+⸻
+
+Vorgegebene Methodenköpfe
+
+Das Enum enthält mindestens folgende Methoden:
+
+public int getCode()
+
+public static Fehlercode valueOf(int code)
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+
+Die Methode getCode() soll:
+
+• den numerischen Wert der jeweiligen Fehlerkonstante zurückgeben
+
+Die Methode valueOf(int code) soll:
+
+• einen übergebenen Integer mit allen vorhandenen Fehlercodes vergleichen
+• die passende Enum-Konstante zurückgeben
+• null zurückgeben, wenn kein passender Fehlercode existiert
+
+Technische Anforderungen
+
+Verwenden Sie:
+
+• ein privates finales Attribut
+• einen Konstruktor zur Initialisierung des Attributs
+• eine Getter-Methode
+• values(), um alle Konstanten zu durchsuchen
+• eine for-each-Schleife zur Suche nach dem passenden Code
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+
+• wie Enum-Konstanten zusätzliche Werte speichern können
+• wie Konstruktoren in Enums eingesetzt werden
+• wie eine Suchmethode für Enum-Konstanten implementiert wird
+• wie Enums zur typsicheren Modellierung von Fehlercodes verwendet werden können
+
+⸻
+
+Aufgabe 3: Analyse des Enums „Monat“
+
+Ziel
+
+Sie analysieren ein komplexeres Enum mit mehreren Attributen und erweiterten Such- und Filtermethoden.
+
+⸻
+
+Vorgegebene Enum-Konstanten
+
+Das Enum Monat enthält die zwölf Monate:
+
+• JANUAR(1, 1)
+• FEBRUAR(2, 1)
+• MÄRZ(3, 1)
+• APRIL(4, 2)
+• MAI(5, 2)
+• JUNI(6, 2)
+• JULI(7, 3)
+• AUGUST(8, 3)
+• SEPTEMBER(9, 3)
+• OKTOBER(10, 4)
+• NOVEMBER(11, 4)
+• DEZEMBER(12, 4)
+
+Jede Konstante besitzt zwei Werte:
+
+• eine Monatszahl
+• ein Quartal
+
+Diese Werte werden in den Attributen
+
+private final int zahl;
+private final int quartal;
+
+gespeichert.
+
+⸻
+
+Vorgegebene Methodenköpfe
+
+Das Enum enthält mindestens folgende Methoden:
+
+public int getZahl()
+
+public int getQuartal()
+
+public static ArrayList<Monat> getMonateInQuartal(int quartal)
+
+public static Monat valueOf(int zahl)
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+
+Die Methode getZahl() soll:
+
+• die Monatszahl einer Konstante zurückgeben
+
+Die Methode getQuartal() soll:
+
+• das Quartal einer Konstante zurückgeben
+
+Die Methode getMonateInQuartal(int quartal) soll:
+
+• alle Monate zu einem übergebenen Quartal bestimmen
+• diese Monate in einer ArrayList<Monat> zurückgeben
+
+Die Methode valueOf(int zahl) soll:
+
+• einen Monat anhand seiner Monatszahl suchen
+• die passende Enum-Konstante zurückgeben
+• null zurückgeben, wenn keine passende Konstante existiert
+
+Technische Anforderungen
+
+Verwenden Sie:
+
+• zwei private finale Attribute
+• Getter-Methoden für beide Attribute
+• einen Konstruktor mit zwei Parametern
+• values() zur Iteration über alle Monate
+• eine ArrayList<Monat> zum Sammeln passender Monate
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+
+• wie Enums mehrere Attribute speichern können
+• wie komplexere Datenstrukturen mit Enums modelliert werden
+• wie Enum-Konstanten gefiltert und gesammelt werden können
+• wie ein Enum als eigener Datentyp in Listen verwendet wird
+
+⸻
+
+Aufgabe 4: Anwendung der Enumerationen
+
+Durchführung
+	1.	Verwenden Sie Konstanten des Enums Ampelfarbe und rufen Sie die Methode info(...) auf.
+	2.	Iterieren Sie über alle Werte von Ampelfarbe und geben Sie deren Namen aus.
+	3.	Verwenden Sie eine Konstante des Enums Fehlercode und geben Sie Name und Code aus.
+	4.	Testen Sie die Methode Fehlercode.valueOf(int code).
+	5.	Testen Sie die Methode Monat.getMonateInQuartal(int quartal).
+	6.	Testen Sie die Methode Monat.valueOf(int zahl).
+
+Beobachten Sie:
+
+• wie unterschiedliche Enum-Typen in einem Programm zusammenarbeiten
+• wie Konstanten mit Methoden verarbeitet werden
+• wie Werte gesucht, gefiltert und ausgegeben werden
+• wie Enums wie eigene Klassen mit Verhalten eingesetzt werden können
+
+⸻
+
+Lernziele
+
+Nach Abschluss dieser Aufgabe können Sie:
+
+• erklären, was eine Enumeration in Java ist
+• mehrere Enum-Typen in einem Programm unterscheiden und einsetzen
+• Enum-Konstanten mit zusätzlichen Attributen definieren
+• Konstruktoren und Methoden innerhalb von Enums erklären
+• mit values(), name() und ordinal() arbeiten
+• Enum-Konstanten mit switch verarbeiten
+• Enums als Datentypen für Methoden, Listen und Rückgabewerte verwenden
+• Such- und Filtermethoden für Enums implementieren
+
+⸻
+
+Didaktische Einordnung
+
+Diese Aufgabe erweitert grundlegende Java-Kenntnisse um den differenzierten Einsatz von Enumerationen.
+
+Sie knüpft an folgende Themen an:
+
+• Klassen und Objekte
+• Attribute und Methoden
+• Konstruktoren
+• Zugriffskapselung (private, public)
+• Arrays und Listen
+• Kontrollstrukturen wie switch und Schleifen
+
+Die Aufgabe zeigt, dass Enums nicht nur einfache Konstantensammlungen sind, sondern in der Softwareentwicklung vielseitig eingesetzt werden können, z. B. für:
+
+• Statusmodelle
+• Fehlerverwaltung
+• Kategorisierung
+• Zeitliche Ordnungsstrukturen
+• typsichere Programmsteuerung
+
+Sie bildet eine wichtige Grundlage für weiterführende Themen wie:
+
+• Zustandsmodelle
+• Fehlerbehandlung
+• Domänenmodellierung
+• typsichere API-Gestaltung
+
+⸻
+
+Reflexions- und Kontrollfragen
+
+Kontrollfragen zu Enumerationen
+	1.	Was ist eine Enumeration in Java?
+	2.	Warum sind Enums oft besser geeignet als einfache Zahlenwerte oder Strings?
+	3.	Warum können Enums als spezielle Klassen betrachtet werden?
+
+⸻
+
+Kontrollfragen zum Enum „Ampelfarbe“
+	4.	Welche Konstanten enthält das Enum Ampelfarbe?
+	5.	Welche Aufgabe hat die Methode info(Ampelfarbe farbe)?
+	6.	Warum eignet sich eine switch-Anweisung besonders gut für die Verarbeitung von Enum-Konstanten?
+	7.	Welche Information liefert die Methode ordinal()?
+
+⸻
+
+Kontrollfragen zum Enum „Fehlercode“
+	8.	Welche Aufgabe hat das Attribut code?
+	9.	Warum ist dieses Attribut als private final deklariert?
+	10.	Welche Aufgabe hat die Methode getCode()?
+	11.	Welche Aufgabe hat die Methode valueOf(int code)?
+	12.	Warum wird in dieser Methode über Fehlercode.values() iteriert?
+
+⸻
+
+Kontrollfragen zum Enum „Monat“
+	13.	Welche zusätzlichen Informationen speichert jede Konstante des Enums Monat?
+	14.	Welche Aufgabe haben die Methoden getZahl() und getQuartal()?
+	15.	Warum gibt die Methode getMonateInQuartal(int quartal) eine ArrayList<Monat> zurück?
+	16.	Welche Aufgabe hat die Methode Monat.valueOf(int zahl)?
+
+⸻
+
+Kontrollfragen zur Programmlogik und Anwendung
+	17.	Warum können Enums als Datentypen für Variablen, Methodenparameter und Listen verwendet werden?
+	18.	Welche Vorteile bietet die Verwendung von Enums für Fehlercodes oder Monatsangaben?
+	19.	Warum ist die Rückgabe von null in Suchmethoden problematisch oder zumindest erklärungsbedürftig?
+	20.	Welche Alternative zur Rückgabe von null wäre in moderner Java-Programmierung denkbar?
+
+⸻
+
+Didaktischer Hinweis
+
+Diese Aufgabe soll:
+
+• das Verständnis für Enums als typsichere und objektorientierte Modellierungsmittel fördern
+• den Unterschied zwischen einfachen und komplexeren Enumerationen verdeutlichen
+• zeigen, wie Enums in realistischen Anwendungsszenarien eingesetzt werden können
+
+Sie bildet eine Grundlage für weiterführende Themen, z. B.:
+
+• Zustandsautomaten
+• Fehler- und Statusmodelle
+• Sammlungen mit benutzerdefinierten Datentypen
+• robuste und typsichere Softwarearchitektur
+
+⸻
+
+ Musterlösung
+
+Enumerationen in Java
+
+(Klasse „Enumerationen“ und Arbeiten mit mehreren Enum-Typen)
+
+⸻
+
+1. Musterlösung zur Implementierung
+
+package template;
+
+/*
+ * Typsichere Aufzählungen können als spezielle Art von Klassen mit dem Schlüsselwort "enum" realisiert werden.
+ */
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class Enumerationen
+{
+    // Erstes Enum:
+    // Mit einem Enum können wir wichtige Konstanten in unserem Programm zusammenfassen.
+    enum Ampelfarbe
+    {
+        // Konstanten werden großgeschrieben.
+        ROT, GELB, GRÜN
+    }
+
+    /**
+     * Macht eine Ausgabe passend zur übergebenen Enum-Konstante.
+     */
+    static void info(Ampelfarbe farbe) // Enums können als Parameter für Methoden verwendet werden.
+    {
+        switch (farbe)
+        {
+            case ROT:
+                // ordinal() gibt den standardmäßig vergebenen Zahlenwert der Konstante zurück. Diese beginnt bei 0.
+                System.out.println(farbe.ordinal() + ": Anhalten");
+                break;
+            case GELB:
+                System.out.println(farbe.ordinal() + ": Achtung");
+                break;
+            case GRÜN:
+                System.out.println(farbe.ordinal() + ": Weiterfahren");
+                break;
+        }
+    }
+
+    // Enums funktionieren ähnlich wie Klassen. Wir können in ihnen Attribute und Methoden definieren.
+    enum Fehlercode
+    {
+        ILLEGAL_ARGUMENT(123), OUT_OF_BOUNDS(456), NULL_REFERENCE(789), NUMBER_FORMAT(147);
+
+        // Ein Feld, das den Wert der Konstante speichert.
+        private final int code;
+
+        public int getCode()
+        {
+            return code;
+        }
+
+        // Ein Konstruktor, der beim Erzeugen der Konstanten aufgerufen wird.
+        private Fehlercode(int code)
+        {
+            this.code = code;
+        }
+
+        /**
+         * Macht aus einem übergebenen Integer eine Enum-Konstante, wenn möglich.
+         *
+         * @param code
+         * @return Die Enum-Konstante, wenn es eine passende zu dem übergebenen Code gibt, sonst null.
+         */
+        public static Fehlercode valueOf(int code)
+        {
+            Fehlercode[] codes = Fehlercode.values();
+            for (Fehlercode f : codes)
+            {
+                if (f.code == code)
+                    return f;
+            }
+            return null;
+        }
+    }
+
+    public static void main(String[] args)
+    {
+        // Nutzung von Ampelfarbe
+        Ampelfarbe farbe = Ampelfarbe.ROT;
+
+        info(farbe);
+        info(Ampelfarbe.GELB);
+        info(Ampelfarbe.GRÜN);
+
+        // Iteration über alle Ampelfarben
+        for (Ampelfarbe ampelfarbe : Ampelfarbe.values())
+            System.out.println(ampelfarbe.name());
+
+        System.out.println();
+
+        // Ausgabe aller Fehlercodes
+        System.out.println(Arrays.toString(Fehlercode.values()));
+
+        Fehlercode fehler = Fehlercode.ILLEGAL_ARGUMENT;
+        System.out.println("Die Konstante " + fehler.name() + " hat den Wert " + fehler.getCode());
+
+        Fehlercode fehler2 = Fehlercode.valueOf(456);
+        if (fehler2 != null)
+            System.out.println("Die Konstante " + fehler2.name() + " hat den Wert " + fehler2.getCode());
+
+        // Beispiel zur eingebauten valueOf(String)-Methode
+        Fehlercode fehler3;
+        try
+        {
+            fehler3 = Fehlercode.valueOf("NULL");
+        }
+        catch (IllegalArgumentException ex)
+        {
+            fehler3 = Fehlercode.ILLEGAL_ARGUMENT;
+        }
+
+        System.out.println("Die Konstante " + fehler3.name() + " hat den Wert " + fehler3.getCode());
+
+        System.out.println();
+
+        // Nutzung des Enums Monat
+        System.out.println("Quartal: ");
+        System.out.println(Monat.getMonateInQuartal(3));
+
+        System.out.println("Monat: ");
+        Monat monat = Monat.valueOf(10);
+        System.out.println("Zahl: " + monat.getZahl() + ", Name: " + monat.name() + ", Quartal: " + monat.getQuartal());
+    }
+}
+
+// Komplexes Enum
+enum Monat
+{
+    JANUAR(1, 1),
+    FEBRUAR(2, 1),
+    MÄRZ(3, 1),
+    APRIL(4, 2),
+    MAI(5, 2),
+    JUNI(6, 2),
+    JULI(7, 3),
+    AUGUST(8, 3),
+    SEPTEMBER(9, 3),
+    OKTOBER(10, 4),
+    NOVEMBER(11, 4),
+    DEZEMBER(12, 4);
+
+    private final int zahl;
+    private final int quartal;
+
+    public int getZahl()
+    {
+        return zahl;
+    }
+
+    public int getQuartal()
+    {
+        return quartal;
+    }
+
+    private Monat(int z, int q)
+    {
+        this.zahl = z;
+        this.quartal = q;
+    }
+
+    /**
+     * Erzeugt eine ArrayList mit allen Monaten passend zum übergebenen Quartal.
+     *
+     * @param quartal
+     * @return Die Liste mit den Monaten im angegebenen Quartal.
+     */
+    public static ArrayList<Monat> getMonateInQuartal(int quartal)
+    {
+        ArrayList<Monat> monateInQuartal = new ArrayList<>();
+
+        for (Monat m : Monat.values())
+            if (m.quartal == quartal)
+                monateInQuartal.add(m);
+
+        return monateInQuartal;
+    }
+
+    /**
+     * Gibt den Monat passend zur übergebenen Zahl zurück, wenn möglich.
+     *
+     * @param zahl
+     * @return Der Monat passend zur übergebenen Zahl, wenn es einen passenden Monat gibt. Sonst null.
+     */
+    public static Monat valueOf(int zahl)
+    {
+        for (Monat m : Monat.values())
+            if (m.zahl == zahl)
+                return m;
+
+        return null;
+    }
+}
+
+⸻
+
+2. Beispielausgabe
+
+Eine mögliche Konsolenausgabe ist:
+
+0: Anhalten
+1: Achtung
+2: Weiterfahren
+ROT
+GELB
+GRÜN
+
+[ILLEGAL_ARGUMENT, OUT_OF_BOUNDS, NULL_REFERENCE, NUMBER_FORMAT]
+Die Konstante ILLEGAL_ARGUMENT hat den Wert 123
+Die Konstante OUT_OF_BOUNDS hat den Wert 456
+Die Konstante ILLEGAL_ARGUMENT hat den Wert 123
+
+Quartal:
+[JULI, AUGUST, SEPTEMBER]
+Monat:
+Zahl: 10, Name: OKTOBER, Quartal: 4
+
+⸻
+
+3. Erläuterung der Musterlösung
+
+Enum Ampelfarbe
+
+Das Enum Ampelfarbe ist ein einfaches Enum ohne zusätzliche Attribute.
+Es enthält nur die drei Konstanten:
+	•	ROT
+	•	GELB
+	•	GRÜN
+
+Die Methode
+
+static void info(Ampelfarbe farbe)
+
+zeigt, dass Enums als Methodenparameter verwendet werden können.
+Mit switch wird je nach Konstante eine unterschiedliche Ausgabe erzeugt.
+
+Zusätzlich wird mit ordinal() die Position der Konstante bestimmt:
+	•	ROT → 0
+	•	GELB → 1
+	•	GRÜN → 2
+
+⸻
+
+Enum Fehlercode
+
+Das Enum Fehlercode ist ein erweitertes Enum mit Attribut, Konstruktor und Methoden.
+
+Jede Konstante besitzt einen numerischen Fehlerwert:
+	•	ILLEGAL_ARGUMENT(123)
+	•	OUT_OF_BOUNDS(456)
+	•	NULL_REFERENCE(789)
+	•	NUMBER_FORMAT(147)
+
+Das Attribut
+
+private final int code;
+
+speichert diesen Wert.
+
+Der Konstruktor
+
+private Fehlercode(int code)
+
+weist den Wert der jeweiligen Konstante zu.
+
+Die Methode
+
+public int getCode()
+
+liefert den gespeicherten Fehlerwert zurück.
+
+Die Methode
+
+public static Fehlercode valueOf(int code)
+
+durchsucht alle Konstanten mit values() und gibt die passende Konstante zurück.
+
+⸻
+
+Enum Monat
+
+Das Enum Monat ist ein komplexeres Enum mit zwei Attributen:
+	•	zahl
+	•	quartal
+
+Jede Konstante speichert also gleichzeitig:
+	•	die Monatsnummer
+	•	die Quartalsnummer
+
+Beispiel:
+	•	OKTOBER(10, 4)
+
+Die Methoden
+
+getZahl()
+getQuartal()
+
+geben diese Werte zurück.
+
+Die Methode
+
+getMonateInQuartal(int quartal)
+
+liefert alle Monate eines Quartals als ArrayList<Monat>.
+
+Die Methode
+
+valueOf(int zahl)
+
+liefert den Monat passend zur Monatszahl zurück.
+
+⸻
+
+4. Musterlösung zu den Kontroll- und Reflexionsfragen
+
+Kontrollfragen zu Enumerationen
+
+1. Was ist eine Enumeration in Java?
+Eine Enumeration (enum) ist ein spezieller Datentyp in Java, der eine feste Menge von Konstanten definiert. Jede Konstante ist ein Objekt des Enum-Typs.
+
+2. Warum sind Enums oft besser geeignet als einfache Zahlenwerte oder Strings?
+Enums sind typsicher, besser lesbar und weniger fehleranfällig. Sie verhindern, dass beliebige falsche Werte verwendet werden.
+
+3. Warum können Enums als spezielle Klassen betrachtet werden?
+Weil sie Attribute, Konstruktoren, Methoden und statische Hilfsmethoden enthalten können. Die Konstanten sind Objekte dieser speziellen Klasse.
+
+⸻
+
+Kontrollfragen zum Enum „Ampelfarbe“
+
+4. Welche Konstanten enthält das Enum Ampelfarbe?
+ROT, GELB und GRÜN.
+
+5. Welche Aufgabe hat die Methode info(Ampelfarbe farbe)?
+Sie verarbeitet eine übergebene Ampelfarbe und erzeugt eine passende Textausgabe für die jeweilige Konstante.
+
+6. Warum eignet sich eine switch-Anweisung besonders gut für die Verarbeitung von Enum-Konstanten?
+Weil jede Konstante klar als eigener Fall behandelt werden kann. Das macht den Code übersichtlich und gut lesbar.
+
+7. Welche Information liefert die Methode ordinal()?
+Sie liefert die Positionsnummer einer Enum-Konstante in der Reihenfolge ihrer Deklaration, beginnend bei 0.
+
+⸻
+
+Kontrollfragen zum Enum „Fehlercode“
+
+8. Welche Aufgabe hat das Attribut code?
+Es speichert den numerischen Fehlerwert der jeweiligen Enum-Konstante.
+
+9. Warum ist dieses Attribut als private final deklariert?
+private, damit nicht direkt von außen darauf zugegriffen wird, und final, damit der Wert nach der Initialisierung unveränderlich bleibt.
+
+10. Welche Aufgabe hat die Methode getCode()?
+Sie gibt den gespeicherten numerischen Fehlerwert einer Fehlercode-Konstante zurück.
+
+11. Welche Aufgabe hat die Methode valueOf(int code)?
+Sie sucht zu einem übergebenen Integer die passende Fehlercode-Konstante und gibt sie zurück. Falls kein passender Wert existiert, gibt sie null zurück.
+
+12. Warum wird in dieser Methode über Fehlercode.values() iteriert?
+Weil values() alle vorhandenen Konstanten des Enums liefert und diese so durchsucht werden können.
+
+⸻
+
+Kontrollfragen zum Enum „Monat“
+
+13. Welche zusätzlichen Informationen speichert jede Konstante des Enums Monat?
+Jede Konstante speichert eine Monatszahl und eine Quartalszuordnung.
+
+14. Welche Aufgabe haben die Methoden getZahl() und getQuartal()?
+Sie geben die gespeicherten Werte für Monatszahl und Quartal zurück.
+
+15. Warum gibt die Methode getMonateInQuartal(int quartal) eine ArrayList<Monat> zurück?
+Weil zu einem Quartal mehrere Monate gehören und daher eine Sammlung aller passenden Monate benötigt wird.
+
+16. Welche Aufgabe hat die Methode Monat.valueOf(int zahl)?
+Sie sucht den Monat passend zu einer übergebenen Monatszahl und gibt die entsprechende Enum-Konstante zurück.
+
+⸻
+
+Kontrollfragen zur Programmlogik und Anwendung
+
+17. Warum können Enums als Datentypen für Variablen, Methodenparameter und Listen verwendet werden?
+Weil ein Enum ein eigener Datentyp ist. Deshalb können Variablen, Methodenparameter, Rückgabewerte und Sammlungen diesen Typ verwenden.
+
+18. Welche Vorteile bietet die Verwendung von Enums für Fehlercodes oder Monatsangaben?
+Sie verbessern Lesbarkeit, Typsicherheit und Struktur. Außerdem lassen sich zusätzliche Informationen und Methoden direkt mit den Konstanten verbinden.
+
+19. Warum ist die Rückgabe von null in Suchmethoden problematisch oder zumindest erklärungsbedürftig?
+Weil bei weiterer Verwendung leicht NullPointerException entstehen kann. Außerdem muss im aufrufenden Code immer geprüft werden, ob null zurückgegeben wurde.
+
+20. Welche Alternative zur Rückgabe von null wäre in moderner Java-Programmierung denkbar?
+Eine mögliche Alternative ist Optional<T>, zum Beispiel Optional<Monat> oder Optional<Fehlercode>. Dadurch wird deutlicher, dass eventuell kein Wert vorhanden ist.
+
+⸻
+
+5. Didaktischer Kurzkommentar zur Musterlösung
+
+Die Musterlösung zeigt drei Schwierigkeitsstufen von Enums:
+	•	einfaches Enum: Ampelfarbe
+	•	Enum mit Attribut und Suchmethode: Fehlercode
+	•	komplexeres Enum mit mehreren Attributen und Listenrückgabe: Monat
+
+Damit lässt sich im Unterricht sehr gut sichtbar machen, dass Enums:
+	•	nicht nur Konstantenlisten sind,
+	•	wie Klassen aufgebaut sein können,
+	•	als eigener Datentyp im Programm verwendet werden,
+	•	echte Programmlogik enthalten können.

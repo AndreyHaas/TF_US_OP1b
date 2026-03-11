@@ -1,4 +1,4 @@
-package template;
+package tag01.aufgaben;
 
 /*
  * Typsichere Aufzählungen können als spezielle Art von Klassen mit dem Schlüsselwort "enum" realisiert werden.

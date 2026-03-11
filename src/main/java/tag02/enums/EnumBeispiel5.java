@@ -1,4 +1,4 @@
-package tag01; // Gibt an, in welchem Package sich die Klasse befindet.
+package tag02.enums; // Gibt an, in welchem Package sich die Klasse befindet.
 
 public class EnumBeispiel5 { // Öffentliche Klasse mit dem Namen EnumBeispiel5.
 
@@ -29,7 +29,8 @@ public class EnumBeispiel5 { // Öffentliche Klasse mit dem Namen EnumBeispiel5.
         // Zweite Möglichkeit:
         // Hier wird nicht zuerst eine Array-Variable gespeichert,
         // sondern values() wird direkt in der Schleife verwendet.
-        for (int i = 0; i < Farbe.values().length; i++) {
+        for (int i = 0; i < Farbe.values().length; i++)
+        {
             // Gibt das Element an der Position i direkt aus dem Array zurück,
             // das von values() geliefert wird.
             System.out.println(Farbe.values()[i]);

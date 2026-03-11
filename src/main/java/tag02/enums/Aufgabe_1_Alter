@@ -1,0 +1,630 @@
+Aufgabenstellung: Enumerationen in Java
+
+(Enum-Klasse „Alter“ und Arbeiten mit Konstanten)
+
+⸻
+
+Ziel der Aufgabe
+
+In dieser Aufgabe analysieren und verwenden Sie eine Enumeration (enum) in Java, die verschiedene Alterskategorien beschreibt.
+
+Sie lernen dabei,
+
+• wie eine Enumeration in Java definiert wird,
+• wie Enum-Konstanten mit zusätzlichen Werten erstellt werden,
+• wie Methoden innerhalb einer Enumeration implementiert werden,
+• wie über Enum-Konstanten iteriert und diese ausgewertet werden können.
+
+Der Fokus liegt auf dem Verständnis, dass Enums in Java eigenständige Klassen sind, die Attribute, Konstruktoren und Methoden enthalten können.
+
+⸻
+
+Fachlicher Hintergrund
+
+Enumerationen werden in Java verwendet, um eine feste Menge von Konstanten zu definieren.
+
+Typische Beispiele sind:
+
+• Wochentage
+• Statuswerte
+• Rollen oder Kategorien
+• Altersgruppen
+
+Eine Enumeration wird mit dem Schlüsselwort enum definiert.
+
+In dieser Aufgabe wird eine Enumeration verwendet, um verschiedene Altersstufen zu modellieren.
+
+Beispielhafte Konstanten sind:
+
+• NEUGEBOREN
+• VOLLJÄHRIG
+• SENIOR
+
+Jede dieser Konstanten besitzt zusätzlich einen numerischen Wert, der das jeweilige Alter repräsentiert.
+
+Enums können in Java:
+
+• Attribute enthalten
+• Konstruktoren definieren
+• Methoden implementieren
+
+Zusätzlich stellt Java automatisch einige Methoden bereit:
+
+• values() – liefert alle Enum-Konstanten
+• name() – liefert den Namen einer Konstante
+
+Diese Möglichkeiten machen Enums zu einem wichtigen Werkzeug zur strukturierten Modellierung von festen Wertebereichen.
+
+⸻
+
+Vorgegebene Klassenstruktur
+
+Im Package template ist folgende Klasse gegeben:
+
+• Alter
+
+Die Klasse Alter ist eine Enumeration und definiert mehrere Alterskategorien als Konstanten.
+
+Jede Konstante besitzt einen numerischen Wert, der im Attribut alterZahl gespeichert wird.
+
+⸻
+
+Aufgabe 1: Analyse der Enum-Klasse
+
+Ziel
+
+Sie analysieren die Struktur der Enumeration und verstehen den Aufbau der einzelnen Bestandteile.
+
+⸻
+
+Vorgegebene Enum-Konstanten
+
+Die Enumeration enthält folgende Konstanten:
+
+NEUGEBOREN(0)
+VOLLJÄHRIG(18)
+SENIOR(60)
+
+Beim Erzeugen der Konstanten wird jeweils eine Zahl als Parameter übergeben.
+
+Diese Zahl wird im Attribut
+
+private final int alterZahl;
+
+gespeichert.
+
+Das Schlüsselwort final bedeutet, dass der Wert nach der Initialisierung nicht mehr verändert werden kann.
+
+⸻
+
+Konstruktor der Enumeration
+
+Die Enumeration besitzt einen Konstruktor:
+
+private Alter(int alterZahl)
+
+Dieser Konstruktor wird automatisch aufgerufen, wenn eine Enum-Konstante erstellt wird.
+
+Er weist den übergebenen Wert dem Attribut zu.
+
+⸻
+
+Zugriff auf den gespeicherten Wert
+
+Da das Attribut alterZahl private ist, wird eine Getter-Methode verwendet:
+
+public int getAlterZahl()
+
+Diese Methode ermöglicht es, den gespeicherten Wert einer Enum-Konstante abzufragen.
+
+⸻
+
+Aufgabe 2: Implementierung und Analyse der Suchmethoden
+
+Ziel
+
+Sie verstehen, wie innerhalb einer Enumeration Methoden zur Verarbeitung der Konstanten implementiert werden können.
+
+⸻
+
+Vorgegebene Methodenköpfe
+
+Die Klasse enthält folgende Methoden:
+
+public int getAlterZahl()
+
+public static Alter getAlter(int zahl)
+
+public static int getAlterByName(String name)
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+
+Die Methode
+
+getAlter(int zahl)
+
+soll:
+
+• eine übergebene Zahl mit den vorhandenen Enum-Konstanten vergleichen
+• die passende Enum-Konstante zurückgeben
+• null zurückgeben, wenn keine passende Konstante existiert
+
+Die Methode
+
+getAlterByName(String name)
+
+soll:
+
+• den Namen einer Enum-Konstante als String entgegennehmen
+• die passende Konstante suchen
+• den zugehörigen numerischen Wert zurückgeben
+• 0 zurückgeben, wenn keine passende Konstante existiert
+
+⸻
+
+Technische Anforderungen
+
+Verwenden Sie:
+
+• die Methode values(), um über alle Enum-Konstanten zu iterieren
+• eine for-each-Schleife, um die Konstanten zu durchsuchen
+• die Methode name(), um den Namen einer Konstante zu ermitteln
+• equalsIgnoreCase(), um Strings unabhängig von Groß- und Kleinschreibung zu vergleichen
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+
+• wie Enum-Konstanten interne Werte speichern können
+• wie Methoden innerhalb einer Enumeration implementiert werden
+• wie über Enum-Konstanten iteriert werden kann
+• wie Konstanten anhand von Namen oder Werten gesucht werden können
+
+⸻
+
+Aufgabe 3: Anwendung der Enumeration
+
+Durchführung
+	1.	Verwenden Sie eine Enum-Konstante der Klasse Alter.
+	2.	Geben Sie den gespeicherten Wert mit getAlterZahl() aus.
+	3.	Testen Sie die Methode getAlter(int zahl).
+	4.	Testen Sie die Methode getAlterByName(String name).
+
+Beobachten Sie:
+
+• wie Enum-Konstanten gefunden werden
+• wie Methoden innerhalb einer Enumeration arbeiten
+• wie Konstanten wie Objekte verwendet werden können
+
+⸻
+
+Lernziele
+
+Nach Abschluss dieser Aufgabe können Sie:
+
+• erklären, was eine Enumeration in Java ist
+• den Aufbau einer Enum-Klasse beschreiben
+• Enum-Konstanten mit Attributen definieren
+• Methoden innerhalb einer Enumeration implementieren
+• über Enum-Konstanten iterieren (values())
+• Enum-Konstanten anhand von Namen oder Werten bestimmen
+
+⸻
+
+Didaktische Einordnung
+
+Diese Aufgabe erweitert grundlegende Java-Kenntnisse um das Konzept der Enumerationen.
+
+Sie knüpft an folgende Themen an:
+
+• Klassen und Objekte
+• Attribute und Methoden
+• Konstruktoren
+• Zugriffskapselung (private, public)
+
+Enums werden in der Softwareentwicklung häufig eingesetzt, um:
+
+• Zustände
+• Kategorien
+• Rollen
+• Statuswerte
+
+strukturiert und typsicher abzubilden.
+
+Sie bilden eine wichtige Grundlage für weiterführende Themen wie:
+
+• Zustandsmodelle
+• Konfigurationswerte
+• Fehlercodes
+• Domain-Modelle in Softwarearchitekturen
+
+⸻
+
+Reflexions- und Kontrollfragen
+
+Kontrollfragen zu Enumerationen
+	1.	Was ist eine Enumeration in Java?
+	2.	Warum sind Enums oft besser geeignet als einfache Zahlenwerte oder Konstanten?
+	3.	Warum können Enums als eigene Klassen betrachtet werden?
+
+⸻
+
+Kontrollfragen zur Klassenstruktur
+	4.	Welche Aufgabe hat das Attribut alterZahl?
+	5.	Warum ist dieses Attribut als final deklariert?
+	6.	Warum ist der Konstruktor der Enumeration private?
+
+⸻
+
+Kontrollfragen zur Programmlogik
+	7.	Welche Aufgabe hat die Methode getAlter(int zahl)?
+	8.	Welche Aufgabe hat die Methode getAlterByName(String name)?
+	9.	Warum wird in der Methode eine Schleife über values() verwendet?
+
+⸻
+
+Kontrollfragen zur Implementierung
+	10.	Welche Informationen liefert die Methode name()?
+	11.	Warum wird equalsIgnoreCase() verwendet?
+	12.	Welche Probleme könnten entstehen, wenn statt Enums nur Zahlenwerte verwendet würden?
+
+⸻
+
+Didaktischer Hinweis
+
+Diese Aufgabe soll:
+
+• das Verständnis für Enumerationen als spezielle Klassen in Java fördern
+• zeigen, wie Konstanten mit zusätzlichen Informationen versehen werden können
+• die Modellierung von festen Wertebereichen in Programmen verdeutlichen
+
+Sie bildet eine Grundlage für weiterführende Themen, z. B.:
+
+• Zustandsmodelle
+• Rollen- und Statusverwaltung
+• typsichere Konfigurationswerte
+• objektorientierte Modellierung.
+
+⸻
+
+Musterlösung
+
+Aufgabe: Enumerationen in Java – Enum-Klasse „Alter“
+
+⸻
+
+1. Implementierung der Enum-Klasse
+
+package template;
+
+public enum Alter {
+
+    NEUGEBOREN(0),
+    VOLLJÄHRIG(18),
+    SENIOR(60);
+
+    private final int alterZahl;
+
+    // Konstruktor der Enum
+    private Alter(int alterZahl) {
+        this.alterZahl = alterZahl;
+    }
+
+    // Getter-Methode
+    public int getAlterZahl() {
+        return alterZahl;
+    }
+
+    // Sucht eine Enum-Konstante anhand einer Zahl
+    public static Alter getAlter(int zahl) {
+        for (Alter a : Alter.values()) {
+            if (a.alterZahl == zahl) {
+                return a;
+            }
+        }
+        return null;
+    }
+
+    // Sucht eine Enum-Konstante anhand des Namens
+    public static int getAlterByName(String name) {
+        for (Alter a : Alter.values()) {
+            if (a.name().equalsIgnoreCase(name)) {
+                return a.alterZahl;
+            }
+        }
+        return 0;
+    }
+}
+
+
+⸻
+
+2. Beispielprogramm zur Anwendung der Enumeration
+
+package template;
+
+public class Enumerationen {
+
+    public static void main(String[] args) {
+
+        // Zugriff auf eine Enum-Konstante
+        Alter a = Alter.VOLLJÄHRIG;
+
+        System.out.println("Konstante: " + a);
+        System.out.println("Alter: " + a.getAlterZahl());
+
+        System.out.println();
+
+        // Suche nach Enum über Zahl
+        Alter gefunden = Alter.getAlter(18);
+
+        if (gefunden != null) {
+            System.out.println("Gefunden über Zahl: " + gefunden);
+        } else {
+            System.out.println("Keine passende Konstante gefunden.");
+        }
+
+        System.out.println();
+
+        // Suche nach Enum über Namen
+        int wert = Alter.getAlterByName("senior");
+        System.out.println("Alter von 'senior': " + wert);
+
+        System.out.println();
+
+        // Ausgabe aller Enum-Werte
+        System.out.println("Alle Alterskategorien:");
+
+        for (Alter alter : Alter.values()) {
+            System.out.println(alter + " -> " + alter.getAlterZahl());
+        }
+    }
+}
+
+
+⸻
+
+3. Beispielhafte Programmausgabe
+
+Konstante: VOLLJÄHRIG
+Alter: 18
+
+Gefunden über Zahl: VOLLJÄHRIG
+
+Alter von 'senior': 60
+
+Alle Alterskategorien:
+NEUGEBOREN -> 0
+VOLLJÄHRIG -> 18
+SENIOR -> 60
+
+
+⸻
+
+4. Erläuterung der Lösung
+
+Enum-Konstanten
+
+NEUGEBOREN(0),
+VOLLJÄHRIG(18),
+SENIOR(60);
+
+Jede Konstante besitzt einen numerischen Wert, der im Attribut alterZahl gespeichert wird.
+
+⸻
+
+Attribut
+
+private final int alterZahl;
+
+	•	speichert den Wert der Alterskategorie
+	•	final verhindert spätere Änderungen
+
+⸻
+
+Konstruktor
+
+private Alter(int alterZahl)
+
+	•	wird automatisch beim Erstellen der Konstanten aufgerufen
+	•	weist den übergebenen Wert dem Attribut zu
+
+⸻
+
+Getter-Methode
+
+public int getAlterZahl()
+
+	•	ermöglicht Zugriff auf den gespeicherten Wert
+
+⸻
+
+Methode getAlter(int zahl)
+	•	durchsucht alle Enum-Konstanten
+	•	vergleicht deren numerischen Wert
+	•	gibt die passende Konstante zurück
+
+⸻
+
+Methode getAlterByName(String name)
+	•	durchsucht alle Konstanten nach einem Namen
+	•	nutzt name() zur Ermittlung des Konstantennamens
+	•	nutzt equalsIgnoreCase() für eine flexible Stringsuche
+
+⸻
+
+5. Zentrale Lernpunkte der Musterlösung
+
+Die Lösung zeigt:
+	•	Enums sind eigene Klassen
+	•	Enum-Konstanten sind Objekte
+	•	Enums können Attribute und Konstruktoren besitzen
+	•	Methoden können innerhalb der Enumeration implementiert werden
+	•	mit values() kann über alle Konstanten iteriert werden
+
+⸻
+
+
+Musterlösung – Kontrollfragen
+
+Kontrollfragen zu Enumerationen
+
+1. Was ist eine Enumeration in Java?
+
+Eine Enumeration (enum) ist ein spezieller Datentyp in Java, der eine feste Menge von Konstanten definiert.
+Jede Konstante ist ein Objekt der Enum-Klasse und kann zusätzlich Attribute, Methoden und Konstruktoren besitzen.
+
+⸻
+
+2. Warum sind Enums oft besser geeignet als einfache Zahlenwerte oder Konstanten?
+
+Enums sind typsicher und verbessern die Lesbarkeit des Codes.
+
+Vorteile:
+	•	klare Bedeutung der Werte
+	•	weniger Fehler durch falsche Zahlenwerte
+	•	bessere Wartbarkeit
+	•	strukturierte Modellierung von Kategorien oder Zuständen
+
+Beispiel:
+
+Statt
+
+int status = 1;
+
+kann man schreiben:
+
+Status.AKTIV
+
+
+⸻
+
+3. Warum können Enums als eigene Klassen betrachtet werden?
+
+Enums sind intern spezielle Klassen, die:
+	•	Attribute besitzen können
+	•	Methoden enthalten können
+	•	Konstruktoren definieren können
+	•	Objekte (die Konstanten) erzeugen
+
+Jede Enum-Konstante ist also ein Objekt dieser Klasse.
+
+⸻
+
+Kontrollfragen zur Klassenstruktur
+
+4. Welche Aufgabe hat das Attribut alterZahl?
+
+Das Attribut alterZahl speichert den numerischen Wert, der einer Alterskategorie zugeordnet ist.
+
+Beispiele:
+	•	NEUGEBOREN → 0
+	•	VOLLJÄHRIG → 18
+	•	SENIOR → 60
+
+⸻
+
+5. Warum ist dieses Attribut als final deklariert?
+
+final bedeutet, dass der Wert nach der Initialisierung nicht mehr verändert werden kann.
+
+Das ist sinnvoll, weil Enum-Konstanten unveränderlich (immutable) sein sollen.
+
+⸻
+
+6. Warum ist der Konstruktor der Enumeration private?
+
+Der Konstruktor ist private, damit keine neuen Enum-Objekte von außen erzeugt werden können.
+
+Enum-Konstanten dürfen nur innerhalb der Enumeration selbst erstellt werden.
+
+⸻
+
+Kontrollfragen zur Programmlogik
+
+7. Welche Aufgabe hat die Methode getAlter(int zahl)?
+
+Die Methode sucht eine Enum-Konstante, deren gespeicherter Wert (alterZahl) der übergebenen Zahl entspricht.
+
+Wenn eine passende Konstante gefunden wird, wird diese zurückgegeben.
+Wenn keine gefunden wird, wird null zurückgegeben.
+
+⸻
+
+8. Welche Aufgabe hat die Methode getAlterByName(String name)?
+
+Diese Methode sucht eine Enum-Konstante anhand ihres Namens.
+
+Wenn eine passende Konstante gefunden wird, wird deren numerischer Wert (alterZahl) zurückgegeben.
+Wenn keine passende Konstante existiert, wird 0 zurückgegeben.
+
+⸻
+
+9. Warum wird in der Methode eine Schleife über values() verwendet?
+
+Die Methode values() liefert alle vorhandenen Enum-Konstanten als Array.
+
+Durch die Schleife können alle Konstanten durchsucht werden, um die passende zu finden.
+
+⸻
+
+Kontrollfragen zur Implementierung
+
+10. Welche Informationen liefert die Methode name()?
+
+Die Methode name() liefert den Bezeichner der Enum-Konstante als String.
+
+Beispiel:
+
+Alter.VOLLJÄHRIG.name()
+
+liefert:
+
+"VOLLJÄHRIG"
+
+
+⸻
+
+11. Warum wird equalsIgnoreCase() verwendet?
+
+equalsIgnoreCase() vergleicht zwei Strings ohne Berücksichtigung der Groß- und Kleinschreibung.
+
+Beispiel:
+
+"SENIOR"
+"senior"
+"Senior"
+
+werden alle als gleich erkannt.
+
+Das macht die Eingabe robuster und benutzerfreundlicher.
+
+⸻
+
+12. Welche Probleme könnten entstehen, wenn statt Enums nur Zahlenwerte verwendet würden?
+
+Mögliche Probleme:
+	•	Zahlen haben keine klare Bedeutung im Code
+	•	höhere Fehleranfälligkeit
+	•	schwerere Wartbarkeit
+	•	keine Typsicherheit
+
+Beispiel:
+
+int status = 3;
+
+Es ist unklar, was 3 bedeutet.
+
+Mit Enum:
+
+Status.AKTIV
+
+ist die Bedeutung sofort erkennbar.
+
+⸻

@@ -1,4 +1,4 @@
-package tag01; // Gibt an, zu welchem Package diese Klasse gehört.
+package tag02.enums; // Gibt an, zu welchem Package diese Klasse gehört.
 
 public class EnumBeispiel2 { // Öffentliche Klasse mit dem Namen EnumBeispiel2.
 
@@ -29,7 +29,8 @@ public class EnumBeispiel2 { // Öffentliche Klasse mit dem Namen EnumBeispiel2.
     }
 
     // Hauptmethode: Hier beginnt die Ausführung des Programms.
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         // Deklaration einer Variablen vom Typ Farbe.
         // Der Variablen meineFarbe wird die Enum-Konstante BLAU zugewiesen.
         Farbe meineFarbe = Farbe.BLAU;
@@ -41,5 +42,7 @@ public class EnumBeispiel2 { // Öffentliche Klasse mit dem Namen EnumBeispiel2.
         // Ausgabe der Eigenschaft der Konstante BLAU.
         // Über die Getter-Methode wird der gespeicherte String zurückgegeben: Himmel
         System.out.println(meineFarbe.getEigenschaft());
+
     }
+
 }

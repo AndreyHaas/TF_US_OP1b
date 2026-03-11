@@ -1,4 +1,4 @@
-package template;
+package tag01.aufgaben;
 
 // Dies ist ein alternatives Beispiel für die Vorlesung.
 // Ich habe beim letzten Mal dieses Beispiel durch "Fehlercode"-Enum ausgetauscht in der Hoffnung, dass ein realistischeres Beispiel zugänglicher wäre.
