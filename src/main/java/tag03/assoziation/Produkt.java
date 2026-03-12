@@ -1,6 +1,10 @@
 package tag03.assoziation;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Produkt {
+    protected static final List<Produkt> PRODUKT_LISTE = new ArrayList<>();
     private final int id;
     private double preis;
     private String bezeichnung;
@@ -17,6 +21,10 @@ public class Produkt {
         return bezeichnung;
     }
 
+    public List<Produkt> getProductListe() {
+        return PRODUKT_LISTE;
+    }
+
     public void setPreis(double preis) {
         this.preis = preis;
     }
@@ -25,11 +33,17 @@ public class Produkt {
         this.bezeichnung = bezeichnung;
     }
 
+    public void setProduktListe(Produkt produkt){
+        if (!PRODUKT_LISTE.contains(produkt)){
+            PRODUKT_LISTE.add(produkt);
+        }
+    }
+
     public Produkt(int id, double preis, String bezeichnung) {
         this.id = id;
         this.preis = preis;
         this.bezeichnung = bezeichnung;
+        // Automatisch in statische Liste eintragen
+        PRODUKT_LISTE.add(this);
     }
-
-
 }

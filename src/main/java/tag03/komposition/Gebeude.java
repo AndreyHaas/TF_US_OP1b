@@ -1,20 +1,22 @@
 package tag03.komposition;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 
-public class Gebäude {
+public class Gebeude {
+    private final String name;
     // Möchte ich eine Komposition umsetzen, muss ich darauf achten, dass die Teile nicht außerhalb des Ganzen existieren.
     // Hier dürfen die Räume nur innerhalb der Klasse Gebäude verfügbar sein, damit sie gelöscht werden, wenn das Gebäude gelöscht wird.
     final List<Raum> raumListe = new ArrayList<>();
 
-    private String name;
 
     public String getName() {
         return name;
     }
 
-    public Gebäude(String name, int raumNummer) {
+    public Gebeude(String name, int raumNummer) {
         this.name = name;
         addRaum(raumNummer);
     }
@@ -25,16 +27,18 @@ public class Gebäude {
         System.out.println("Das Gebäude mit dem Namen " + name + " wurde gelöscht!");
     }
 
-    public String getRäume() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[");
-        for (Iterator<Raum> it = raumListe.iterator(); it.hasNext(); ) {
-            Raum r = it.next();
-            sb.append(r.getRaumNummer());
-            if (it.hasNext())
+    public String getRaume() {
+        StringBuilder sb = new StringBuilder("[");
+        Iterator<Raum> iterator = raumListe.iterator();
+
+        while (iterator.hasNext()) {
+            sb.append(iterator.next().getRaumNummer());
+            if (iterator.hasNext()) {
                 sb.append(", ");
+            }
         }
         sb.append("]");
+
         return sb.toString();
     }
 

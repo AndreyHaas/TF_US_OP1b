@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Einkauf {
     // Wir speichern alle Einkäufe in einer statischen Liste, damit wir sie bequem iterieren und ausgeben können.
-    public static final List<Einkauf> einkaufListe = new ArrayList<>();
+    protected static final List<Einkauf> EINKAUFS_LISTE = new ArrayList<>();
 
     private final int id;
     private final LocalDateTime datum;
@@ -29,6 +29,9 @@ public class Einkauf {
         return ware;
     }
 
+    public List<Einkauf> getEinkaufsListe() {
+        return EINKAUFS_LISTE;
+    }
 
     public Einkauf(int id, LocalDateTime datum, Person kaufer, Produkt ware) {
         this.id = id;
@@ -36,6 +39,13 @@ public class Einkauf {
         this.kaufer = kaufer;
         this.ware = ware;
 
-        einkaufListe.add(this); // Den Einkauf der Liste hinzufügen.
+        EINKAUFS_LISTE.add(this);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Einkauf{id=%d, datum=%s, käufer=%s, ware=%s}",
+            id, datum.toLocalDate(),
+            kaufer.getNachname(), ware.getBezeichnung());
     }
 }

@@ -1,7 +1,7 @@
 package tag03.komposition;
 
 public class Raum {
-    private int raumNummer;
+    private final int raumNummer;
 
     public int getRaumNummer() {
         return raumNummer;
