@@ -39,6 +39,6 @@ public class Haustier {
 
   @Override
   public String toString() {
-    return String.format("Haustier{id=%d, name='%s'}", id, name);
+    return String.format("Haustier{id=%d, name='%s'}", id, (name!=null) ? name : "keine Name");
   }
 }

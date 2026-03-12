@@ -1,7 +1,5 @@
 package tag03.assoziation;
 
-import java.time.LocalDateTime;
-
 public class App {
 
   public static void main(String[] args) {
@@ -42,9 +40,9 @@ public class App {
     mueller.addHaustier(minka);
     schmidt.addHaustier(tweety);
 
-    Einkauf einkauf1 = new Einkauf(10001, LocalDateTime.now(), mueller, laptop);
-    Einkauf einkauf2 = new Einkauf(10002, LocalDateTime.now(), schmidt, maus);
-    Einkauf einkauf3 = new Einkauf(10003, LocalDateTime.now(), mueller, tastatur);
+    Einkauf einkauf1 = new Einkauf(10001, mueller, laptop);
+    Einkauf einkauf2 = new Einkauf(10002, schmidt, maus);
+    Einkauf einkauf3 = new Einkauf(10003, mueller, tastatur);
 
     System.out.println("=== AUSGABE ALLER OBJEKTE ===\n");
 
@@ -90,7 +88,7 @@ public class App {
         vwg.getBesitzer().getNachname() : "keiner"));
     System.out.println("Fahrer: " + vwg.getFahrerListe().size());
     for (Person person : vwg.getFahrerListe()) {
-      System.out.println("  • " + person.getNachname());
+      System.out.println("  * " + person.getNachname());
     }
   }
 }

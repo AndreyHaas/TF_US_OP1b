@@ -32,6 +32,7 @@ public class Person {
   public List<Auto> getDarfFahren() {
     return darfFahren;
   }
+
   public List<Person> getPersonenListe() {
     return PERSONEN_LISTE;
   }
@@ -66,6 +67,7 @@ public class Person {
   @Override
   public String toString() {
     return String.format("Person{id=%d, nachname='%s', darfFahren=%d, haustiere=%d}",
-        id, nachname, darfFahren.size(), haustierListe.size());
+        id, (nachname != null) ? nachname : "keine nachname", darfFahren.size(),
+        haustierListe.size());
   }
 }

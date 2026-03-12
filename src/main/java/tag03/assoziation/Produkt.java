@@ -2,6 +2,8 @@ package tag03.assoziation;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.StringJoiner;
 
 public class Produkt {
     protected static final List<Produkt> PRODUKT_LISTE = new ArrayList<>();
@@ -45,5 +47,14 @@ public class Produkt {
         this.bezeichnung = bezeichnung;
         // Automatisch in statische Liste eintragen
         PRODUKT_LISTE.add(this);
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Produkt.class.getSimpleName() + "[", "]")
+            .add("id=" + id)
+            .add("preis=" + preis)
+            .add("bezeichnung='" + Objects.requireNonNullElse(bezeichnung, "keine bezeichnung") + "'")
+            .toString();
     }
 }
