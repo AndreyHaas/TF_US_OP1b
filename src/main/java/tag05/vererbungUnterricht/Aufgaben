@@ -1,0 +1,902 @@
+Aufgabenstellung: Vererbung in Java
+
+(Klassen „Tier“, „Hund“, „Katze“, „Dackel“, „Hauskatze“, „NorwegischeWaldkatze“ sowie Arbeiten mit Ober- und Unterklassen)
+
+⸻
+
+Ziel der Aufgabe
+
+In dieser Aufgabe analysieren und entwickeln Sie ein Java-Programm, das eine Vererbungsstruktur zwischen mehreren Tierklassen modelliert.
+
+Sie lernen dabei,
+	•	wie Vererbung in Java umgesetzt wird,
+	•	wie gemeinsame Eigenschaften in einer Oberklasse zusammengefasst werden,
+	•	wie spezielle Merkmale in Unterklassen ergänzt oder verändert werden,
+	•	wie Objekte über ihre Klassenhierarchie hinweg genutzt werden können,
+	•	wie ein Testprogramm die Beziehungen zwischen Ober- und Unterklassen sichtbar macht.
+
+Der Fokus liegt auf dem Verständnis, dass Vererbung eine Beziehung zwischen allgemeinen und spezielleren Klassen beschreibt. Gemeinsamkeiten werden in einer Oberklasse zusammengefasst, während Unterklassen spezielle Eigenschaften und Verhaltensweisen erhalten.
+
+⸻
+
+Fachlicher Hintergrund
+
+In der objektorientierten Programmierung gibt es verschiedene Möglichkeiten, Klassen in Beziehung zu setzen.
+
+Eine wichtige Form ist die Vererbung.
+
+Vererbung bedeutet, dass eine speziellere Klasse Eigenschaften und Methoden einer allgemeineren Klasse übernimmt und bei Bedarf erweitert oder anpasst.
+
+Typische Beispiele sind:
+	•	ein Hund ist ein Tier,
+	•	eine Katze ist ein Tier,
+	•	ein Dackel ist ein Hund,
+	•	eine Hauskatze ist eine Katze,
+	•	eine NorwegischeWaldkatze ist eine Katze.
+
+In dieser Aufgabe wird die Klasse Tier als allgemeine Oberklasse verwendet.
+Davon leiten sich spezialisierte Klassen wie Hund und Katze ab.
+Noch speziellere Klassen wie Dackel, Hauskatze und NorwegischeWaldkatze bauen darauf weiter auf.
+
+Damit eignet sich dieses Beispiel besonders gut, um den Unterschied zwischen allgemeinen Eigenschaften und spezifischen Ausprägungen zu verdeutlichen.
+
+⸻
+
+Vorgegebene Klassenstruktur
+
+Im Package vererbung.template sollen folgende Klassen entwickelt und verwendet werden:
+	•	Tier
+	•	Hund
+	•	Katze
+	•	Dackel
+	•	Hauskatze
+	•	NorwegischeWaldkatze
+	•	Vererbung
+
+Die Klassen haben dabei folgende Rollen:
+	•	Tier ist die Oberklasse,
+	•	Hund und Katze sind direkte Unterklassen von Tier,
+	•	Dackel ist eine Unterklasse von Hund,
+	•	Hauskatze und NorwegischeWaldkatze sind Unterklassen von Katze,
+	•	Vererbung enthält die main-Methode zum Testen des Programms.
+
+⸻
+
+Aufgabe 1: Entwicklung der Klasse „Tier“
+
+Ziel
+
+Sie entwickeln die Klasse Tier als allgemeine Oberklasse der Vererbungsstruktur.
+
+⸻
+
+Zu entwickelnde Klassenstruktur
+
+Die Klasse Tier soll gemeinsame Merkmale enthalten, die für alle Tiere gelten.
+
+Beispielhaft kann die Klasse mindestens enthalten:
+
+private String name;
+
+sowie passende Methoden, zum Beispiel:
+
+public String getName()
+public Tier(String name)
+public String gibLaut()
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+
+Entwickeln Sie die Klasse Tier so, dass:
+	•	jedes Tier einen Namen besitzt,
+	•	der Name im Konstruktor gesetzt wird,
+	•	der Name über eine Getter-Methode abgefragt werden kann,
+	•	eine Methode vorhanden ist, die einen allgemeinen Laut oder eine allgemeine Beschreibung zurückgibt.
+
+Technische Anforderungen
+
+Verwenden Sie:
+	•	ein Attribut name vom Typ String,
+	•	einen Konstruktor zur Initialisierung,
+	•	mindestens eine Getter-Methode,
+	•	eine Methode, die später in Unterklassen spezialisiert werden kann.
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+	•	welche Aufgabe eine Oberklasse hat,
+	•	wie gemeinsame Eigenschaften zentral zusammengefasst werden,
+	•	warum Vererbung Wiederholungen im Code vermeiden kann.
+
+⸻
+
+Aufgabe 2: Entwicklung der Klasse „Hund“
+
+Ziel
+
+Sie entwickeln die Klasse Hund als Unterklasse von Tier.
+
+⸻
+
+Zu entwickelnde Klassenstruktur
+
+Die Klasse Hund soll von Tier erben:
+
+public class Hund extends Tier
+
+Zusätzlich kann Hund eigene Merkmale oder Methoden enthalten.
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+
+Entwickeln Sie die Klasse Hund so, dass:
+	•	ein Hund alle allgemeinen Eigenschaften eines Tieres besitzt,
+	•	ein Hund zusätzlich hundespezifisches Verhalten zeigt,
+	•	eine passende Methode, zum Beispiel zur Lautausgabe, spezialisierter umgesetzt wird.
+
+Technische Anforderungen
+
+Verwenden Sie:
+	•	extends Tier,
+	•	einen Konstruktor,
+	•	super(...) zur Initialisierung geerbter Attribute,
+	•	mindestens eine überschreibende oder ergänzende Methode.
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+	•	wie eine Unterklasse auf einer Oberklasse aufbaut,
+	•	wie geerbte Eigenschaften übernommen werden,
+	•	wie Spezialisierung durch Vererbung entsteht.
+
+⸻
+
+Aufgabe 3: Entwicklung der Klasse „Katze“
+
+Ziel
+
+Sie entwickeln die Klasse Katze als weitere Unterklasse von Tier.
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+
+Entwickeln Sie die Klasse Katze so, dass:
+	•	eine Katze die Merkmale der Klasse Tier übernimmt,
+	•	sie zusätzlich katzenspezifisches Verhalten zeigt,
+	•	sie sich in mindestens einem Punkt von Hund unterscheidet.
+
+Technische Anforderungen
+
+Verwenden Sie:
+	•	extends Tier,
+	•	einen Konstruktor mit super(...),
+	•	eine eigene Umsetzung einer passenden Methode.
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+	•	dass mehrere Unterklassen aus derselben Oberklasse entstehen können,
+	•	wie gemeinsame und unterschiedliche Eigenschaften modelliert werden,
+	•	wie Klassenhierarchien aufgebaut werden.
+
+⸻
+
+Aufgabe 4: Entwicklung der Klasse „Dackel“
+
+Ziel
+
+Sie entwickeln die Klasse Dackel als spezialisierte Unterklasse von Hund.
+
+⸻
+
+Zu entwickelnde Klassenstruktur
+
+public class Dackel extends Hund
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+
+Entwickeln Sie die Klasse Dackel so, dass:
+	•	ein Dackel alle Eigenschaften von Hund und Tier besitzt,
+	•	zusätzlich dackelspezifische Merkmale oder Verhaltensweisen ergänzt werden können.
+
+Technische Anforderungen
+
+Verwenden Sie:
+	•	extends Hund,
+	•	einen Konstruktor,
+	•	super(...) zur Weitergabe von Initialisierungswerten,
+	•	bei Bedarf zusätzliche Attribute oder Methoden.
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+	•	dass Vererbung über mehrere Ebenen hinweg möglich ist,
+	•	wie Eigenschaften entlang der Hierarchie weitergegeben werden,
+	•	wie Spezialisierungen immer genauer werden.
+
+⸻
+
+Aufgabe 5: Entwicklung der Klassen „Hauskatze“ und „NorwegischeWaldkatze“
+
+Ziel
+
+Sie entwickeln zwei spezialisierte Unterklassen von Katze.
+
+⸻
+
+Zu entwickelnde Klassenstruktur
+
+public class Hauskatze extends Katze
+public class NorwegischeWaldkatze extends Katze
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+
+Entwickeln Sie beide Klassen so, dass:
+	•	beide Klassen die Merkmale von Katze und Tier übernehmen,
+	•	beide Klassen eigene Besonderheiten erhalten können,
+	•	Gemeinsamkeiten und Unterschiede innerhalb derselben Vererbungsstufe sichtbar werden.
+
+Technische Anforderungen
+
+Verwenden Sie:
+	•	jeweils extends Katze,
+	•	passende Konstruktoren,
+	•	super(...),
+	•	bei Bedarf eigene Methoden oder überschreibende Methoden.
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+	•	wie mehrere spezialisierte Klassen aus derselben Oberklasse entstehen,
+	•	wie eine Vererbungsstruktur verzweigt sein kann,
+	•	wie Fachbegriffe wie Oberklasse, Unterklasse und Spezialisierung angewendet werden.
+
+⸻
+
+Aufgabe 6: Analyse und Nutzung von Methodenüberschreibung
+
+Ziel
+
+Sie analysieren, wie Methoden in Unterklassen angepasst werden können.
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+
+Untersuchen und entwickeln Sie die Klassen so, dass:
+	•	eine Methode der Oberklasse in Unterklassen unterschiedlich umgesetzt werden kann,
+	•	bei der Ausgabe deutlich wird, welches Tier welches Verhalten zeigt.
+
+Technische Anforderungen
+
+Beziehen Sie sich auf:
+	•	Methoden der Oberklasse,
+	•	Überschreiben in Unterklassen,
+	•	die Wirkung unterschiedlicher Implementierungen.
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+	•	was Methodenüberschreibung bedeutet,
+	•	warum Unterklassen Verhalten spezialisieren dürfen,
+	•	wie Polymorphie vorbereitet wird.
+
+⸻
+
+Aufgabe 7: Entwicklung der Testklasse „Vererbung“
+
+Ziel
+
+Sie entwickeln ein Testprogramm, das die Vererbungsstruktur praktisch demonstriert.
+
+⸻
+
+Zu entwickelnde Klasse
+
+Die Klasse Vererbung soll eine main-Methode enthalten.
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+
+Das Testprogramm soll:
+	1.	Objekte der verschiedenen Klassen erzeugen,
+	2.	gemeinsame und spezielle Methoden aufrufen,
+	3.	die Unterschiede zwischen Oberklasse und Unterklassen sichtbar machen,
+	4.	die Vererbungsbeziehungen praktisch demonstrieren.
+
+Technische Anforderungen
+
+Verwenden Sie:
+	•	eine main-Methode,
+	•	mehrere Objekterzeugungen,
+	•	Methodenaufrufe auf Objekten verschiedener Klassen,
+	•	sinnvolle Konsolenausgaben.
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+	•	wie eine Vererbungsstruktur im Programm getestet wird,
+	•	wie Objekte verschiedener Klassen zusammen betrachtet werden können,
+	•	wie Gemeinsamkeiten und Unterschiede in der Ausgabe sichtbar werden.
+
+⸻
+
+Aufgabe 8: Analyse der Klassenhierarchie
+
+Ziel
+
+Sie analysieren die Vererbungsbeziehungen zwischen den Klassen.
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+
+Erklären Sie,
+	•	warum Tier die Oberklasse ist,
+	•	warum Hund und Katze von Tier erben,
+	•	warum Dackel von Hund erbt,
+	•	warum Hauskatze und NorwegischeWaldkatze von Katze erben,
+	•	welche Vorteile diese Modellierung hat.
+
+Technische Anforderungen
+
+Beziehen Sie sich auf:
+	•	Oberklasse und Unterklasse,
+	•	Vererbung über mehrere Ebenen,
+	•	Wiederverwendung von Code,
+	•	Spezialisierung von Verhalten.
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+	•	dass Vererbung eine Hierarchie von allgemeinen zu speziellen Klassen beschreibt,
+	•	warum gemeinsame Eigenschaften nicht mehrfach programmiert werden müssen,
+	•	wie ein Modell durch Vererbung übersichtlich und erweiterbar bleibt.
+
+⸻
+
+Lernziele
+
+Nach Abschluss dieser Aufgabe können Sie:
+	•	erklären, was Vererbung in Java ist,
+	•	den Unterschied zwischen Oberklasse und Unterklasse beschreiben,
+	•	Klassen mit extends modellieren,
+	•	Konstruktoren mit super(...) verwenden,
+	•	Methoden in Unterklassen ergänzen oder überschreiben,
+	•	mehrstufige Klassenhierarchien verstehen und anwenden,
+	•	die Vererbungsstruktur in einem Testprogramm sichtbar machen.
+
+⸻
+
+Didaktische Einordnung
+
+Diese Aufgabe erweitert grundlegende Java-Kenntnisse um das Konzept der Vererbung.
+
+Sie knüpft an folgende Themen an:
+	•	Klassen und Objekte
+	•	Attribute und Methoden
+	•	Konstruktoren
+	•	extends
+	•	super(...)
+	•	Methodenüberschreibung
+	•	Oberklassen und Unterklassen
+	•	objektorientierte Modellierung
+
+Die Aufgabe zeigt, dass Vererbung mehr ist als nur die Übernahme von Code.
+Sie verdeutlicht, dass Klassen in einer fachlich sinnvollen Hierarchie angeordnet werden können.
+
+Sie bildet eine wichtige Grundlage für weiterführende Themen wie:
+	•	Polymorphie
+	•	dynamische Bindung
+	•	UML-Klassendiagramme
+	•	Abstraktion
+	•	objektorientierter Softwareentwurf
+
+⸻
+
+Reflexions- und Kontrollfragen
+
+Kontrollfragen zur Vererbung
+	1.	Was ist Vererbung in Java?
+	2.	Welche Aufgabe hat eine Oberklasse?
+	3.	Welche Aufgabe hat eine Unterklasse?
+	4.	Warum ist Tier eine sinnvolle Oberklasse?
+
+⸻
+
+Kontrollfragen zur Klassenstruktur
+	5.	Warum erben Hund und Katze von Tier?
+	6.	Warum erbt Dackel von Hund?
+	7.	Warum erben Hauskatze und NorwegischeWaldkatze von Katze?
+	8.	Welche Vorteile hat diese Hierarchie?
+
+⸻
+
+Kontrollfragen zur Programmlogik
+	9.	Welche Aufgabe hat super(...) im Konstruktor?
+	10.	Warum kann eine Methode in Unterklassen überschrieben werden?
+	11.	Welche Gemeinsamkeiten sollen in der Oberklasse stehen?
+	12.	Welche Merkmale gehören eher in die Unterklassen?
+
+⸻
+
+Kontrollfragen zur Modellierung
+	13.	Warum ist Vererbung hier sinnvoller als vollständig getrennte Klassen?
+	14.	Wie hilft Vererbung dabei, Wiederholungen im Code zu vermeiden?
+	15.	Wie wird aus einer allgemeinen Klasse eine spezialisierte Klasse?
+	16.	Welche Rolle spielt die Testklasse Vererbung?
+
+⸻
+
+Musterlösung
+
+Aufgabe: Vererbung in Java
+
+Klassen „Tier“, „Hund“, „Katze“, „Dackel“, „Hauskatze“, „NorwegischeWaldkatze“
+
+sowie Arbeiten mit Ober- und Unterklassen
+
+⸻
+
+1. Implementierung der Klasse Tier
+
+package vererbung.template;
+
+public class Tier
+{
+    private String name;
+
+    public Tier(String name)
+    {
+        this.name = name;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public String gibLaut()
+    {
+        return "Ein Tier macht ein Geräusch.";
+    }
+}
+
+⸻
+
+2. Implementierung der Klasse Hund
+
+package vererbung.template;
+
+public class Hund extends Tier
+{
+    public Hund(String name)
+    {
+        super(name);
+    }
+
+    @Override
+    public String gibLaut()
+    {
+        return "Wuff!";
+    }
+}
+
+⸻
+
+3. Implementierung der Klasse Katze
+
+package vererbung.template;
+
+public class Katze extends Tier
+{
+    public Katze(String name)
+    {
+        super(name);
+    }
+
+    @Override
+    public String gibLaut()
+    {
+        return "Miau!";
+    }
+}
+
+⸻
+
+4. Implementierung der Klasse Dackel
+
+package vererbung.template;
+
+public class Dackel extends Hund
+{
+    public Dackel(String name)
+    {
+        super(name);
+    }
+
+    @Override
+    public String gibLaut()
+    {
+        return "Wuff! Ich bin ein Dackel.";
+    }
+}
+
+⸻
+
+5. Implementierung der Klasse Hauskatze
+
+package vererbung.template;
+
+public class Hauskatze extends Katze
+{
+    public Hauskatze(String name)
+    {
+        super(name);
+    }
+
+    @Override
+    public String gibLaut()
+    {
+        return "Miau! Ich bin eine Hauskatze.";
+    }
+}
+
+⸻
+
+6. Implementierung der Klasse NorwegischeWaldkatze
+
+package vererbung.template;
+
+public class NorwegischeWaldkatze extends Katze
+{
+    public NorwegischeWaldkatze(String name)
+    {
+        super(name);
+    }
+
+    @Override
+    public String gibLaut()
+    {
+        return "Miau! Ich bin eine Norwegische Waldkatze.";
+    }
+}
+
+⸻
+
+7. Implementierung der Testklasse Vererbung
+
+package vererbung.template;
+
+public class Vererbung
+{
+    public static void main(String[] args)
+    {
+        Tier tier = new Tier("Unbekanntes Tier");
+        Hund hund = new Hund("Bello");
+        Katze katze = new Katze("Minka");
+        Dackel dackel = new Dackel("Waldi");
+        Hauskatze hauskatze = new Hauskatze("Lilly");
+        NorwegischeWaldkatze norweger = new NorwegischeWaldkatze("Nora");
+
+        System.out.println(tier.getName() + ": " + tier.gibLaut());
+        System.out.println(hund.getName() + ": " + hund.gibLaut());
+        System.out.println(katze.getName() + ": " + katze.gibLaut());
+        System.out.println(dackel.getName() + ": " + dackel.gibLaut());
+        System.out.println(hauskatze.getName() + ": " + hauskatze.gibLaut());
+        System.out.println(norweger.getName() + ": " + norweger.gibLaut());
+    }
+}
+
+⸻
+
+8. Beispielhafte Programmausgabe
+
+Unbekanntes Tier: Ein Tier macht ein Geräusch.
+Bello: Wuff!
+Minka: Miau!
+Waldi: Wuff! Ich bin ein Dackel.
+Lilly: Miau! Ich bin eine Hauskatze.
+Nora: Miau! Ich bin eine Norwegische Waldkatze.
+
+⸻
+
+9. Erläuterung der Lösung
+
+Klasse Tier
+
+Die Klasse Tier ist die Oberklasse der Vererbungsstruktur.
+
+private String name;
+
+Dieses Attribut speichert den Namen eines Tieres.
+
+Die Methode
+
+public String getName()
+
+gibt den Namen zurück.
+
+Der Konstruktor
+
+public Tier(String name)
+
+setzt den Namen beim Erzeugen des Objekts.
+
+Die Methode
+
+public String gibLaut()
+
+liefert eine allgemeine Ausgabe, die in Unterklassen überschrieben werden kann.
+
+⸻
+
+Klasse Hund
+
+Die Klasse Hund ist eine Unterklasse von Tier.
+
+public class Hund extends Tier
+
+Damit erbt Hund das Attribut name und die Methode getName() von Tier.
+
+Im Konstruktor
+
+public Hund(String name)
+{
+    super(name);
+}
+
+wird mit super(name) der Konstruktor der Oberklasse aufgerufen.
+
+Die Methode
+
+public String gibLaut()
+
+wird überschrieben und liefert für Hunde den Laut "Wuff!".
+
+⸻
+
+Klasse Katze
+
+Die Klasse Katze ist ebenfalls eine Unterklasse von Tier.
+
+Sie übernimmt die gemeinsamen Eigenschaften der Oberklasse und spezialisiert das Verhalten durch die eigene Lautausgabe:
+
+return "Miau!";
+
+Damit wird sichtbar, dass mehrere Unterklassen dieselbe Oberklasse nutzen können, aber unterschiedliche Ausprägungen besitzen.
+
+⸻
+
+Klasse Dackel
+
+Die Klasse Dackel ist eine Unterklasse von Hund.
+
+public class Dackel extends Hund
+
+Ein Dackel erbt damit Eigenschaften von Hund und indirekt auch von Tier.
+
+Das zeigt die mehrstufige Vererbung:
+	•	Tier
+	•	Hund extends Tier
+	•	Dackel extends Hund
+
+Der Dackel ist also ein spezieller Hund und zugleich auch ein Tier.
+
+⸻
+
+Klassen Hauskatze und NorwegischeWaldkatze
+
+Diese beiden Klassen sind Unterklassen von Katze.
+
+public class Hauskatze extends Katze
+public class NorwegischeWaldkatze extends Katze
+
+Beide Klassen übernehmen gemeinsame Eigenschaften von Katze und Tier, unterscheiden sich aber durch ihre speziellere Beschreibung.
+
+Dadurch wird deutlich, dass Vererbung auch verzweigte Hierarchien bilden kann.
+
+⸻
+
+Klasse Vererbung
+
+Die Klasse Vererbung enthält die main-Methode und dient als Testklasse.
+
+Im Testprogramm werden Objekte aller Klassen erzeugt und ihre Methoden aufgerufen.
+
+Dabei wird sichtbar:
+	•	alle Objekte besitzen einen Namen,
+	•	alle Objekte haben eine Methode gibLaut(),
+	•	die konkrete Ausgabe hängt von der jeweiligen Klasse ab.
+
+So wird die Vererbungsstruktur praktisch demonstriert.
+
+⸻
+
+10. Warum ist das Vererbung?
+
+Zwischen den Klassen liegt Vererbung vor, weil:
+	•	Hund und Katze allgemeine Eigenschaften von Tier übernehmen,
+	•	Dackel ein spezieller Hund ist,
+	•	Hauskatze und NorwegischeWaldkatze spezielle Katze-Klassen sind,
+	•	gemeinsame Eigenschaften nicht mehrfach programmiert werden müssen,
+	•	spezielles Verhalten in Unterklassen ergänzt oder überschrieben werden kann.
+
+Die Oberklasse beschreibt also das Allgemeine, die Unterklassen beschreiben speziellere Ausprägungen.
+
+⸻
+
+11. Bedeutung von extends und super(...)
+
+extends
+
+Mit extends wird festgelegt, dass eine Klasse von einer anderen Klasse erbt.
+
+Beispiel:
+
+public class Hund extends Tier
+
+Das bedeutet:
+	•	Hund ist eine Unterklasse,
+	•	Tier ist die Oberklasse.
+
+super(...)
+
+Mit super(...) wird im Konstruktor der Konstruktor der Oberklasse aufgerufen.
+
+Beispiel:
+
+public Hund(String name)
+{
+    super(name);
+}
+
+Dadurch wird das geerbte Attribut name korrekt initialisiert.
+
+⸻
+
+12. Bedeutung der Methodenüberschreibung
+
+Eine zentrale Rolle spielt in dieser Aufgabe die Methodenüberschreibung.
+
+Die Methode gibLaut() ist in Tier allgemein formuliert:
+
+public String gibLaut()
+{
+    return "Ein Tier macht ein Geräusch.";
+}
+
+In den Unterklassen wird diese Methode überschrieben, zum Beispiel in Hund:
+
+@Override
+public String gibLaut()
+{
+    return "Wuff!";
+}
+
+Das zeigt:
+	•	dieselbe Methode kann in verschiedenen Unterklassen unterschiedlich umgesetzt werden,
+	•	Unterklassen dürfen Verhalten spezialisieren,
+	•	Vererbung dient nicht nur zur Übernahme von Code, sondern auch zur Anpassung von Verhalten.
+
+⸻
+
+13. Zentrale Lernpunkte der Musterlösung
+
+Die Lösung zeigt:
+	•	Vererbung ist eine Beziehung zwischen allgemeinen und speziellen Klassen,
+	•	die Oberklasse Tier bündelt gemeinsame Eigenschaften,
+	•	die Unterklassen Hund und Katze spezialisieren dieses Grundmodell,
+	•	weitere Unterklassen wie Dackel, Hauskatze und NorwegischeWaldkatze verfeinern die Hierarchie weiter,
+	•	extends beschreibt die Vererbungsbeziehung,
+	•	super(...) dient zur Initialisierung geerbter Merkmale,
+	•	Methodenüberschreibung macht unterschiedliche Verhaltensweisen sichtbar.
+
+⸻
+
+Musterlösung – Kontrollfragen
+
+Kontrollfragen zur Vererbung
+
+1. Was ist Vererbung in Java?
+Vererbung ist ein Mechanismus, mit dem eine Klasse Eigenschaften und Methoden einer anderen Klasse übernimmt.
+
+2. Welche Aufgabe hat eine Oberklasse?
+Die Oberklasse fasst gemeinsame Eigenschaften und Methoden zusammen, die für mehrere Unterklassen gelten.
+
+3. Welche Aufgabe hat eine Unterklasse?
+Eine Unterklasse übernimmt Eigenschaften der Oberklasse und ergänzt oder spezialisiert sie.
+
+4. Warum ist Tier eine sinnvolle Oberklasse?
+Weil alle anderen Klassen Tiere darstellen und gemeinsame Merkmale wie den Namen gemeinsam genutzt werden können.
+
+⸻
+
+Kontrollfragen zur Klassenstruktur
+
+5. Warum erben Hund und Katze von Tier?
+Weil Hunde und Katzen allgemeine Eigenschaften von Tieren besitzen.
+
+6. Warum erbt Dackel von Hund?
+Weil ein Dackel ein spezieller Hund ist.
+
+7. Warum erben Hauskatze und NorwegischeWaldkatze von Katze?
+Weil beide spezielle Formen einer Katze sind.
+
+8. Welche Vorteile hat diese Hierarchie?
+Gemeinsamer Code wird nur einmal geschrieben, und spezielle Merkmale können gezielt ergänzt werden.
+
+⸻
+
+Kontrollfragen zur Programmlogik
+
+9. Welche Aufgabe hat super(...) im Konstruktor?
+super(...) ruft den Konstruktor der Oberklasse auf und initialisiert geerbte Attribute.
+
+10. Warum kann eine Methode in Unterklassen überschrieben werden?
+Weil Unterklassen ein allgemeines Verhalten an ihre spezielle Bedeutung anpassen dürfen.
+
+11. Welche Gemeinsamkeiten sollen in der Oberklasse stehen?
+Gemeinsame Attribute und Methoden, die für alle Tiere gelten, zum Beispiel name und getName().
+
+12. Welche Merkmale gehören eher in die Unterklassen?
+Spezielle Eigenschaften oder Verhaltensweisen, die nur für einzelne Tierarten gelten.
+
+⸻
+
+Kontrollfragen zur Modellierung
+
+13. Warum ist Vererbung hier sinnvoller als vollständig getrennte Klassen?
+Weil gemeinsame Eigenschaften nicht mehrfach programmiert werden müssen.
+
+14. Wie hilft Vererbung dabei, Wiederholungen im Code zu vermeiden?
+Gemeinsame Merkmale werden in der Oberklasse zentral gespeichert und von Unterklassen übernommen.
+
+15. Wie wird aus einer allgemeinen Klasse eine spezialisierte Klasse?
+Durch Ableitung mit extends und durch Ergänzung oder Überschreibung von Verhalten.
+
+16. Welche Rolle spielt die Testklasse Vererbung?
+Sie demonstriert praktisch, wie die Klassen zusammenhängen und wie sich ihre Methoden unterscheiden.
+
+⸻
+
