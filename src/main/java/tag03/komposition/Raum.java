@@ -14,6 +14,6 @@ public class Raum {
 
     @Override
     protected void finalize() {
-        System.out.println("  Raum " + raumNummer + " wird gelöscht (finalize)");
+        System.out.println(this.getClass().getName() + " " + raumNummer + " wird gelöscht (finalize)");
     }
 }

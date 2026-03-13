@@ -46,6 +46,6 @@ public class Gebeude {
 
     @Override
     protected void finalize() {
-        System.out.println("Gebäude \"" + name + "\" wird gelöscht (finalize)");
+        System.out.println(this.getClass().getName() + " " + getName() + "\" wird gelöscht (finalize)");
     }
 }
