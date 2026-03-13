@@ -1,17 +1,19 @@
 package tag03.komposition;
 
 public class Raum {
-    private final int raumNummer;
+    private int raumNummer;
+
+    public Raum(int raumNummer) {
+        this.raumNummer = raumNummer;
+        System.out.println("  Raum " + raumNummer + " wurde erstellt");
+    }
 
     public int getRaumNummer() {
         return raumNummer;
     }
 
-    public Raum(int raumNummer) {
-        this.raumNummer = raumNummer;
-    }
-
+    @Override
     protected void finalize() {
-        System.out.println("Der Raum mit der Nummer " + raumNummer + " wurde gelöscht!");
+        System.out.println("  Raum " + raumNummer + " wird gelöscht (finalize)");
     }
 }

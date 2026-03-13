@@ -6,44 +6,46 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Gebeude {
-    private final String name;
-    // Möchte ich eine Komposition umsetzen, muss ich darauf achten, dass die Teile nicht außerhalb des Ganzen existieren.
-    // Hier dürfen die Räume nur innerhalb der Klasse Gebäude verfügbar sein, damit sie gelöscht werden, wenn das Gebäude gelöscht wird.
-    final List<Raum> raumListe = new ArrayList<>();
-
+    final ArrayList<Raum> raumListe = new ArrayList<>();
+    private String name;
 
     public String getName() {
         return name;
     }
 
+    // Konstruktor mit Name und erster Raumnummer
     public Gebeude(String name, int raumNummer) {
         this.name = name;
-        addRaum(raumNummer);
+        System.out.println("Gebäude \"" + name + "\" wird erstellt");
+        addRaum(raumNummer); // Ersten Raum direkt hinzufügen
     }
 
-    // Finalizer zur Demonstration. Der Finalizer sollte in richtigen Programmen nicht verwendet werden!
-    // Ist in Versionen nach Java 8 als "Deprecated" markiert und nicht mehr verwendbar.
-    protected void finalize() {
-        System.out.println("Das Gebäude mit dem Namen " + name + " wurde gelöscht!");
+    // Methode zum Hinzufügen eines neuen Raums
+    public void addRaum(int raumNummer) {
+        Raum neuerRaum = new Raum(raumNummer);
+        raumListe.add(neuerRaum);
     }
 
+    // Methode zur Ausgabe aller Räume
     public String getRaume() {
-        StringBuilder sb = new StringBuilder("[");
-        Iterator<Raum> iterator = raumListe.iterator();
+        StringBuilder sb = new StringBuilder();
+        sb.append("[ ");
 
+        Iterator<Raum> iterator = raumListe.iterator();
         while (iterator.hasNext()) {
-            sb.append(iterator.next().getRaumNummer());
+            Raum r = iterator.next();
+            sb.append(r.getRaumNummer());
             if (iterator.hasNext()) {
                 sb.append(", ");
             }
         }
-        sb.append("]");
 
+        sb.append(" ]");
         return sb.toString();
     }
 
-    public void addRaum(int raumNummer) {
-        raumListe.add(new Raum(raumNummer));
-        // Raum-Objekt erzeugen und der Liste hinzufügen. Das Objekt existiert damit nur innerhalb der Liste.
+    @Override
+    protected void finalize() {
+        System.out.println("Gebäude \"" + name + "\" wird gelöscht (finalize)");
     }
 }
