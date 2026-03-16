@@ -14,7 +14,7 @@ public class Kuchen {
         return gewicht;
     }
 
-    public static void zeigeAlleKuchen() {
+    public static void getAlleKuchen() {
         if (kuchenListe.isEmpty()) {
             System.out.println("Es sind keine Kuchen vorhanden.");
             return;

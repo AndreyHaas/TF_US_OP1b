@@ -40,6 +40,6 @@ public class KuchenSteuerApp {
 
         // Alle Kuchen anzeigen
         System.out.println("\n\n=== Alle Kuchen und ihre Stücke ===");
-        Kuchen.zeigeAlleKuchen();
+        Kuchen.getAlleKuchen();
     }
 }

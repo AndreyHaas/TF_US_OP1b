@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringJoiner;
 
-class compositGruppe {
+class CompositionGruppe {
     private List<Abenteurer> abenteurerInDerGruppe = new ArrayList<>();
 
     public void createAbenteurer(String name) {
@@ -22,7 +22,7 @@ class compositGruppe {
 
     @Override
     public String toString() {
-        return new StringJoiner(", ", compositGruppe.class.getSimpleName() + "[", "]")
+        return new StringJoiner(", ", CompositionGruppe.class.getSimpleName() + "[", "]")
                 .add("abenteurerInDerGruppe=" + abenteurerInDerGruppe)
                 .toString();
     }

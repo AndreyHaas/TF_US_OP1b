@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringJoiner;
 
-public class aggregateGruppe {
+public class AggregateGruppe {
     private final List<Abenteurer> abenteurerInDerGruppe;
 
-    public aggregateGruppe() {
+    public AggregateGruppe() {
         abenteurerInDerGruppe = new ArrayList<>();
     }
 
@@ -21,7 +21,7 @@ public class aggregateGruppe {
 
     @Override
     public String toString() {
-        return new StringJoiner(", ", aggregateGruppe.class.getSimpleName() + "[", "]")
+        return new StringJoiner(", ", AggregateGruppe.class.getSimpleName() + "[", "]")
                 .add("abenteurerInDerGruppe=" + abenteurerInDerGruppe)
                 .toString();
     }

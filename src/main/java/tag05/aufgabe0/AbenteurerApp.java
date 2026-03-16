@@ -7,7 +7,7 @@ public class AbenteurerApp {
         Abenteurer sarah = new Abenteurer("Sarah");
         Abenteurer seb = new Abenteurer("Seb");
 
-        aggregateGruppe abenteurerGruppe = new aggregateGruppe();
+        AggregateGruppe abenteurerGruppe = new AggregateGruppe();
         abenteurerGruppe.setAbenteurer(jan);
         abenteurerGruppe.setAbenteurer(sarah);
         abenteurerGruppe.setAbenteurer(seb);
