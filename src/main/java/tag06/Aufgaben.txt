@@ -1,0 +1,749 @@
+
+Aufgabenstellung: Abstrakte Klassen in Java
+
+(Klassen „Krokodil“, „Leistenkrokodil“, „Nilkrokodil“ sowie Arbeiten mit abstrakten Oberklassen und konkreten Unterklassen)
+
+⸻
+
+Ziel der Aufgabe
+
+In dieser Aufgabe analysieren und entwickeln Sie ein Java-Programm, das eine Klassenstruktur mit einer abstrakten Oberklasse und mehreren konkreten Unterklassen modelliert.
+
+Sie lernen dabei,
+	•	wie abstrakte Klassen in Java verwendet werden,
+	•	wie gemeinsame Eigenschaften und Methoden in einer Oberklasse zusammengefasst werden,
+	•	wie abstrakte Methoden in Unterklassen konkret umgesetzt werden,
+	•	wie sich gemeinsame und spezialisierte Merkmale unterscheiden,
+	•	wie ein Testprogramm die Beziehungen zwischen abstrakter Oberklasse und konkreten Unterklassen sichtbar macht.
+
+Der Fokus liegt auf dem Verständnis, dass eine abstrakte Klasse als allgemeines Modell dient, von dem keine direkten Objekte erzeugt werden, während Unterklassen dieses Modell konkret ausfüllen.
+
+⸻
+
+Fachlicher Hintergrund
+
+In der objektorientierten Programmierung gibt es Klassen, die sehr allgemeine Merkmale beschreiben.
+Manchmal soll eine solche Klasse nicht direkt instanziiert werden, sondern nur als gemeinsame Grundlage für spezialisierte Klassen dienen.
+
+Dafür verwendet man in Java abstrakte Klassen.
+
+Eine abstrakte Klasse kann:
+	•	gemeinsame Attribute enthalten,
+	•	bereits implementierte Methoden besitzen,
+	•	aber auch abstrakte Methoden vorgeben, die in Unterklassen umgesetzt werden müssen.
+
+Typische Beziehungen in dieser Aufgabe sind:
+	•	ein Leistenkrokodil ist ein Krokodil,
+	•	ein Nilkrokodil ist ein Krokodil,
+	•	beide besitzen gemeinsame Merkmale,
+	•	beide unterscheiden sich aber in bestimmten Eigenschaften oder Verhaltensweisen.
+
+Damit eignet sich dieses Beispiel gut, um den Unterschied zwischen einer abstrakten Oberklasse und konkreten Unterklassen zu verdeutlichen.
+
+⸻
+
+Vorgegebene Klassenstruktur
+
+Im Package abstrakt.template sollen folgende Klassen entwickelt und verwendet werden:
+	•	Krokodil
+	•	Leistenkrokodil
+	•	Nilkrokodil
+	•	Abstrakt
+
+Die Klassen haben dabei folgende Rollen:
+	•	Krokodil ist die abstrakte Oberklasse,
+	•	Leistenkrokodil und Nilkrokodil sind konkrete Unterklassen von Krokodil,
+	•	Abstrakt enthält die main-Methode zum Testen des Programms.
+
+⸻
+
+Aufgabe 1: Entwicklung der abstrakten Klasse „Krokodil“
+
+Ziel
+
+Sie entwickeln die Klasse Krokodil als abstrakte Oberklasse der Klassenstruktur.
+
+⸻
+
+Zu entwickelnde Klassenstruktur
+
+Die Klasse Krokodil soll gemeinsame Merkmale enthalten, die für alle Krokodile gelten.
+
+Beispielhaft kann die Klasse mindestens enthalten:
+
+private String name;
+
+sowie passende Methoden, zum Beispiel:
+
+public Krokodil(String name)
+public String getName()
+public abstract String gibArtInfo()
+
+Zusätzlich kann die Klasse bereits eine gemeinsame Methode enthalten, zum Beispiel:
+
+public String beschreibe()
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+Entwickeln Sie die Klasse Krokodil so, dass:
+	•	jedes Krokodil einen Namen besitzt,
+	•	der Name im Konstruktor gesetzt wird,
+	•	der Name über eine Getter-Methode abgefragt werden kann,
+	•	mindestens eine Methode für alle Krokodile gemeinsam nutzbar ist,
+	•	mindestens eine Methode als abstrakte Methode vorgegeben wird.
+
+Technische Anforderungen
+Verwenden Sie:
+	•	das Schlüsselwort abstract,
+	•	ein Attribut name vom Typ String,
+	•	einen Konstruktor zur Initialisierung,
+	•	mindestens eine Getter-Methode,
+	•	mindestens eine abstrakte Methode.
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+	•	welche Aufgabe eine abstrakte Oberklasse hat,
+	•	warum eine abstrakte Klasse nicht direkt zur Objekterzeugung gedacht ist,
+	•	wie gemeinsame Eigenschaften zentral zusammengefasst werden.
+
+⸻
+
+Aufgabe 2: Entwicklung der Klasse „Leistenkrokodil“
+
+Ziel
+
+Sie entwickeln die Klasse Leistenkrokodil als konkrete Unterklasse von Krokodil.
+
+⸻
+
+Zu entwickelnde Klassenstruktur
+
+public class Leistenkrokodil extends Krokodil
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+Entwickeln Sie die Klasse Leistenkrokodil so, dass:
+	•	sie alle allgemeinen Eigenschaften der Klasse Krokodil übernimmt,
+	•	sie die abstrakte Methode der Oberklasse konkret umsetzt,
+	•	sie leistenspezifische Eigenschaften oder Beschreibungen zurückgeben kann.
+
+Technische Anforderungen
+Verwenden Sie:
+	•	extends Krokodil,
+	•	einen Konstruktor,
+	•	super(...) zur Initialisierung geerbter Attribute,
+	•	mindestens eine konkret umgesetzte abstrakte Methode.
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+	•	wie eine konkrete Unterklasse aus einer abstrakten Oberklasse entsteht,
+	•	warum abstrakte Methoden in Unterklassen umgesetzt werden müssen,
+	•	wie Spezialisierung durch Vererbung erfolgt.
+
+⸻
+
+Aufgabe 3: Entwicklung der Klasse „Nilkrokodil“
+
+Ziel
+
+Sie entwickeln die Klasse Nilkrokodil als weitere konkrete Unterklasse von Krokodil.
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+Entwickeln Sie die Klasse Nilkrokodil so, dass:
+	•	sie die Merkmale der Klasse Krokodil übernimmt,
+	•	sie die abstrakte Methode der Oberklasse mit eigener Logik umsetzt,
+	•	sie sich in mindestens einem Punkt von Leistenkrokodil unterscheidet.
+
+Technische Anforderungen
+Verwenden Sie:
+	•	extends Krokodil,
+	•	einen Konstruktor mit super(...),
+	•	eine eigene Implementierung der abstrakten Methode.
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+	•	dass mehrere konkrete Unterklassen aus derselben abstrakten Oberklasse entstehen können,
+	•	wie gemeinsame und unterschiedliche Eigenschaften modelliert werden,
+	•	wie abstrakte Klassen eine Klassenhierarchie strukturieren.
+
+⸻
+
+Aufgabe 4: Analyse abstrakter Methoden
+
+Ziel
+
+Sie analysieren, wie abstrakte Methoden in Unterklassen umgesetzt werden.
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+Untersuchen und entwickeln Sie die Klassen so, dass:
+	•	eine abstrakte Methode in der Oberklasse vorgegeben wird,
+	•	diese Methode in den Unterklassen unterschiedlich umgesetzt wird,
+	•	bei der Ausgabe deutlich wird, welches Krokodil welche konkrete Ausprägung besitzt.
+
+Technische Anforderungen
+Beziehen Sie sich auf:
+	•	abstrakte Methoden,
+	•	konkrete Implementierungen in Unterklassen,
+	•	die Wirkung unterschiedlicher Implementierungen.
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+	•	was eine abstrakte Methode ist,
+	•	warum Unterklassen diese Methode implementieren müssen,
+	•	wie dadurch Polymorphie vorbereitet wird.
+
+⸻
+
+Aufgabe 5: Entwicklung der Testklasse „Abstrakt“
+
+Ziel
+
+Sie entwickeln ein Testprogramm, das die Struktur mit abstrakter Oberklasse praktisch demonstriert.
+
+⸻
+
+Zu entwickelnde Klasse
+
+Die Klasse Abstrakt soll eine main-Methode enthalten.
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+Das Testprogramm soll:
+	1.	Objekte der konkreten Klassen erzeugen,
+	2.	gemeinsame Methoden der Oberklasse aufrufen,
+	3.	die konkret umgesetzten Methoden der Unterklassen nutzen,
+	4.	die Unterschiede zwischen abstrakter Oberklasse und konkreten Unterklassen sichtbar machen.
+
+Technische Anforderungen
+Verwenden Sie:
+	•	eine main-Methode,
+	•	mehrere Objekterzeugungen,
+	•	Methodenaufrufe auf Objekten verschiedener Klassen,
+	•	sinnvolle Konsolenausgaben.
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+	•	wie eine Klassenstruktur mit abstrakter Oberklasse getestet wird,
+	•	wie Objekte verschiedener Unterklassen gemeinsam betrachtet werden können,
+	•	wie Unterschiede in der Ausgabe sichtbar werden.
+
+⸻
+
+Aufgabe 6: Analyse der Klassenhierarchie
+
+Ziel
+
+Sie analysieren die Beziehungen zwischen der abstrakten Oberklasse und den konkreten Unterklassen.
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+Erklären Sie,
+	•	warum Krokodil als abstrakte Oberklasse geeignet ist,
+	•	warum Leistenkrokodil und Nilkrokodil von Krokodil erben,
+	•	warum die Oberklasse nicht direkt instanziiert werden sollte,
+	•	welche Vorteile diese Modellierung hat.
+
+Technische Anforderungen
+Beziehen Sie sich auf:
+	•	abstrakte Oberklasse und konkrete Unterklasse,
+	•	gemeinsame Merkmale,
+	•	Wiederverwendung von Code,
+	•	Spezialisierung von Verhalten.
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+	•	dass abstrakte Klassen ein allgemeines Modell beschreiben,
+	•	warum gemeinsame Eigenschaften nicht mehrfach programmiert werden müssen,
+	•	wie ein Modell durch abstrakte Klassen übersichtlich und erweiterbar bleibt.
+
+⸻
+
+Lernziele
+
+Nach Abschluss dieser Aufgabe können Sie:
+	•	erklären, was eine abstrakte Klasse in Java ist,
+	•	den Unterschied zwischen abstrakter Oberklasse und konkreter Unterklasse beschreiben,
+	•	Klassen mit extends modellieren,
+	•	Konstruktoren mit super(...) verwenden,
+	•	abstrakte Methoden deklarieren und in Unterklassen implementieren,
+	•	die Klassenstruktur in einem Testprogramm sichtbar machen.
+
+⸻
+
+Didaktische Einordnung
+
+Diese Aufgabe erweitert grundlegende Java-Kenntnisse um das Konzept der abstrakten Klassen.
+
+Sie knüpft an folgende Themen an:
+	•	Klassen und Objekte
+	•	Attribute und Methoden
+	•	Konstruktoren
+	•	Vererbung
+	•	extends
+	•	super(...)
+	•	abstrakte Klassen
+	•	abstrakte Methoden
+	•	Oberklassen und Unterklassen
+	•	objektorientierte Modellierung
+
+Die Aufgabe zeigt, dass abstrakte Klassen eine sinnvolle Zwischenstufe zwischen allgemeiner Modellierung und konkreter Umsetzung bilden.
+
+Sie bildet eine wichtige Grundlage für weiterführende Themen wie:
+	•	Polymorphie
+	•	dynamische Bindung
+	•	Interfaces
+	•	UML-Klassendiagramme
+	•	objektorientierter Softwareentwurf
+
+⸻
+
+Reflexions- und Kontrollfragen
+
+Kontrollfragen zu abstrakten Klassen
+	1.	Was ist eine abstrakte Klasse in Java?
+	2.	Warum kann eine abstrakte Klasse nicht direkt instanziiert werden?
+	3.	Welche Aufgabe hat eine abstrakte Oberklasse?
+	4.	Welche Aufgabe hat eine konkrete Unterklasse?
+
+⸻
+
+Kontrollfragen zur Klassenstruktur
+	5.	Warum ist Krokodil eine sinnvolle abstrakte Oberklasse?
+	6.	Warum erben Leistenkrokodil und Nilkrokodil von Krokodil?
+	7.	Welche Gemeinsamkeiten gehören in die Oberklasse?
+	8.	Welche Unterschiede gehören in die Unterklassen?
+
+⸻
+
+Kontrollfragen zur Programmlogik
+	9.	Welche Aufgabe hat super(...) im Konstruktor?
+	10.	Was ist eine abstrakte Methode?
+	11.	Warum muss eine abstrakte Methode in Unterklassen umgesetzt werden?
+	12.	Welche Vorteile bietet diese Modellierung?
+
+⸻
+
+
+Musterlösung
+
+Aufgabe: Abstrakte Klassen in Java
+
+(Klassen „Krokodil“, „Leistenkrokodil“, „Nilkrokodil“ sowie Arbeiten mit abstrakten Oberklassen und konkreten Unterklassen)
+
+⸻
+
+1. Implementierung der abstrakten Klasse Krokodil
+
+package abstrakt.template;
+
+public abstract class Krokodil
+{
+    private String name;
+
+    public Krokodil(String name)
+    {
+        this.name = name;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public String beschreibe()
+    {
+        return "Ich bin ein Krokodil und heiße " + name + ".";
+    }
+
+    public abstract String gibArtInfo();
+}
+
+⸻
+
+2. Implementierung der Klasse Leistenkrokodil
+
+package abstrakt.template;
+
+public class Leistenkrokodil extends Krokodil
+{
+    public Leistenkrokodil(String name)
+    {
+        super(name);
+    }
+
+    @Override
+    public String gibArtInfo()
+    {
+        return "Ich bin ein Leistenkrokodil und lebe häufig in tropischen Regionen.";
+    }
+}
+
+⸻
+
+3. Implementierung der Klasse Nilkrokodil
+
+package abstrakt.template;
+
+public class Nilkrokodil extends Krokodil
+{
+    public Nilkrokodil(String name)
+    {
+        super(name);
+    }
+
+    @Override
+    public String gibArtInfo()
+    {
+        return "Ich bin ein Nilkrokodil und komme vor allem in Afrika vor.";
+    }
+}
+
+⸻
+
+4. Implementierung der Testklasse Abstrakt
+
+package abstrakt.template;
+
+public class Abstrakt
+{
+    public static void main(String[] args)
+    {
+        Leistenkrokodil leistenkrokodil = new Leistenkrokodil("Lenny");
+        Nilkrokodil nilkrokodil = new Nilkrokodil("Nico");
+
+        System.out.println(leistenkrokodil.beschreibe());
+        System.out.println(leistenkrokodil.gibArtInfo());
+
+        System.out.println();
+
+        System.out.println(nilkrokodil.beschreibe());
+        System.out.println(nilkrokodil.gibArtInfo());
+    }
+}
+
+⸻
+
+5. Beispielhafte Programmausgabe
+
+Ich bin ein Krokodil und heiße Lenny.
+Ich bin ein Leistenkrokodil und lebe häufig in tropischen Regionen.
+
+Ich bin ein Krokodil und heiße Nico.
+Ich bin ein Nilkrokodil und komme vor allem in Afrika vor.
+
+⸻
+
+6. Erläuterung der Lösung
+
+Klasse Krokodil
+
+Die Klasse Krokodil ist die abstrakte Oberklasse der Klassenstruktur.
+
+public abstract class Krokodil
+
+Durch das Schlüsselwort abstract wird festgelegt, dass von dieser Klasse keine direkten Objekte erzeugt werden sollen.
+
+Das Attribut
+
+private String name;
+
+speichert den Namen des Krokodils.
+
+Der Konstruktor
+
+public Krokodil(String name)
+
+setzt den Namen beim Erzeugen eines Objekts der Unterklassen.
+
+Die Methode
+
+public String getName()
+
+liefert den Namen zurück.
+
+Die Methode
+
+public String beschreibe()
+
+ist bereits in der Oberklasse implementiert und kann von allen Unterklassen direkt genutzt werden.
+
+Die Methode
+
+public abstract String gibArtInfo();
+
+ist eine abstrakte Methode.
+Sie gibt nur vor, dass jede konkrete Unterklasse diese Methode besitzen muss. Die genaue Umsetzung erfolgt erst in den Unterklassen.
+
+⸻
+
+Klasse Leistenkrokodil
+
+Die Klasse Leistenkrokodil ist eine konkrete Unterklasse von Krokodil.
+
+public class Leistenkrokodil extends Krokodil
+
+Damit übernimmt sie die gemeinsamen Eigenschaften und Methoden der Oberklasse.
+
+Im Konstruktor
+
+public Leistenkrokodil(String name)
+{
+    super(name);
+}
+
+wird mit super(name) der Konstruktor der Oberklasse aufgerufen.
+Dadurch wird das geerbte Attribut name korrekt initialisiert.
+
+Die Methode
+
+public String gibArtInfo()
+
+setzt die abstrakte Methode der Oberklasse konkret um.
+Damit beschreibt das Leistenkrokodil seine eigene Art.
+
+⸻
+
+Klasse Nilkrokodil
+
+Die Klasse Nilkrokodil ist ebenfalls eine konkrete Unterklasse von Krokodil.
+
+public class Nilkrokodil extends Krokodil
+
+Auch sie erbt gemeinsame Merkmale der Oberklasse und muss die abstrakte Methode selbst umsetzen.
+
+Die Methode
+
+public String gibArtInfo()
+
+liefert hier eine andere Ausgabe als beim Leistenkrokodil.
+Dadurch wird sichtbar, dass verschiedene Unterklassen dieselbe abstrakte Methode unterschiedlich konkretisieren.
+
+⸻
+
+Klasse Abstrakt
+
+Die Klasse Abstrakt enthält die main-Methode und dient als Testklasse.
+
+Im Testprogramm werden Objekte der konkreten Unterklassen erzeugt:
+
+Leistenkrokodil leistenkrokodil = new Leistenkrokodil("Lenny");
+Nilkrokodil nilkrokodil = new Nilkrokodil("Nico");
+
+Danach werden sowohl die gemeinsame Methode beschreibe() als auch die spezialisierte Methode gibArtInfo() aufgerufen.
+
+Dabei wird sichtbar:
+	•	beide Objekte sind Krokodile,
+	•	beide besitzen gemeinsame Merkmale,
+	•	beide unterscheiden sich in ihrer konkreten Artbeschreibung.
+
+⸻
+
+7. Warum ist das eine abstrakte Klassenstruktur?
+
+Zwischen den Klassen liegt eine Struktur mit abstrakter Oberklasse und konkreten Unterklassen vor, weil:
+	•	Krokodil ein allgemeines Modell für alle Krokodile beschreibt,
+	•	Leistenkrokodil und Nilkrokodil spezielle Formen davon sind,
+	•	gemeinsame Merkmale nur einmal in der Oberklasse programmiert werden,
+	•	spezielles Verhalten in den Unterklassen konkret umgesetzt wird,
+	•	die Oberklasse eine abstrakte Methode vorgibt, die Unterklassen verpflichtend implementieren müssen.
+
+Die abstrakte Oberklasse beschreibt also das Allgemeine, die Unterklassen füllen dieses Modell fachlich konkret aus.
+
+⸻
+
+8. Bedeutung von abstract, extends und super(...)
+
+abstract
+
+Mit abstract wird festgelegt, dass eine Klasse oder Methode unvollständig ist und von Unterklassen ergänzt werden muss.
+
+Beispiel:
+
+public abstract class Krokodil
+
+Das bedeutet:
+	•	Krokodil ist eine abstrakte Oberklasse,
+	•	von ihr sollen keine direkten Objekte erzeugt werden.
+
+Beispiel für eine abstrakte Methode:
+
+public abstract String gibArtInfo();
+
+Das bedeutet:
+	•	jede konkrete Unterklasse muss diese Methode implementieren.
+
+⸻
+
+extends
+
+Mit extends wird festgelegt, dass eine Klasse von einer anderen Klasse erbt.
+
+Beispiel:
+
+public class Leistenkrokodil extends Krokodil
+
+Das bedeutet:
+	•	Leistenkrokodil ist eine Unterklasse,
+	•	Krokodil ist die Oberklasse.
+
+⸻
+
+super(...)
+
+Mit super(...) wird im Konstruktor der Konstruktor der Oberklasse aufgerufen.
+
+Beispiel:
+
+public Leistenkrokodil(String name)
+{
+    super(name);
+}
+
+Dadurch wird das geerbte Attribut name korrekt initialisiert.
+
+⸻
+
+9. Bedeutung der abstrakten Methode
+
+Eine zentrale Rolle spielt in dieser Aufgabe die abstrakte Methode:
+
+public abstract String gibArtInfo();
+
+Diese Methode ist in Krokodil nur als Vorgabe vorhanden.
+Erst die Unterklassen legen fest, welche konkrete Ausgabe erzeugt wird.
+
+Beispiel in Leistenkrokodil:
+
+@Override
+public String gibArtInfo()
+{
+    return "Ich bin ein Leistenkrokodil und lebe häufig in tropischen Regionen.";
+}
+
+Beispiel in Nilkrokodil:
+
+@Override
+public String gibArtInfo()
+{
+    return "Ich bin ein Nilkrokodil und komme vor allem in Afrika vor.";
+}
+
+Das zeigt:
+	•	dieselbe Methode kann in verschiedenen Unterklassen unterschiedlich umgesetzt werden,
+	•	Unterklassen müssen abstrakte Vorgaben konkret erfüllen,
+	•	abstrakte Klassen strukturieren gemeinsamen Code und erzwingen Spezialisierung.
+
+⸻
+
+10. Zentrale Lernpunkte der Musterlösung
+
+Die Lösung zeigt:
+	•	eine abstrakte Klasse beschreibt ein allgemeines Modell,
+	•	gemeinsame Eigenschaften werden in der Oberklasse gebündelt,
+	•	konkrete Unterklassen übernehmen gemeinsame Merkmale,
+	•	abstrakte Methoden müssen in Unterklassen implementiert werden,
+	•	extends beschreibt die Vererbungsbeziehung,
+	•	super(...) dient zur Initialisierung geerbter Merkmale,
+	•	gemeinsame und spezialisierte Methoden werden klar getrennt.
+
+⸻
+
+Musterlösung – Kontrollfragen
+
+Kontrollfragen zu abstrakten Klassen
+
+1. Was ist eine abstrakte Klasse in Java?
+
+Eine abstrakte Klasse ist eine Klasse, die als allgemeine Grundlage für andere Klassen dient und nicht direkt instanziiert wird.
+
+2. Warum kann eine abstrakte Klasse nicht direkt instanziiert werden?
+
+Weil sie unvollständig sein kann, zum Beispiel durch abstrakte Methoden, die erst in Unterklassen konkret umgesetzt werden.
+
+3. Welche Aufgabe hat eine abstrakte Oberklasse?
+
+Sie fasst gemeinsame Eigenschaften und Methoden zusammen und gibt eine gemeinsame Struktur für Unterklassen vor.
+
+4. Welche Aufgabe hat eine konkrete Unterklasse?
+
+Eine konkrete Unterklasse übernimmt die gemeinsamen Merkmale der Oberklasse und ergänzt oder konkretisiert sie.
+
+⸻
+
+Kontrollfragen zur Klassenstruktur
+
+5. Warum ist Krokodil eine sinnvolle abstrakte Oberklasse?
+
+Weil alle speziellen Krokodilarten gemeinsame Merkmale besitzen, zum Beispiel einen Namen und gemeinsame Beschreibungen.
+
+6. Warum erben Leistenkrokodil und Nilkrokodil von Krokodil?
+
+Weil beide spezielle Formen eines Krokodils sind und deshalb gemeinsame Merkmale der Oberklasse übernehmen können.
+
+7. Welche Gemeinsamkeiten gehören in die Oberklasse?
+
+Gemeinsame Attribute und Methoden, die für alle Krokodile gelten, zum Beispiel name, getName() und beschreibe().
+
+8. Welche Unterschiede gehören in die Unterklassen?
+
+Spezielle Eigenschaften oder Verhaltensweisen, die nur für einzelne Krokodilarten gelten, zum Beispiel die konkrete Artbeschreibung.
+
+⸻
+
+Kontrollfragen zur Programmlogik
+
+9. Welche Aufgabe hat super(...) im Konstruktor?
+
+super(...) ruft den Konstruktor der Oberklasse auf und initialisiert geerbte Attribute.
+
+10. Was ist eine abstrakte Methode?
+
+Eine abstrakte Methode ist eine Methode ohne konkrete Implementierung in der Oberklasse, die von Unterklassen umgesetzt werden muss.
+
+11. Warum muss eine abstrakte Methode in Unterklassen umgesetzt werden?
+
+Weil die abstrakte Oberklasse nur die gemeinsame Struktur vorgibt, die konkrete Bedeutung aber erst in den speziellen Unterklassen festgelegt wird.
+
+12. Welche Vorteile bietet diese Modellierung?
+
+Gemeinsamer Code wird nur einmal geschrieben, die Struktur bleibt übersichtlich, und spezielle Merkmale können gezielt in Unterklassen ergänzt werden.
+
+⸻

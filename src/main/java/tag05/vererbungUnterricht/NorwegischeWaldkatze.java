@@ -2,8 +2,8 @@ package tag05.vererbungUnterricht;
 
 public class NorwegischeWaldkatze extends Katze{
     private boolean hatLangesFell;
-    public NorwegischeWaldkatze(String name, String fellFarbe){
-        super(name, fellFarbe);
+    public NorwegischeWaldkatze(String name, int alter, String fellFarbe){
+        super(name, alter, fellFarbe);
         this.hatLangesFell = true;
     }
 

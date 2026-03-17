@@ -2,8 +2,8 @@ package tag05.vererbungUnterricht;
 
 public class Dackel extends Hund{
     private boolean isJagdHund = true;
-    public Dackel(String name){
-        super(name);
+    public Dackel(String name,int alter, String fellFarbe ){
+        super(name, alter,fellFarbe);
     }
     public boolean isJagdHund(){
         return isJagdHund;
