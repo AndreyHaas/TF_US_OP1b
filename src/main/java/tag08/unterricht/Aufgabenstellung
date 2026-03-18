@@ -1,0 +1,1650 @@
+Aufgabenstellung: Objektorientiertes Design in Java
+
+(SOLID-Prinzipien mit Enums, Assoziationen, Vererbung, abstrakten Klassen und Interfaces)
+
+⸻
+
+Ziel der Aufgabe
+
+In dieser Aufgabe analysieren und entwickeln Sie ein Java-Programm, das eine objektorientierte Modellierung für ein Medien- und Ausleihsystem beschreibt.
+
+Sie lernen dabei,
+	•	wie die SOLID-Prinzipien in Java praktisch umgesetzt werden,
+	•	wie Enums zur Modellierung fester Zustände eingesetzt werden,
+	•	wie Assoziationen zwischen Klassen fachlich sinnvoll beschrieben werden,
+	•	wie Vererbung, abstrakte Klassen und Polymorphie zusammenwirken,
+	•	wie Interfaces zur Entkopplung und Erweiterbarkeit beitragen,
+	•	wie Beziehungen und Hierarchien in einem Klassendiagramm dargestellt werden.
+
+Der Fokus liegt auf dem Verständnis, dass gutes objektorientiertes Design nicht nur aus funktionierendem Code besteht, sondern aus einer klaren, erweiterbaren und wartbaren Struktur.
+
+⸻
+
+Fachlicher Hintergrund
+
+In der objektorientierten Programmierung entstehen häufig Modelle, in denen verschiedene Objekte zusammenarbeiten.
+
+In dieser Aufgabe geht es um ein kleines Bibliotheks- bzw. Mediensystem:
+	•	eine Bibliothek verwaltet Medien,
+	•	ein Medium kann ausgeliehen werden,
+	•	ein Buch ist ein Medium,
+	•	eine DVD ist ein Medium,
+	•	eine Person kann Medien ausleihen,
+	•	bestimmte Medien können gedruckt, archiviert oder digital bereitgestellt werden.
+
+Zur sauberen Modellierung sollen dabei gezielt verschiedene Konzepte verbunden werden:
+	•	Enums zur Beschreibung fester Zustände,
+	•	Assoziationen zur Modellierung von Beziehungen,
+	•	Vererbung zur Spezialisierung,
+	•	abstrakte Klassen zur Bündelung gemeinsamer Merkmale,
+	•	Interfaces zur Beschreibung gemeinsamer Fähigkeiten,
+	•	SOLID-Prinzipien zur Begründung der Entwurfsentscheidungen.
+
+Die fünf SOLID-Prinzipien lauten:
+	•	S – Single Responsibility Principle
+	•	O – Open/Closed Principle
+	•	L – Liskov Substitution Principle
+	•	I – Interface Segregation Principle
+	•	D – Dependency Inversion Principle
+
+Damit eignet sich diese Aufgabe gut, um zentrale Inhalte der objektorientierten Programmierung in einem zusammenhängenden Beispiel zu wiederholen.
+
+⸻
+
+Vorgegebene Klassenstruktur
+
+Im Package solid.medien sollen folgende Klassen, Interfaces und Enums entwickelt und verwendet werden:
+	•	Medium
+	•	Buch
+	•	DVD
+	•	Person
+	•	Bibliothek
+	•	Ausleihe
+	•	Medienstatus
+	•	Ausleihbar
+	•	Druckbar
+	•	Archivierbar
+	•	Main
+
+Die Elemente haben dabei folgende Rollen:
+	•	Medium ist die abstrakte Oberklasse,
+	•	Buch und DVD sind konkrete Unterklassen von Medium,
+	•	Person beschreibt Benutzer des Systems,
+	•	Bibliothek verwaltet Medien,
+	•	Ausleihe modelliert eine Beziehung zwischen Person und Medium,
+	•	Medienstatus ist ein Enum,
+	•	Ausleihbar, Druckbar und Archivierbar sind Interfaces,
+	•	Main enthält die main-Methode zum Testen des Programms.
+
+⸻
+
+Aufgabe 1: Entwicklung des Enums „Medienstatus“
+
+Ziel
+
+Sie entwickeln das Enum Medienstatus, um feste Zustände eines Mediums zu modellieren.
+
+⸻
+
+Zu entwickelnde Struktur
+
+Das Enum soll mindestens folgende Werte enthalten:
+
+VERFUEGBAR
+AUSGELIEHEN
+RESERVIERT
+BESCHAEDIGT
+
+Zusätzlich soll das Enum erweitert werden, zum Beispiel durch:
+
+private String anzeigeText;
+Medienstatus(String anzeigeText)
+public String getAnzeigeText()
+
+Außerdem soll das Enum später in einer switch-Anweisung verwendet werden.
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+
+Entwickeln Sie das Enum Medienstatus so, dass:
+	•	feste Zustände eines Mediums modelliert werden,
+	•	jeder Zustand eine verständliche textuelle Beschreibung besitzen kann,
+	•	Zustände im Programm ausgegeben und unterschieden werden können.
+
+Technische Anforderungen
+
+Verwenden Sie:
+	•	das Schlüsselwort enum,
+	•	mindestens vier Enum-Werte,
+	•	mindestens ein Feld,
+	•	einen Konstruktor,
+	•	mindestens eine Methode,
+	•	eine spätere Verwendung in einer switch-Anweisung.
+
+⸻
+
+SOLID-Bezug
+
+S – Single Responsibility Principle
+Das Enum hat genau eine klar abgegrenzte Aufgabe: die Modellierung von Zuständen.
+
+O – Open/Closed Principle
+Das System kann durch zusätzliche Enum-Werte erweitert werden, ohne dass die Grundidee der Modellierung verändert werden muss.
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+	•	was ein Enum in Java ist,
+	•	wie Enums mit Feldern, Methoden und Konstruktoren erweitert werden,
+	•	warum Enums besser geeignet sind als lose Strings für feste Zustände.
+
+⸻
+
+Aufgabe 2: Entwicklung der abstrakten Klasse „Medium“
+
+Ziel
+
+Sie entwickeln die Klasse Medium als abstrakte Oberklasse.
+
+⸻
+
+Zu entwickelnde Klassenstruktur
+
+Die Klasse Medium soll gemeinsame Merkmale aller Medien enthalten.
+
+Beispielhaft kann die Klasse mindestens enthalten:
+
+private String titel;
+private Medienstatus status;
+
+sowie passende Methoden, zum Beispiel:
+
+public Medium(String titel, Medienstatus status)
+public String getTitel()
+public Medienstatus getStatus()
+public void setStatus(Medienstatus status)
+public String beschreibe()
+public abstract String gibMedienInfo()
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+
+Entwickeln Sie die Klasse Medium so, dass:
+	•	jedes Medium einen Titel besitzt,
+	•	jedes Medium einen Status besitzt,
+	•	gemeinsame Eigenschaften in der Oberklasse gebündelt werden,
+	•	mindestens eine gemeinsame konkrete Methode vorhanden ist,
+	•	mindestens eine abstrakte Methode für Unterklassen vorgegeben wird.
+
+Technische Anforderungen
+
+Verwenden Sie:
+	•	das Schlüsselwort abstract,
+	•	mindestens zwei Attribute,
+	•	einen Konstruktor,
+	•	Getter-Methoden,
+	•	mindestens eine konkrete Methode,
+	•	mindestens eine abstrakte Methode.
+
+⸻
+
+SOLID-Bezug
+
+S – Single Responsibility Principle
+Medium soll nur das gemeinsame Grundmodell aller Medien beschreiben.
+
+L – Liskov Substitution Principle
+Unterklassen müssen überall dort sinnvoll einsetzbar sein, wo ein Medium erwartet wird.
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+	•	wie abstrakte Klassen gemeinsame Eigenschaften bündeln,
+	•	warum eine Oberklasse nicht alle Spezialfälle selbst enthalten sollte,
+	•	wie eine saubere Vererbungsstruktur vorbereitet wird.
+
+⸻
+
+Aufgabe 3: Entwicklung der Klassen „Buch“ und „DVD“
+
+Ziel
+
+Sie entwickeln die konkreten Unterklassen Buch und DVD.
+
+⸻
+
+Zu entwickelnde Klassenstruktur
+
+public class Buch extends Medium
+public class DVD extends Medium
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+
+Entwickeln Sie die Klassen so, dass:
+	•	beide Klassen von Medium erben,
+	•	beide die abstrakte Methode der Oberklasse konkret umsetzen,
+	•	beide zusätzliche eigene Merkmale besitzen können,
+	•	sich beide in mindestens einer fachlichen Eigenschaft unterscheiden.
+
+Technische Anforderungen
+
+Verwenden Sie:
+	•	extends Medium,
+	•	Konstruktoren mit super(...),
+	•	@Override,
+	•	mindestens eine eigene Implementierung der abstrakten Methode.
+
+⸻
+
+SOLID-Bezug
+
+L – Liskov Substitution Principle
+Buch und DVD müssen sich fachlich korrekt wie Medium verhalten.
+
+O – Open/Closed Principle
+Neue Medientypen wie Zeitschrift oder EBook sollen später ergänzbar sein, ohne bestehende Oberklassenlogik umzubauen.
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+	•	wie konkrete Unterklassen aus einer abstrakten Oberklasse entstehen,
+	•	wie super(...) zur Initialisierung geerbter Merkmale verwendet wird,
+	•	wie Vererbung Spezialisierung ermöglicht.
+
+⸻
+
+Aufgabe 4: Analyse von Polymorphie
+
+Ziel
+
+Sie analysieren, wie Objekte verschiedener Unterklassen über den Oberklassen-Typ behandelt werden können.
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+
+Untersuchen und entwickeln Sie die Klassen so, dass:
+	•	Objekte von Buch und DVD über den Typ Medium angesprochen werden können,
+	•	Methodenaufrufe je nach tatsächlicher Unterklasse unterschiedlich wirken,
+	•	Polymorphie in der Ausgabe sichtbar wird.
+
+Technische Anforderungen
+
+Beziehen Sie sich auf:
+	•	Oberklassen-Referenzen,
+	•	Unterklassen-Objekte,
+	•	überschriebenen Methoden,
+	•	dynamische Bindung.
+
+⸻
+
+SOLID-Bezug
+
+L – Liskov Substitution Principle
+Die Unterklassen müssen ohne Fehler und ohne inhaltliche Widersprüche als Medium einsetzbar sein.
+
+D – Dependency Inversion Principle
+Arbeiten mit dem abstrakten Typ Medium statt nur mit konkreten Klassen fördert lose Kopplung.
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+	•	was Polymorphie bedeutet,
+	•	wie Methodenaufrufe zur Laufzeit gebunden werden,
+	•	warum Polymorphie für flexible Programme wichtig ist.
+
+⸻
+
+Aufgabe 5: Entwicklung des Interfaces „Ausleihbar“
+
+Ziel
+
+Sie entwickeln das Interface Ausleihbar.
+
+⸻
+
+Zu entwickelnde Struktur
+
+Das Interface kann mindestens enthalten:
+
+void ausleihen(Person person);
+void zurueckgeben();
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+
+Entwickeln Sie das Interface so, dass:
+	•	ausleihbare Objekte ein einheitliches Verhalten vorgeben,
+	•	verschiedene Medientypen diese Vorgabe umsetzen können.
+
+Technische Anforderungen
+
+Verwenden Sie:
+	•	das Schlüsselwort interface,
+	•	mindestens zwei abstrakte Methoden,
+	•	eine Implementierung in mindestens einer konkreten Klasse.
+
+⸻
+
+SOLID-Bezug
+
+I – Interface Segregation Principle
+Das Interface soll nur Verhalten enthalten, das wirklich zu ausleihbaren Objekten passt.
+
+D – Dependency Inversion Principle
+Andere Klassen sollen gegen das Interface Ausleihbar arbeiten können statt gegen eine konkrete Klasse.
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+	•	wie Interfaces gemeinsame Verträge festlegen,
+	•	wie sich Interfaces von abstrakten Klassen unterscheiden,
+	•	warum kleine, passende Interfaces vorteilhaft sind.
+
+⸻
+
+Aufgabe 6: Entwicklung der Interfaces „Druckbar“ und „Archivierbar“
+
+Ziel
+
+Sie entwickeln weitere Interfaces zur Wiederholung von Interface-Konzepten.
+
+⸻
+
+Zu entwickelnde Struktur
+
+Das Interface Druckbar soll enthalten:
+	•	eine abstrakte Methode,
+	•	eine default-Methode,
+	•	eine static-Methode.
+
+Beispielhaft:
+
+void drucken();
+default boolean pruefeFormat(String format)
+static void testDruck()
+
+Das Interface Archivierbar soll ein eigenes, klar abgegrenztes Verhalten beschreiben.
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+
+Entwickeln Sie die Interfaces so, dass:
+	•	Druckbar nur druckbezogenes Verhalten enthält,
+	•	Archivierbar nur archivierungsbezogenes Verhalten enthält,
+	•	mindestens eine Klasse eines der Interfaces implementiert,
+	•	default- und static-Methoden genutzt werden.
+
+Technische Anforderungen
+
+Verwenden Sie:
+	•	Interface-Deklarationen,
+	•	mindestens eine abstrakte Methode,
+	•	mindestens eine default-Methode,
+	•	mindestens eine static-Methode,
+	•	mindestens eine Implementierung in einer Klasse.
+
+⸻
+
+SOLID-Bezug
+
+I – Interface Segregation Principle
+Statt eines großen Sammel-Interfaces entstehen mehrere kleine, passende Interfaces.
+
+O – Open/Closed Principle
+Neue Fähigkeiten können durch weitere Interfaces ergänzt werden, ohne bestehende Klassenstrukturen grundlegend zu verändern.
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+	•	wie Interfaces deklariert und implementiert werden,
+	•	worin der Unterschied zwischen Interface und abstrakter Klasse besteht,
+	•	wie default- und static-Methoden in Interfaces eingesetzt werden.
+
+⸻
+
+Aufgabe 7: Entwicklung der Klasse „Person“
+
+Ziel
+
+Sie entwickeln die Klasse Person als eigenständige Fachklasse.
+
+⸻
+
+Zu entwickelnde Klassenstruktur
+
+Die Klasse kann mindestens enthalten:
+
+private String name;
+
+sowie passende Methoden, zum Beispiel:
+
+public Person(String name)
+public String getName()
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+
+Entwickeln Sie die Klasse so, dass:
+	•	eine Person einen Namen besitzt,
+	•	eine Person als Entität in Beziehungen zu anderen Klassen verwendet werden kann.
+
+Technische Anforderungen
+
+Verwenden Sie:
+	•	private Attribute,
+	•	einen Konstruktor,
+	•	Getter-Methoden.
+
+⸻
+
+SOLID-Bezug
+
+S – Single Responsibility Principle
+Person soll nur die Person selbst modellieren und nicht zusätzliche Medien- oder Bibliothekslogik enthalten.
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+	•	wie eigenständige Fachobjekte modelliert werden,
+	•	warum Beziehungen zwischen Klassen oft durch separate Klassen klarer werden.
+
+⸻
+
+Aufgabe 8: Entwicklung der Klasse „Ausleihe“ und Analyse von Assoziationen
+
+Ziel
+
+Sie entwickeln die Klasse Ausleihe und untersuchen verschiedene Arten von Assoziationen.
+
+⸻
+
+Zu entwickelnde Klassenstruktur
+
+Die Klasse Ausleihe soll Beziehungen zwischen Person und Medium modellieren.
+
+Beispielhaft:
+
+private Person person;
+private Medium medium;
+
+Zusätzlich sollen in der Gesamtstruktur folgende Beziehungsarten erkennbar sein:
+	•	unidirektionale Assoziation,
+	•	bidirektionale Assoziation,
+	•	Aggregation,
+	•	Komposition.
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+
+Entwickeln und analysieren Sie die Klassenstruktur so, dass:
+	•	eine Ausleihe genau einer Person und genau einem Medium zugeordnet ist,
+	•	eine Bibliothek mehrere Medien verwalten kann,
+	•	Beziehungen fachlich begründet werden,
+	•	Navigierbarkeit und Multiplizität beschrieben werden können.
+
+Technische Anforderungen
+
+Beziehen Sie sich auf:
+	•	1:1-, 1:n- und mögliche n:m-Beziehungen,
+	•	Referenzen zwischen Klassen,
+	•	Listen für mehrere Objekte,
+	•	die Unterscheidung von Aggregation und Komposition,
+	•	Klassendiagramm-Darstellung.
+
+⸻
+
+SOLID-Bezug
+
+S – Single Responsibility Principle
+Die Klasse Ausleihe modelliert gezielt die Ausleihbeziehung statt diese Logik in andere Klassen zu mischen.
+
+D – Dependency Inversion Principle
+Beziehungen sollen möglichst über geeignete Abstraktionen und klar definierte Verantwortungen modelliert werden.
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+	•	was Assoziationen zwischen Klassen sind,
+	•	wie sich unidirektionale und bidirektionale Beziehungen unterscheiden,
+	•	was Multiplizität, Navigierbarkeit, Aggregation und Komposition bedeuten.
+
+⸻
+
+Aufgabe 9: Entwicklung der Klasse „Bibliothek“
+
+Ziel
+
+Sie entwickeln die Klasse Bibliothek als verwaltende Klasse.
+
+⸻
+
+Zu entwickelnde Klassenstruktur
+
+Die Klasse Bibliothek kann mindestens enthalten:
+
+private List<Medium> medien;
+
+sowie passende Methoden, zum Beispiel:
+
+public void mediumHinzufuegen(Medium medium)
+public void alleMedienAusgeben()
+
+Außerdem soll eine switch-Anweisung auf Basis des Enums Medienstatus eingesetzt werden.
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+
+Entwickeln Sie die Klasse Bibliothek so, dass:
+	•	mehrere Medien verwaltet werden können,
+	•	Medien über den Typ Medium gespeichert werden,
+	•	der Status eines Mediums per switch ausgewertet werden kann,
+	•	die Bibliothek mit unterschiedlichen Medientypen arbeiten kann.
+
+Technische Anforderungen
+
+Verwenden Sie:
+	•	List<Medium>,
+	•	Polymorphie,
+	•	eine switch-Anweisung mit Medienstatus,
+	•	mindestens eine Ausgabe, die verschiedene Medien korrekt behandelt.
+
+⸻
+
+SOLID-Bezug
+
+D – Dependency Inversion Principle
+Die Bibliothek arbeitet mit dem abstrakten Typ Medium statt nur mit Buch oder DVD.
+
+O – Open/Closed Principle
+Neue Medientypen sollen ergänzt werden können, ohne die Grundstruktur der Bibliothek grundlegend umzuschreiben.
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+	•	wie Polymorphie in verwaltenden Klassen genutzt wird,
+	•	wie Enums in switch-Anweisungen eingesetzt werden,
+	•	warum Abhängigkeiten auf abstrakte Typen flexibler sind.
+
+⸻
+
+Aufgabe 10: Analyse von Interfaces, abstrakten Klassen und Klassendiagrammen
+
+Ziel
+
+Sie analysieren die gesamte Struktur aus Sicht des objektorientierten Designs.
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+
+Erklären und analysieren Sie,
+	•	warum Medium als abstrakte Klasse geeignet ist,
+	•	warum Ausleihbar, Druckbar und Archivierbar als Interfaces sinnvoll sind,
+	•	worin der Unterschied zwischen abstrakter Klasse und Interface liegt,
+	•	wie Vererbung und Interface-Implementierung im Klassendiagramm dargestellt werden,
+	•	welche SOLID-Prinzipien in der Modellierung sichtbar werden.
+
+Technische Anforderungen
+
+Beziehen Sie sich auf:
+	•	abstrakte Oberklasse und konkrete Unterklassen,
+	•	Interface-Deklarationen und Implementierungen,
+	•	Vererbungsbeziehungen,
+	•	Klassendiagramm mit Assoziationen, Multiplizitäten und Navigierbarkeit,
+	•	SOLID-Prinzipien.
+
+⸻
+
+SOLID-Bezug
+
+Hier sollen alle fünf SOLID-Prinzipien in der Gesamtstruktur erkannt und erläutert werden:
+	•	S – klare Verantwortlichkeiten
+	•	O – Erweiterbarkeit ohne ständiges Umbauen
+	•	L – sinnvolle Ersetzbarkeit von Unterklassen
+	•	I – kleine, passende Interfaces
+	•	D – Abhängigkeiten zu Abstraktionen statt nur zu konkreten Klassen
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+	•	wie verschiedene OOP-Konzepte zusammenwirken,
+	•	wie man eine Klassenstruktur fachlich und technisch begründet,
+	•	wie gutes Design anhand von SOLID reflektiert werden kann.
+
+⸻
+
+Lernziele
+
+Nach Abschluss dieser Aufgabe können Sie:
+	•	erklären, was ein Enum in Java ist,
+	•	Enums mit Feldern, Konstruktoren und Methoden verwenden,
+	•	Enums in switch-Anweisungen einsetzen,
+	•	Assoziationen zwischen Klassen unterscheiden und beschreiben,
+	•	Multiplizität, Navigierbarkeit, Aggregation und Komposition erläutern,
+	•	Vererbung mit extends und super(...) anwenden,
+	•	Polymorphie erklären und nutzen,
+	•	abstrakte Klassen von Interfaces unterscheiden,
+	•	Interfaces deklarieren und implementieren,
+	•	default- und static-Methoden in Interfaces einordnen,
+	•	Beziehungen im Klassendiagramm beschreiben,
+	•	SOLID-Prinzipien in einer Modellierung erkennen und begründen.
+
+⸻
+
+Didaktische Einordnung
+
+Diese Aufgabe verbindet mehrere zentrale Themen der objektorientierten Programmierung in einem gemeinsamen Beispiel.
+
+Sie knüpft an folgende Themen an:
+	•	Klassen und Objekte
+	•	Attribute und Methoden
+	•	Konstruktoren
+	•	Vererbung
+	•	extends
+	•	super(...)
+	•	Polymorphie
+	•	abstrakte Klassen
+	•	Interfaces
+	•	default- und static-Methoden
+	•	Enums
+	•	Assoziationen
+	•	UML-Klassendiagramme
+	•	objektorientierte Modellierung
+	•	SOLID-Prinzipien
+
+Die Aufgabe zeigt, dass gutes objektorientiertes Design nicht aus isolierten Einzelthemen besteht, sondern aus dem bewussten Zusammenspiel von Modellierung, Abstraktion, Beziehungen und Verantwortlichkeiten.
+
+⸻
+
+Reflexions- und Kontrollfragen
+
+Kontrollfragen zu SOLID
+	1.	Was bedeutet das Single Responsibility Principle?
+	2.	Warum unterstützt eine abstrakte Oberklasse oft das Open/Closed Principle?
+	3.	Was fordert das Liskov Substitution Principle bei Unterklassen?
+	4.	Warum passen kleine Interfaces gut zum Interface Segregation Principle?
+	5.	Warum unterstützt die Arbeit mit abstrakten Typen das Dependency Inversion Principle?
+
+⸻
+
+Kontrollfragen zu Enums
+	6.	Was ist ein Enum in Java?
+	7.	Warum sind Enums besser geeignet als frei gewählte Strings für feste Zustände?
+	8.	Wie können Enums um Felder, Konstruktoren und Methoden erweitert werden?
+	9.	Wie wird ein Enum in einer switch-Anweisung verwendet?
+
+⸻
+
+Kontrollfragen zu Assoziationen
+	10.	Was ist eine unidirektionale Assoziation?
+	11.	Was ist eine bidirektionale Assoziation?
+	12.	Was bedeuten Multiplizität und Navigierbarkeit?
+	13.	Worin unterscheiden sich Aggregation und Komposition?
+	14.	Wie werden Assoziationen im Klassendiagramm dargestellt?
+
+⸻
+
+Kontrollfragen zu Vererbung und Interfaces
+	15.	Warum ist Medium eine sinnvolle abstrakte Oberklasse?
+	16.	Welche Aufgabe hat super(...) im Konstruktor?
+	17.	Was bedeutet Polymorphie?
+	18.	Worin unterscheiden sich Interfaces und abstrakte Klassen?
+	19.	Welche Aufgabe haben default- und static-Methoden in Interfaces?
+	20.	Wie werden Vererbung und Interface-Implementierung im Klassendiagramm dargestellt?
+
+⸻
+
+Musterlösung
+
+Aufgabe: Objektorientiertes Design in Java
+
+(SOLID-Prinzipien mit Enums, Assoziationen, Vererbung, abstrakten Klassen und Interfaces)
+
+⸻
+
+1. Implementierung des Enums Medienstatus
+
+package solid.medien;
+
+public enum Medienstatus
+{
+    VERFUEGBAR("Verfügbar"),
+    AUSGELIEHEN("Ausgeliehen"),
+    RESERVIERT("Reserviert"),
+    BESCHAEDIGT("Beschädigt");
+
+    private String anzeigeText;
+
+    Medienstatus(String anzeigeText)
+    {
+        this.anzeigeText = anzeigeText;
+    }
+
+    public String getAnzeigeText()
+    {
+        return anzeigeText;
+    }
+}
+
+⸻
+
+2. Implementierung der abstrakten Klasse Medium
+
+package solid.medien;
+
+public abstract class Medium
+{
+    private String titel;
+    private Medienstatus status;
+
+    public Medium(String titel, Medienstatus status)
+    {
+        this.titel = titel;
+        this.status = status;
+    }
+
+    public String getTitel()
+    {
+        return titel;
+    }
+
+    public Medienstatus getStatus()
+    {
+        return status;
+    }
+
+    public void setStatus(Medienstatus status)
+    {
+        this.status = status;
+    }
+
+    public String beschreibe()
+    {
+        return "Medium: " + titel + " | Status: " + status.getAnzeigeText();
+    }
+
+    public abstract String gibMedienInfo();
+}
+
+⸻
+
+3. Implementierung des Interfaces Ausleihbar
+
+package solid.medien;
+
+public interface Ausleihbar
+{
+    void ausleihen(Person person);
+    void zurueckgeben();
+}
+
+⸻
+
+4. Implementierung des Interfaces Druckbar
+
+package solid.medien;
+
+public interface Druckbar
+{
+    String STANDARD_FORMAT = "A4";
+
+    void drucken();
+
+    default boolean pruefeFormat(String format)
+    {
+        return STANDARD_FORMAT.equalsIgnoreCase(format);
+    }
+
+    static void testDruck()
+    {
+        System.out.println("Testdruck wird durchgeführt.");
+    }
+}
+
+⸻
+
+5. Implementierung des Interfaces Archivierbar
+
+package solid.medien;
+
+public interface Archivierbar
+{
+    void archivieren();
+}
+
+⸻
+
+6. Implementierung der Klasse Person
+
+package solid.medien;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Person
+{
+    private String name;
+    private List<Ausleihe> ausleihen;
+
+    public Person(String name)
+    {
+        this.name = name;
+        this.ausleihen = new ArrayList<>();
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public List<Ausleihe> getAusleihen()
+    {
+        return ausleihen;
+    }
+
+    public void fuegeAusleiheHinzu(Ausleihe ausleihe)
+    {
+        ausleihen.add(ausleihe);
+    }
+
+    public String beschreibe()
+    {
+        return "Person: " + name;
+    }
+}
+
+⸻
+
+7. Implementierung der Klasse Buch
+
+package solid.medien;
+
+public class Buch extends Medium implements Ausleihbar, Druckbar, Archivierbar
+{
+    private String autor;
+    private Person ausgeliehenVon;
+
+    public Buch(String titel, Medienstatus status, String autor)
+    {
+        super(titel, status);
+        this.autor = autor;
+    }
+
+    public String getAutor()
+    {
+        return autor;
+    }
+
+    public Person getAusgeliehenVon()
+    {
+        return ausgeliehenVon;
+    }
+
+    @Override
+    public String gibMedienInfo()
+    {
+        return "Buch von " + autor;
+    }
+
+    @Override
+    public void ausleihen(Person person)
+    {
+        this.ausgeliehenVon = person;
+        setStatus(Medienstatus.AUSGELIEHEN);
+    }
+
+    @Override
+    public void zurueckgeben()
+    {
+        this.ausgeliehenVon = null;
+        setStatus(Medienstatus.VERFUEGBAR);
+    }
+
+    @Override
+    public void drucken()
+    {
+        System.out.println("Buchdaten werden gedruckt: " + getTitel());
+    }
+
+    @Override
+    public void archivieren()
+    {
+        System.out.println("Buch wird archiviert: " + getTitel());
+    }
+}
+
+⸻
+
+8. Implementierung der Klasse DVD
+
+package solid.medien;
+
+public class DVD extends Medium implements Ausleihbar, Archivierbar
+{
+    private int laufzeit;
+    private Person ausgeliehenVon;
+
+    public DVD(String titel, Medienstatus status, int laufzeit)
+    {
+        super(titel, status);
+        this.laufzeit = laufzeit;
+    }
+
+    public int getLaufzeit()
+    {
+        return laufzeit;
+    }
+
+    public Person getAusgeliehenVon()
+    {
+        return ausgeliehenVon;
+    }
+
+    @Override
+    public String gibMedienInfo()
+    {
+        return "DVD mit Laufzeit " + laufzeit + " Minuten";
+    }
+
+    @Override
+    public void ausleihen(Person person)
+    {
+        this.ausgeliehenVon = person;
+        setStatus(Medienstatus.AUSGELIEHEN);
+    }
+
+    @Override
+    public void zurueckgeben()
+    {
+        this.ausgeliehenVon = null;
+        setStatus(Medienstatus.VERFUEGBAR);
+    }
+
+    @Override
+    public void archivieren()
+    {
+        System.out.println("DVD wird archiviert: " + getTitel());
+    }
+}
+
+⸻
+
+9. Implementierung der Klasse Ausleihe
+
+package solid.medien;
+
+public class Ausleihe
+{
+    private Person person;
+    private Medium medium;
+
+    public Ausleihe(Person person, Medium medium)
+    {
+        this.person = person;
+        this.medium = medium;
+    }
+
+    public Person getPerson()
+    {
+        return person;
+    }
+
+    public Medium getMedium()
+    {
+        return medium;
+    }
+
+    public String beschreibe()
+    {
+        return person.getName() + " leiht das Medium \"" + medium.getTitel() + "\" aus.";
+    }
+}
+
+⸻
+
+10. Implementierung der Klasse Bibliothek
+
+package solid.medien;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Bibliothek
+{
+    private String name;
+    private List<Medium> medien;
+
+    public Bibliothek(String name)
+    {
+        this.name = name;
+        this.medien = new ArrayList<>();
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public void mediumHinzufuegen(Medium medium)
+    {
+        medien.add(medium);
+    }
+
+    public List<Medium> getMedien()
+    {
+        return medien;
+    }
+
+    public void alleMedienAusgeben()
+    {
+        System.out.println("Medien in der Bibliothek " + name + ":");
+
+        for (Medium medium : medien)
+        {
+            System.out.println(medium.beschreibe());
+            System.out.println(medium.gibMedienInfo());
+
+            switch (medium.getStatus())
+            {
+                case VERFUEGBAR:
+                    System.out.println("Statusprüfung: Das Medium ist aktuell verfügbar.");
+                    break;
+                case AUSGELIEHEN:
+                    System.out.println("Statusprüfung: Das Medium ist momentan ausgeliehen.");
+                    break;
+                case RESERVIERT:
+                    System.out.println("Statusprüfung: Das Medium ist reserviert.");
+                    break;
+                case BESCHAEDIGT:
+                    System.out.println("Statusprüfung: Das Medium ist beschädigt.");
+                    break;
+            }
+
+            System.out.println();
+        }
+    }
+}
+
+⸻
+
+11. Implementierung der Testklasse Main
+
+package solid.medien;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Druckbar.testDruck();
+
+        Bibliothek bibliothek = new Bibliothek("Stadtbibliothek");
+
+        Buch buch = new Buch("Java lernen", Medienstatus.VERFUEGBAR, "Max Mustermann");
+        DVD dvd = new DVD("Objektorientierung verstehen", Medienstatus.RESERVIERT, 120);
+
+        bibliothek.mediumHinzufuegen(buch);
+        bibliothek.mediumHinzufuegen(dvd);
+
+        Person person = new Person("Anna");
+
+        buch.ausleihen(person);
+        Ausleihe ausleihe = new Ausleihe(person, buch);
+        person.fuegeAusleiheHinzu(ausleihe);
+
+        System.out.println(ausleihe.beschreibe());
+        System.out.println();
+
+        if (buch.pruefeFormat("A4"))
+        {
+            buch.drucken();
+        }
+
+        buch.archivieren();
+        dvd.archivieren();
+
+        System.out.println();
+        bibliothek.alleMedienAusgeben();
+    }
+}
+
+⸻
+
+12. Beispielhafte Programmausgabe
+
+Testdruck wird durchgeführt.
+Anna leiht das Medium "Java lernen" aus.
+
+Buchdaten werden gedruckt: Java lernen
+Buch wird archiviert: Java lernen
+DVD wird archiviert: Objektorientierung verstehen
+
+Medien in der Bibliothek Stadtbibliothek:
+Medium: Java lernen | Status: Ausgeliehen
+Buch von Max Mustermann
+Statusprüfung: Das Medium ist momentan ausgeliehen.
+
+Medium: Objektorientierung verstehen | Status: Reserviert
+DVD mit Laufzeit 120 Minuten
+Statusprüfung: Das Medium ist reserviert.
+
+⸻
+
+13. Erläuterung der Lösung
+
+Enum Medienstatus
+
+Das Enum Medienstatus modelliert feste Zustände von Medien.
+
+public enum Medienstatus
+
+Es enthält die Werte:
+	•	VERFUEGBAR
+	•	AUSGELIEHEN
+	•	RESERVIERT
+	•	BESCHAEDIGT
+
+Zusätzlich wurde das Enum erweitert durch:
+	•	ein Attribut anzeigeText,
+	•	einen Konstruktor,
+	•	eine Getter-Methode.
+
+Dadurch wird sichtbar, dass Enums in Java nicht nur einfache Aufzählungen sind, sondern auch eigene Daten und Verhalten besitzen können.
+
+Der Einsatz in der switch-Anweisung der Klasse Bibliothek zeigt die praktische Verwendung im Programm.
+
+SOLID-Bezug
+	•	S: Das Enum hat genau eine Aufgabe, nämlich Zustände zu beschreiben.
+	•	O: Neue Zustände können ergänzt werden, ohne die Grundidee zu verändern.
+
+⸻
+
+Abstrakte Klasse Medium
+
+Die Klasse Medium ist die abstrakte Oberklasse für alle Medien.
+
+public abstract class Medium
+
+Sie bündelt gemeinsame Eigenschaften:
+	•	titel
+	•	status
+
+und gemeinsame Methoden:
+	•	getTitel()
+	•	getStatus()
+	•	setStatus(...)
+	•	beschreibe()
+
+Außerdem besitzt sie die abstrakte Methode:
+
+public abstract String gibMedienInfo();
+
+Diese Methode muss von den Unterklassen konkret umgesetzt werden.
+
+Warum ist Medium abstrakt?
+
+Weil ein allgemeines Medium beschrieben werden soll, aber die konkrete Ausprägung erst in Unterklassen wie Buch oder DVD festgelegt wird.
+
+SOLID-Bezug
+	•	S: Medium beschreibt nur das gemeinsame Grundmodell aller Medien.
+	•	L: Unterklassen müssen sich überall sinnvoll wie ein Medium verhalten.
+
+⸻
+
+Klassen Buch und DVD
+
+Die Klassen Buch und DVD erweitern die abstrakte Oberklasse Medium.
+
+public class Buch extends Medium
+public class DVD extends Medium
+
+Beide Klassen verwenden im Konstruktor:
+
+super(...)
+
+Damit werden die geerbten Attribute der Oberklasse korrekt initialisiert.
+
+Beide Klassen überschreiben die Methode:
+
+gibMedienInfo()
+
+und liefern eine eigene Ausgabe.
+
+Zusätzlich implementieren beide Klassen das Interface Ausleihbar.
+Buch implementiert außerdem Druckbar und Archivierbar, während DVD nur Archivierbar implementiert.
+
+Das zeigt:
+	•	Vererbung über extends
+	•	Mehrfachverhalten über implements
+	•	Spezialisierung in den Unterklassen
+
+SOLID-Bezug
+	•	L: Buch und DVD sind als Medium nutzbar.
+	•	O: Weitere Medientypen könnten ergänzt werden, ohne die Grundstruktur zu verändern.
+	•	I: Nicht jede Klasse muss jedes Interface implementieren; nur passende Fähigkeiten werden zugewiesen.
+
+⸻
+
+Polymorphie
+
+Polymorphie wird besonders in der Klasse Bibliothek sichtbar:
+
+private List<Medium> medien;
+
+Hier werden unterschiedliche konkrete Objekte wie Buch und DVD gemeinsam als Medium gespeichert.
+
+Beim Durchlaufen der Liste:
+
+for (Medium medium : medien)
+
+werden Methoden wie gibMedienInfo() je nach tatsächlicher Unterklasse unterschiedlich ausgeführt.
+
+Das ist dynamische Bindung.
+
+SOLID-Bezug
+	•	L: Unterklassen müssen korrekt als Oberklasse funktionieren.
+	•	D: Die Bibliothek arbeitet mit dem abstrakten Typ Medium statt mit konkreten Klassen.
+
+⸻
+
+Interface Ausleihbar
+
+Das Interface Ausleihbar beschreibt ein klar abgegrenztes Verhalten:
+
+void ausleihen(Person person);
+void zurueckgeben();
+
+Damit wird festgelegt, dass bestimmte Klassen ausgeliehen und zurückgegeben werden können.
+
+SOLID-Bezug
+	•	I: Das Interface enthält nur ausleihbezogene Methoden.
+	•	D: Andere Klassen könnten später gegen Ausleihbar statt gegen Buch oder DVD programmiert werden.
+
+⸻
+
+Interface Druckbar
+
+Das Interface Druckbar zeigt mehrere Interface-Konzepte:
+	•	Konstante
+	•	abstrakte Methode
+	•	default-Methode
+	•	static-Methode
+
+void drucken();
+default boolean pruefeFormat(String format)
+static void testDruck()
+
+Die default-Methode liefert eine Standardimplementierung für die Formatprüfung.
+Die static-Methode gehört zum Interface selbst und wird über den Interfacenamen aufgerufen:
+
+Druckbar.testDruck();
+
+SOLID-Bezug
+	•	I: Druckverhalten ist in einem eigenen, kleinen Interface gekapselt.
+	•	O: Neue Klassen können Druckverhalten ergänzen, indem sie das Interface implementieren.
+
+⸻
+
+Interface Archivierbar
+
+Das Interface Archivierbar beschreibt nur die Fähigkeit, archiviert zu werden.
+
+void archivieren();
+
+Auch hier wird sichtbar, dass kleine, spezialisierte Interfaces sinnvoller sind als ein großes Sammel-Interface.
+
+SOLID-Bezug
+	•	I: Kleine Interfaces mit passendem Verhalten
+	•	O: Erweiterungen sind möglich, ohne bestehende Strukturen umzubauen
+
+⸻
+
+Klasse Person
+
+Die Klasse Person beschreibt eine Person mit Namen und einer Liste von Ausleihen.
+
+Sie dient als eigenständige Fachklasse.
+
+SOLID-Bezug
+	•	S: Person modelliert die Person selbst und nicht die gesamte Bibliothekslogik.
+
+⸻
+
+Klasse Ausleihe
+
+Die Klasse Ausleihe modelliert die Beziehung zwischen Person und Medium.
+
+private Person person;
+private Medium medium;
+
+Damit wird eine Assoziation explizit als eigene Klasse beschrieben.
+
+Das ist didaktisch hilfreich, weil die Beziehung selbst sichtbar wird.
+
+Assoziationen in der Lösung
+	•	Ausleihe → Person: unidirektionale Referenz
+	•	Ausleihe → Medium: unidirektionale Referenz
+	•	Person → Ausleihe: Liste von Ausleihen
+
+Dadurch wird eine bidirektionale Sicht vorbereitet:
+	•	Eine Person kennt ihre Ausleihen,
+	•	eine Ausleihe kennt ihre Person.
+
+Multiplizität
+	•	Eine Ausleihe gehört genau zu einer Person
+	•	Eine Ausleihe gehört genau zu einem Medium
+	•	Eine Person kann mehrere Ausleihe-Objekte besitzen
+	•	Eine Bibliothek kann mehrere Medium-Objekte enthalten
+
+Aggregation und Komposition
+	•	Bibliothek verwaltet mehrere Medium-Objekte. Das kann als Aggregation verstanden werden, weil Medien fachlich auch unabhängig betrachtet werden können.
+	•	Die Liste von Ausleihen in Person kann ebenfalls als lose Beziehung gesehen werden.
+	•	Eine strengere Komposition wäre dann gegeben, wenn Objekte ausschließlich innerhalb eines anderen Objekts entstehen und ohne dieses nicht sinnvoll existieren.
+
+SOLID-Bezug
+	•	S: Die Klasse Ausleihe hat genau die Aufgabe, die Ausleihbeziehung zu modellieren.
+	•	D: Beziehungen werden über saubere Objektstrukturen modelliert, nicht über unstrukturierte Einzelwerte.
+
+⸻
+
+Klasse Bibliothek
+
+Die Klasse Bibliothek verwaltet Medien in einer Liste:
+
+private List<Medium> medien;
+
+Sie arbeitet bewusst mit dem abstrakten Typ Medium.
+Dadurch können unterschiedliche Unterklassen gemeinsam verwaltet werden.
+
+Zusätzlich wird der Enum-Wert in einer switch-Anweisung ausgewertet:
+
+switch (medium.getStatus())
+
+Das zeigt die praktische Verbindung von Enum und Programmsteuerung.
+
+SOLID-Bezug
+	•	D: Abhängigkeit von Medium statt von Buch oder DVD
+	•	O: Neue Unterklassen von Medium können ergänzt werden, ohne die Grundidee der Bibliothek zu verändern
+
+⸻
+
+14. Warum ist das eine Modellierung mit SOLID-Bezug?
+
+Die gesamte Lösung zeigt zentrale Aspekte der SOLID-Prinzipien:
+
+S – Single Responsibility Principle
+
+Jede Klasse bzw. jedes Interface hat eine klar abgegrenzte Aufgabe:
+	•	Medienstatus → Zustände
+	•	Medium → gemeinsames Medienmodell
+	•	Buch / DVD → konkrete Medienarten
+	•	Person → Personendaten
+	•	Ausleihe → Ausleihbeziehung
+	•	Bibliothek → Medienverwaltung
+	•	Druckbar, Ausleihbar, Archivierbar → jeweils ein klarer Vertrag
+
+O – Open/Closed Principle
+
+Das System ist erweiterbar:
+	•	neue Medienarten können ergänzt werden,
+	•	neue Enum-Werte können ergänzt werden,
+	•	neue Interfaces können ergänzt werden,
+	•	bestehende Grundstrukturen müssen dafür nicht grundlegend umgebaut werden.
+
+L – Liskov Substitution Principle
+
+Buch und DVD können überall dort verwendet werden, wo Medium erwartet wird.
+
+I – Interface Segregation Principle
+
+Es gibt mehrere kleine, passende Interfaces statt eines einzigen großen Universal-Interfaces.
+
+D – Dependency Inversion Principle
+
+Die Bibliothek arbeitet mit Medium, nicht nur mit Buch oder DVD.
+Auch Verhalten könnte gegen Interfaces modelliert werden statt nur gegen konkrete Klassen.
+
+⸻
+
+15. Unterschied zwischen abstrakter Klasse und Interface in dieser Lösung
+
+Abstrakte Klasse Medium
+
+Die abstrakte Klasse:
+	•	besitzt gemeinsame Attribute,
+	•	enthält bereits implementierte Methoden,
+	•	enthält zusätzlich abstrakte Methoden.
+
+Sie beschreibt ein gemeinsames Grundmodell.
+
+Interfaces Ausleihbar, Druckbar, Archivierbar
+
+Interfaces beschreiben Fähigkeiten oder Verträge.
+
+Sie sind besonders sinnvoll, wenn unterschiedliche Klassen ein Verhalten teilen sollen, ohne dass dafür eine gemeinsame Oberklasse mit Zustandsdaten nötig ist.
+
+Merksatz
+	•	abstrakte Klasse = gemeinsames Grundmodell
+	•	Interface = gemeinsame Fähigkeit / Vertrag
+
+⸻
+
+16. Klassendiagramm-Beschreibung
+
+Die Struktur kann im Klassendiagramm vereinfacht so beschrieben werden:
+
+                     <<abstract>>
+                        Medium
+   ------------------------------------------------
+   - titel : String
+   - status : Medienstatus
+   ------------------------------------------------
+   + getTitel() : String
+   + getStatus() : Medienstatus
+   + setStatus(status : Medienstatus) : void
+   + beschreibe() : String
+   + gibMedienInfo() : String
+              /                              \
+             /                                \
+          Buch                                DVD
+   ----------------------            ----------------------
+   - autor : String                 - laufzeit : int
+   - ausgeliehenVon : Person        - ausgeliehenVon : Person
+   ----------------------            ----------------------
+   + gibMedienInfo()                + gibMedienInfo()
+   + ausleihen(...)                 + ausleihen(...)
+   + zurueckgeben()                 + zurueckgeben()
+   + drucken()                      + archivieren()
+   + archivieren()
+
+Person ------------------- Ausleihe ------------------- Medium
+ - name : String           - person : Person            ^
+ - ausleihen : List        - medium : Medium            |
+                                                      Bibliothek
+                                                      - medien : List<Medium>
+
+Interface-Beziehungen
+
+Buch ..|> Ausleihbar
+Buch ..|> Druckbar
+Buch ..|> Archivierbar
+
+DVD ..|> Ausleihbar
+DVD ..|> Archivierbar
+
+Dabei bedeutet:
+	•	durchgezogene Linie mit Dreieck = Vererbung
+	•	gestrichelte Linie mit Dreieck = Interface-Implementierung
+	•	normale Linie = Assoziation
+
+⸻
+
+17. Zentrale Lernpunkte der Musterlösung
+
+Die Lösung zeigt:
+	•	Enums können feste Zustände sauber modellieren.
+	•	Enums können Felder, Konstruktoren und Methoden besitzen.
+	•	Enums lassen sich in switch-Anweisungen verwenden.
+	•	Abstrakte Klassen bündeln gemeinsame Daten und Verhalten.
+	•	Unterklassen spezialisieren das Grundmodell.
+	•	super(...) initialisiert geerbte Merkmale.
+	•	Polymorphie ermöglicht flexible Arbeit mit Oberklassen-Typen.
+	•	Interfaces definieren Fähigkeiten.
+	•	default- und static-Methoden erweitern Interfaces sinnvoll.
+	•	Assoziationen beschreiben Beziehungen zwischen Klassen.
+	•	Multiplizität und Navigierbarkeit helfen beim Strukturverständnis.
+	•	SOLID-Prinzipien unterstützen eine saubere, wartbare Modellierung.
+
+⸻
+
+Musterlösung – Kontrollfragen
+
+Kontrollfragen zu SOLID
+
+1. Was bedeutet das Single Responsibility Principle?
+
+Eine Klasse oder ein Baustein soll genau eine klar abgegrenzte Hauptaufgabe haben.
+
+2. Warum unterstützt eine abstrakte Oberklasse oft das Open/Closed Principle?
+
+Weil neue Unterklassen ergänzt werden können, ohne die Grundstruktur der Oberklasse ständig verändern zu müssen.
+
+3. Was fordert das Liskov Substitution Principle bei Unterklassen?
+
+Unterklassen sollen überall dort sinnvoll einsetzbar sein, wo die Oberklasse erwartet wird.
+
+4. Warum passen kleine Interfaces gut zum Interface Segregation Principle?
+
+Weil Klassen nur die Methoden implementieren müssen, die wirklich zu ihrem Verhalten passen.
+
+5. Warum unterstützt die Arbeit mit abstrakten Typen das Dependency Inversion Principle?
+
+Weil Klassen dadurch von allgemeinen Abstraktionen statt von konkreten Implementierungen abhängen.
+
+⸻
+
+Kontrollfragen zu Enums
+
+6. Was ist ein Enum in Java?
+
+Ein Enum ist ein spezieller Typ zur Darstellung einer festen Menge von Konstanten.
+
+7. Warum sind Enums besser geeignet als frei gewählte Strings für feste Zustände?
+
+Weil sie typsicherer, übersichtlicher und weniger fehleranfällig sind.
+
+8. Wie können Enums um Felder, Konstruktoren und Methoden erweitert werden?
+
+Indem man innerhalb des Enums zusätzliche Attribute, einen Konstruktor und Methoden definiert.
+
+9. Wie wird ein Enum in einer switch-Anweisung verwendet?
+
+Ein Enum-Wert wird im switch geprüft, und für jeden möglichen Wert kann ein eigener case formuliert werden.
+
+⸻
+
+Kontrollfragen zu Assoziationen
+
+10. Was ist eine unidirektionale Assoziation?
+
+Eine Beziehung, bei der nur eine Klasse die andere kennt.
+
+11. Was ist eine bidirektionale Assoziation?
+
+Eine Beziehung, bei der sich beide Klassen gegenseitig kennen.
+
+12. Was bedeuten Multiplizität und Navigierbarkeit?
+
+Multiplizität beschreibt, wie viele Objekte an einer Beziehung beteiligt sind.
+Navigierbarkeit beschreibt, in welche Richtung eine Beziehung genutzt oder durchlaufen werden kann.
+
+13. Worin unterscheiden sich Aggregation und Komposition?
+
+Aggregation beschreibt eine lose Teil-Ganzes-Beziehung.
+Komposition beschreibt eine stärkere Beziehung, bei der Teile eng an das Ganze gebunden sind.
+
+14. Wie werden Assoziationen im Klassendiagramm dargestellt?
+
+Durch Verbindungslinien zwischen Klassen, oft ergänzt durch Pfeile für Navigierbarkeit und Angaben zur Multiplizität.
+
+⸻
+
+Kontrollfragen zu Vererbung und Interfaces
+
+15. Warum ist Medium eine sinnvolle abstrakte Oberklasse?
+
+Weil alle Medien gemeinsame Eigenschaften besitzen, die zentral in einer Oberklasse gebündelt werden können.
+
+16. Welche Aufgabe hat super(...) im Konstruktor?
+
+super(...) ruft den Konstruktor der Oberklasse auf und initialisiert geerbte Attribute.
+
+17. Was bedeutet Polymorphie?
+
+Dass Objekte verschiedener Unterklassen über einen gemeinsamen Oberklassen-Typ behandelt werden können.
+
+18. Worin unterscheiden sich Interfaces und abstrakte Klassen?
+
+Eine abstrakte Klasse beschreibt ein gemeinsames Grundmodell mit möglichen Attributen und bereits implementierten Methoden.
+Ein Interface beschreibt vor allem einen Vertrag oder eine Fähigkeit.
+
+19. Welche Aufgabe haben default- und static-Methoden in Interfaces?
+
+default-Methoden liefern eine Standardimplementierung für Objekte.
+static-Methoden gehören zum Interface selbst und werden über den Interfacenamen aufgerufen.
+
+20. Wie werden Vererbung und Interface-Implementierung im Klassendiagramm dargestellt?
+
+Vererbung mit einer durchgezogenen Linie und offenem Dreieck zur Oberklasse.
+Interface-Implementierung mit einer gestrichelten Linie und offenem Dreieck zum Interface.
+
+⸻
