@@ -7,6 +7,6 @@ public class Flugzeug extends Fahrzeug implements IFlugfaehig {
 
     @Override
     public void fliegen() {
-        System.out.println(getFahrZeugToSting() + " der Marke " + getMarke() + " kann fliegen!");
+        System.out.println(getMessage());
     }
 }

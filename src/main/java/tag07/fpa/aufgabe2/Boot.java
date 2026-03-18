@@ -7,6 +7,6 @@ public class Boot extends Fahrzeug implements ISchwimmfaehig {
 
     @Override
     public void schwimmen() {
-        System.out.println(getFahrZeugToSting() + " der Marke " + getMarke() + " kann schwimmen!");
+        System.out.println(getMessage());
     }
 }

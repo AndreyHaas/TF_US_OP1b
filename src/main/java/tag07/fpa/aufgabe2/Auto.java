@@ -7,6 +7,6 @@ public class Auto extends Fahrzeug implements IFahrbar {
 
     @Override
     public void fahren() {
-        System.out.println(getFahrZeugToSting() + " der Marke " + getMarke() + " kann fahren!");
+        System.out.println(getMessage());
     }
 }
