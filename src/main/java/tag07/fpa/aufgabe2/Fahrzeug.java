@@ -2,7 +2,7 @@ package tag07.fpa.aufgabe2;
 
 public class Fahrzeug {
 
-    private String fahrZeugToSting = getClass().getSimpleName().toUpperCase();
+    private final String fahrZeugToSting = getClass().getSimpleName().toUpperCase();
 
     private final String marke;
 
