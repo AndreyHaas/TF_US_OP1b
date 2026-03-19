@@ -7,7 +7,7 @@ package tag08.SOLID_beispiel;
 public class LKW implements Transportmittel {
   private final String kennzeichen;
   private TransportStatus status;
-  private double lastKapazitaet;
+  private final double lastKapazitaet;
   private String aktuellerFahrer;
 
   // Assoziation: LKW HAT einen Fahrer (optional)
@@ -54,6 +54,18 @@ public class LKW implements Transportmittel {
   @Override
   public String getIdentifikation() {
     return "LKW-" + kennzeichen;
+  }
+
+  public String getAktuellerFahrer() {
+    return aktuellerFahrer;
+  }
+
+  public double getLastKapazitaet() {
+    return lastKapazitaet;
+  }
+
+  public String getKennzeichen() {
+    return kennzeichen;
   }
 
   // Assoziation: Fahrer zuweisen

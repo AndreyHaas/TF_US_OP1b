@@ -12,7 +12,7 @@ public class Fahrer {
   private final String fuehrerscheinKlasse;
 
   // Assoziation: Fahrer KANN mehrere LKWs fahren
-  private List<LKW> qualifizierteLKWs = new ArrayList<>();
+  private final List<LKW> qualifizierteLKWs = new ArrayList<>();
 
   public Fahrer(String name, String fuehrerscheinKlasse) {
     this.name = name;
@@ -39,5 +39,9 @@ public class Fahrer {
 
   public String getName() {
     return name;
+  }
+
+  public String getFuehrerscheinKlasse() {
+    return fuehrerscheinKlasse;
   }
 }

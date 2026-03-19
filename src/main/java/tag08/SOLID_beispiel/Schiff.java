@@ -6,7 +6,7 @@ package tag08.SOLID_beispiel;
 public class Schiff implements Transportmittel {
   private final String name;
   private TransportStatus status;
-  private double maxTonnage;
+  private final double maxTonnage;
 
   public Schiff(String name, double maxTonnage) {
     this.name = name;
@@ -35,6 +35,10 @@ public class Schiff implements Transportmittel {
   @Override
   public TransportStatus getStatus() {
     return status;
+  }
+
+  public double getMaxTonnage() {
+    return maxTonnage;
   }
 
   @Override

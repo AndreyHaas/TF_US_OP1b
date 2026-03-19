@@ -6,7 +6,7 @@ package tag08.SOLID_beispiel;
 public class Flugzeug implements Transportmittel {
   private final String flugnummer;
   private TransportStatus status;
-  private int maxPassagier;
+  private final int maxPassagier;
 
   public Flugzeug(String flugnummer, int maxPassagier) {
     this.flugnummer = flugnummer;
@@ -30,6 +30,14 @@ public class Flugzeug implements Transportmittel {
   @Override
   public TransportStatus getStatus() {
     return status;
+  }
+
+  public String getFlugnummer() {
+    return flugnummer;
+  }
+
+  public int getMaxPassagier() {
+    return maxPassagier;
   }
 
   @Override
