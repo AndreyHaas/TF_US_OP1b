@@ -1,4 +1,4 @@
-package tag08.unterricht;
+package tag08.aufgabe1;
 
 import java.util.List;
 

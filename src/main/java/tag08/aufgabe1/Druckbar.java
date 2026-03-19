@@ -1,6 +1,4 @@
-package tag08.unterricht;
-
-import java.text.Normalizer;
+package tag08.aufgabe1;
 
 public interface Druckbar {
     String STANDARD_FORMAT = "A4";
