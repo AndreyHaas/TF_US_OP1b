@@ -1,0 +1,995 @@
+Aufgabenstellung: Wichtige Bibliotheken in Java
+
+(Java Standard Library, Collections Framework und Datenverarbeitung)
+
+⸻
+
+Ziel der Aufgabe
+
+In dieser Aufgabe analysieren und entwickeln Sie ein Java-Programm, das zentrale Bibliotheken der Java-Plattform gezielt einsetzt.
+
+Sie lernen dabei,
+	•	wie die Java Standard Library in typischen Programmen verwendet wird,
+	•	wie Klassen aus java.lang, java.util, java.time und java.math praktisch eingesetzt werden,
+	•	wie das Java Collections Framework (JCF) zur Verwaltung von Objekten genutzt wird,
+	•	wie Daten strukturiert gespeichert, durchsucht, sortiert und verarbeitet werden,
+	•	wie Bibliotheken zur Datenverarbeitung den Code lesbarer, sicherer und wartbarer machen.
+
+Der Fokus liegt auf dem Verständnis, dass gute Programme nicht alles selbst implementieren müssen, sondern vorhandene Bibliotheken sinnvoll nutzen.
+
+⸻
+
+Fachlicher Hintergrund
+
+Java stellt mit der Standardbibliothek eine große Anzahl fertiger Klassen und Schnittstellen bereit.
+
+Dazu gehören unter anderem:
+	•	java.lang für grundlegende Klassen wie String, Math, Integer
+	•	java.util für Hilfsklassen, Collections, Scanner, Listen, Maps und Sets
+	•	java.time für moderne Datums- und Zeitverarbeitung
+	•	java.math für präzise mathematische Berechnungen mit BigDecimal
+
+Besonders wichtig ist das Java Collections Framework (JCF). Es bietet standardisierte Datenstrukturen wie:
+	•	List
+	•	Set
+	•	Map
+	•	passende Implementierungen wie ArrayList, HashSet, HashMap
+
+Darüber hinaus werden in vielen Programmen Daten verarbeitet, zum Beispiel:
+	•	Benutzereingaben
+	•	Preislisten
+	•	Datumsangaben
+	•	Sammlungen von Objekten
+	•	sortierte oder gefilterte Ausgaben
+
+Diese Aufgabe verbindet daher Bibliothekswissen mit praktischer Programmentwicklung.
+
+⸻
+
+Vorgegebene Klassenstruktur
+
+Im Package bibliotheken.demo sollen folgende Klassen entwickelt und verwendet werden:
+	•	Produkt
+	•	ProduktVerwaltung
+	•	DatenAnalyse
+	•	Main
+
+Zusätzlich sollen geeignete Klassen aus den Bibliotheken verwendet werden:
+	•	String, Math, Integer aus java.lang
+	•	List, ArrayList, Set, HashSet, Map, HashMap, Collections, Comparator aus java.util
+	•	LocalDate, Period, DateTimeFormatter aus java.time
+	•	BigDecimal aus java.math
+
+⸻
+
+Aufgabe 1: Analyse der Java Standard Library
+
+Ziel
+
+Sie untersuchen die Rolle der Java Standard Library und ordnen zentrale Pakete ein.
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+
+Erklären Sie,
+	•	was die Java Standard Library ist,
+	•	warum sie für nahezu jedes Java-Programm wichtig ist,
+	•	welche Aufgaben die Pakete java.lang, java.util, java.time und java.math erfüllen.
+
+Technische Anforderungen
+
+Beziehen Sie sich auf mindestens folgende Klassen:
+	•	String
+	•	Math
+	•	ArrayList
+	•	HashMap
+	•	LocalDate
+	•	BigDecimal
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+	•	dass Java viele Standardlösungen bereits mitliefert,
+	•	dass Bibliotheken Entwicklungsaufwand reduzieren,
+	•	dass unterschiedliche Pakete unterschiedliche Aufgabenbereiche abdecken.
+
+⸻
+
+Aufgabe 2: Verwendung von java.lang
+
+Ziel
+
+Sie verwenden grundlegende Klassen aus java.lang.
+
+⸻
+
+Zu entwickelnde Inhalte
+
+Nutzen Sie mindestens:
+	•	String
+	•	Math
+	•	Wrapper-Klassen wie Integer oder Double
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+
+Entwickeln Sie Code, so dass:
+	•	Texte verarbeitet werden können,
+	•	Zahlen gerundet oder mathematisch verarbeitet werden können,
+	•	Zeichenketten in Zahlen umgewandelt werden können.
+
+Technische Anforderungen
+
+Verwenden Sie zum Beispiel:
+	•	length()
+	•	toUpperCase()
+	•	substring()
+	•	Math.round()
+	•	Math.sqrt()
+	•	Integer.parseInt()
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+	•	warum java.lang automatisch verfügbar ist,
+	•	wie häufig verwendete Grundklassen in Java eingesetzt werden,
+	•	wie Texte und Zahlen mit Standardmethoden bearbeitet werden.
+
+⸻
+
+Aufgabe 3: Entwicklung der Klasse Produkt
+
+Ziel
+
+Sie entwickeln eine einfache Fachklasse zur späteren Datenverarbeitung.
+
+⸻
+
+Zu entwickelnde Klassenstruktur
+
+Die Klasse Produkt soll mindestens enthalten:
+	•	name : String
+	•	preis : BigDecimal
+	•	kategorie : String
+	•	haltbarBis : LocalDate
+
+Beispielhafte Methoden:
+	•	Konstruktor
+	•	Getter
+	•	beschreibe()
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+
+Entwickeln Sie die Klasse so, dass:
+	•	ein Produkt fachlich beschrieben werden kann,
+	•	Preisangaben präzise gespeichert werden,
+	•	ein Haltbarkeitsdatum verwaltet werden kann.
+
+Technische Anforderungen
+
+Verwenden Sie:
+	•	String
+	•	BigDecimal
+	•	LocalDate
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+	•	wie Bibliotheken direkt in eigenen Klassen genutzt werden,
+	•	warum BigDecimal für Geldbeträge sinnvoll ist,
+	•	warum LocalDate besser geeignet ist als ältere Datumsansätze.
+
+⸻
+
+Aufgabe 4: Verwendung von java.time
+
+Ziel
+
+Sie arbeiten mit Datums- und Zeitklassen aus java.time.
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+
+Entwickeln Sie Code, so dass:
+	•	ein Datum gespeichert werden kann,
+	•	Datumsangaben formatiert ausgegeben werden können,
+	•	berechnet werden kann, wie viele Tage oder Monate bis zu einem Datum verbleiben.
+
+Technische Anforderungen
+
+Verwenden Sie:
+	•	LocalDate.now()
+	•	LocalDate.of(...)
+	•	Period.between(...)
+	•	DateTimeFormatter
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+	•	wie moderne Datumsverarbeitung in Java funktioniert,
+	•	wie Datumswerte sicher und lesbar verarbeitet werden,
+	•	wie Datumsberechnungen mit Standardklassen gelöst werden.
+
+⸻
+
+Aufgabe 5: Verwendung von java.math.BigDecimal
+
+Ziel
+
+Sie analysieren und nutzen BigDecimal für präzise Berechnungen.
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+
+Entwickeln Sie Code, so dass:
+	•	Preise exakt gespeichert werden,
+	•	Summen berechnet werden,
+	•	Rabatte oder Preisänderungen präzise angewendet werden können.
+
+Technische Anforderungen
+
+Verwenden Sie:
+	•	BigDecimal
+	•	add(...)
+	•	subtract(...)
+	•	multiply(...)
+	•	optional divide(...)
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+	•	warum Gleitkommazahlen für Geldbeträge problematisch sein können,
+	•	warum BigDecimal in kaufmännischen Anwendungen bevorzugt wird,
+	•	wie Rechenoperationen objektorientiert mit Methoden ausgeführt werden.
+
+⸻
+
+Aufgabe 6: Einführung in das Java Collections Framework
+
+Ziel
+
+Sie untersuchen das Java Collections Framework (JCF).
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+
+Erklären Sie,
+	•	was das JCF ist,
+	•	warum standardisierte Datenstrukturen wichtig sind,
+	•	worin sich List, Set und Map unterscheiden.
+
+Technische Anforderungen
+
+Beziehen Sie sich auf:
+	•	List
+	•	Set
+	•	Map
+	•	ArrayList
+	•	HashSet
+	•	HashMap
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+	•	dass das JCF ein zentrales Werkzeug zur Datenverwaltung ist,
+	•	dass verschiedene Datenstrukturen unterschiedliche Einsatzzwecke haben,
+	•	dass die Wahl der Struktur die Programmlogik beeinflusst.
+
+⸻
+
+Aufgabe 7: Entwicklung der Klasse ProduktVerwaltung
+
+Ziel
+
+Sie entwickeln eine verwaltende Klasse, die Produkte mit Collections speichert.
+
+⸻
+
+Zu entwickelnde Klassenstruktur
+
+Die Klasse ProduktVerwaltung kann mindestens enthalten:
+	•	private List<Produkt> produkte;
+
+Beispielhafte Methoden:
+	•	produktHinzufuegen(Produkt produkt)
+	•	alleProdukteAusgeben()
+	•	produkteNachKategorie(String kategorie)
+	•	gesamtpreisBerechnen()
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+
+Entwickeln Sie die Klasse so, dass:
+	•	mehrere Produkte gespeichert werden können,
+	•	Produkte durchsucht werden können,
+	•	Summen über gespeicherte Daten berechnet werden können,
+	•	mit mehreren Objekten gearbeitet wird.
+
+Technische Anforderungen
+
+Verwenden Sie:
+	•	List<Produkt>
+	•	ArrayList
+	•	Schleifen oder for-each
+	•	BigDecimal für Summen
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+	•	wie Objektsammlungen mit List verwaltet werden,
+	•	wie Fachobjekte in Collections gespeichert werden,
+	•	wie Daten auf Grundlage von Listen verarbeitet werden.
+
+⸻
+
+Aufgabe 8: Analyse von Set und Map
+
+Ziel
+
+Sie erweitern die Datenverarbeitung um weitere Collection-Typen.
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+
+Entwickeln oder analysieren Sie Lösungen so, dass:
+	•	doppelte Kategorien vermieden werden können,
+	•	Produkte nach Namen oder Kategorien strukturiert zugeordnet werden können,
+	•	Schlüssel-Wert-Beziehungen erkennbar werden.
+
+Technische Anforderungen
+
+Verwenden Sie:
+	•	Set<String>
+	•	HashSet
+	•	Map<String, Produkt> oder Map<String, List<Produkt>>
+	•	HashMap
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+	•	wann ein Set sinnvoller als eine List ist,
+	•	wie Map-Strukturen zur Zuordnung von Daten verwendet werden,
+	•	wie unterschiedliche Collection-Typen unterschiedliche Probleme lösen.
+
+⸻
+
+Aufgabe 9: Sortieren und Vergleichen von Daten
+
+Ziel
+
+Sie sortieren Objekte mithilfe von Bibliotheksfunktionen.
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+
+Entwickeln Sie Code, so dass:
+	•	Produkte alphabetisch sortiert werden können,
+	•	Produkte nach Preis sortiert werden können,
+	•	unterschiedliche Sortierkriterien ausprobiert werden können.
+
+Technische Anforderungen
+
+Verwenden Sie:
+	•	Collections.sort(...) oder List.sort(...)
+	•	Comparator
+	•	Lambda-Ausdrücke optional
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+	•	wie Bibliotheken wiederverwendbare Sortiermechanismen bereitstellen,
+	•	wie Vergleichslogik ausgelagert werden kann,
+	•	wie Daten flexibel aufbereitet werden können.
+
+⸻
+
+Aufgabe 10: Bibliotheken zur Verarbeitung von Daten
+
+Ziel
+
+Sie analysieren das Zusammenspiel verschiedener Bibliotheken bei der Datenverarbeitung.
+
+⸻
+
+Anforderungen
+
+Funktionale Anforderungen
+
+Erklären und entwickeln Sie Beispiele dazu, wie
+	•	Texte verarbeitet werden,
+	•	Zahlen berechnet werden,
+	•	Datumswerte ausgewertet werden,
+	•	Objekte in Collections verwaltet werden,
+	•	Daten gefiltert, gruppiert und sortiert werden.
+
+Technische Anforderungen
+
+Beziehen Sie sich auf:
+	•	java.lang
+	•	java.util
+	•	java.time
+	•	java.math
+	•	JCF-Strukturen wie List, Set, Map
+
+⸻
+
+Ziel dieser Aufgabe
+
+Sie sollen verstehen,
+	•	dass Datenverarbeitung in Java meist das Zusammenwirken mehrerer Bibliotheken erfordert,
+	•	dass Bibliotheken unterschiedliche Teilprobleme lösen,
+	•	dass gute Softwareentwicklung stark von der passenden Bibliothekswahl abhängt.
+
+⸻
+
+Lernziele
+
+Nach Abschluss dieser Aufgabe können Sie:
+	•	erklären, was die Java Standard Library ist,
+	•	wichtige Pakete der Standardbibliothek benennen und einordnen,
+	•	Klassen aus java.lang, java.util, java.time und java.math anwenden,
+	•	den Unterschied zwischen List, Set und Map erklären,
+	•	mit ArrayList, HashSet und HashMap arbeiten,
+	•	Daten mit LocalDate und DateTimeFormatter verarbeiten,
+	•	Geldbeträge mit BigDecimal berechnen,
+	•	Daten in Collections speichern, durchsuchen und sortieren,
+	•	Bibliotheken zur strukturierten Datenverarbeitung einsetzen.
+
+⸻
+
+Didaktische Einordnung
+
+Diese Aufgabe verbindet mehrere grundlegende Bereiche der Java-Programmierung.
+
+Sie knüpft an folgende Themen an:
+	•	Klassen und Objekte
+	•	Attribute und Methoden
+	•	Standardbibliotheken
+	•	Strings und Zahlenverarbeitung
+	•	Datumsverarbeitung
+	•	präzise Berechnungen
+	•	Collections
+	•	Listen, Mengen und Maps
+	•	Sortieren und Suchen
+	•	Datenverarbeitung in Java
+
+Die Aufgabe zeigt, dass professionelle Java-Programme nicht nur aus selbst geschriebenem Code bestehen, sondern wesentlich auf bewährten Bibliotheken aufbauen.
+
+⸻
+
+Reflexions- und Kontrollfragen
+
+Kontrollfragen zur Java Standard Library
+	1.	Was versteht man unter der Java Standard Library?
+	2.	Warum ist java.lang in jedem Java-Programm automatisch verfügbar?
+	3.	Welche Aufgaben erfüllen java.util, java.time und java.math?
+
+Kontrollfragen zu java.lang
+	4.	Welche Rolle spielt die Klasse String?
+	5.	Wofür wird die Klasse Math verwendet?
+	6.	Was machen Wrapper-Klassen wie Integer oder Double?
+
+Kontrollfragen zu java.time
+	7.	Warum ist LocalDate für Datumsangaben geeignet?
+	8.	Welche Aufgabe hat DateTimeFormatter?
+	9.	Wozu dient Period?
+
+Kontrollfragen zu java.math
+	10.	Warum ist BigDecimal für Geldbeträge oft besser als double?
+	11.	Wie werden Rechenoperationen mit BigDecimal durchgeführt?
+
+Kontrollfragen zum JCF
+	12.	Was ist das Java Collections Framework?
+	13.	Worin unterscheiden sich List, Set und Map?
+	14.	Wann ist ArrayList sinnvoll?
+	15.	Wann ist ein HashSet sinnvoll?
+	16.	Wofür wird eine HashMap verwendet?
+
+Kontrollfragen zur Datenverarbeitung
+	17.	Wie können Objekte in Collections gespeichert werden?
+	18.	Wie können Daten sortiert werden?
+	19.	Wie können Daten gruppiert oder zugeordnet werden?
+	20.	Warum ist die Wahl der passenden Bibliothek für die Programmentwicklung wichtig?
+
+⸻
+
+
+Musterlösung
+
+1. Implementierung der Klasse Produkt
+
+package bibliotheken.demo;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+public class Produkt
+{
+    private String name;
+    private BigDecimal preis;
+    private String kategorie;
+    private LocalDate haltbarBis;
+
+    public Produkt(String name, BigDecimal preis, String kategorie, LocalDate haltbarBis)
+    {
+        this.name = name;
+        this.preis = preis;
+        this.kategorie = kategorie;
+        this.haltbarBis = haltbarBis;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public BigDecimal getPreis()
+    {
+        return preis;
+    }
+
+    public String getKategorie()
+    {
+        return kategorie;
+    }
+
+    public LocalDate getHaltbarBis()
+    {
+        return haltbarBis;
+    }
+
+    public String beschreibe()
+    {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        return name + " | " + kategorie + " | " + preis + " EUR | haltbar bis: "
+                + haltbarBis.format(formatter);
+    }
+}
+
+
+⸻
+
+2. Implementierung der Klasse ProduktVerwaltung
+
+package bibliotheken.demo;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+
+public class ProduktVerwaltung
+{
+    private List<Produkt> produkte;
+
+    public ProduktVerwaltung()
+    {
+        produkte = new ArrayList<>();
+    }
+
+    public void produktHinzufuegen(Produkt produkt)
+    {
+        produkte.add(produkt);
+    }
+
+    public List<Produkt> getProdukte()
+    {
+        return produkte;
+    }
+
+    public void alleProdukteAusgeben()
+    {
+        for (Produkt produkt : produkte)
+        {
+            System.out.println(produkt.beschreibe());
+        }
+    }
+
+    public BigDecimal gesamtpreisBerechnen()
+    {
+        BigDecimal summe = BigDecimal.ZERO;
+
+        for (Produkt produkt : produkte)
+        {
+            summe = summe.add(produkt.getPreis());
+        }
+
+        return summe;
+    }
+
+    public void produkteNachKategorie(String kategorie)
+    {
+        for (Produkt produkt : produkte)
+        {
+            if (produkt.getKategorie().equalsIgnoreCase(kategorie))
+            {
+                System.out.println(produkt.beschreibe());
+            }
+        }
+    }
+}
+
+
+⸻
+
+3. Implementierung der Klasse DatenAnalyse
+
+package bibliotheken.demo;
+
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
+public class DatenAnalyse
+{
+    public static void kategorienAusgeben(ProduktVerwaltung verwaltung)
+    {
+        Set<String> kategorien = new HashSet<>();
+
+        for (Produkt produkt : verwaltung.getProdukte())
+        {
+            kategorien.add(produkt.getKategorie());
+        }
+
+        System.out.println("Kategorien:");
+        for (String kategorie : kategorien)
+        {
+            System.out.println(kategorie);
+        }
+    }
+
+    public static void produkteNachNameZuordnen(ProduktVerwaltung verwaltung)
+    {
+        Map<String, Produkt> produktMap = new HashMap<>();
+
+        for (Produkt produkt : verwaltung.getProdukte())
+        {
+            produktMap.put(produkt.getName(), produkt);
+        }
+
+        System.out.println("Produkte in der Map:");
+        for (String name : produktMap.keySet())
+        {
+            System.out.println(name + " -> " + produktMap.get(name).beschreibe());
+        }
+    }
+
+    public static void haltbarkeitPruefen(Produkt produkt)
+    {
+        LocalDate heute = LocalDate.now();
+        Period restzeit = Period.between(heute, produkt.getHaltbarBis());
+
+        System.out.println("Analyse für: " + produkt.getName());
+        System.out.println("Noch " + restzeit.getMonths() + " Monate und "
+                + restzeit.getDays() + " Tage haltbar.");
+    }
+}
+
+
+⸻
+
+4. Implementierung der Testklasse Main
+
+package bibliotheken.demo;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.Collections;
+import java.util.Comparator;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        ProduktVerwaltung verwaltung = new ProduktVerwaltung();
+
+        Produkt p1 = new Produkt(
+                "Apfelsaft",
+                new BigDecimal("2.49"),
+                "Getränke",
+                LocalDate.of(2026, 5, 10));
+
+        Produkt p2 = new Produkt(
+                "Brot",
+                new BigDecimal("1.99"),
+                "Backwaren",
+                LocalDate.of(2026, 3, 25));
+
+        Produkt p3 = new Produkt(
+                "Mineralwasser",
+                new BigDecimal("0.89"),
+                "Getränke",
+                LocalDate.of(2027, 1, 1));
+
+        verwaltung.produktHinzufuegen(p1);
+        verwaltung.produktHinzufuegen(p2);
+        verwaltung.produktHinzufuegen(p3);
+
+        System.out.println("Alle Produkte:");
+        verwaltung.alleProdukteAusgeben();
+
+        System.out.println();
+        System.out.println("Gesamtpreis: " + verwaltung.gesamtpreisBerechnen() + " EUR");
+
+        System.out.println();
+        System.out.println("Nur Kategorie Getränke:");
+        verwaltung.produkteNachKategorie("Getränke");
+
+        System.out.println();
+        DatenAnalyse.kategorienAusgeben(verwaltung);
+
+        System.out.println();
+        DatenAnalyse.produkteNachNameZuordnen(verwaltung);
+
+        System.out.println();
+        DatenAnalyse.haltbarkeitPruefen(p2);
+
+        System.out.println();
+        System.out.println("Sortierung nach Preis:");
+        Collections.sort(verwaltung.getProdukte(), Comparator.comparing(Produkt::getPreis));
+
+        verwaltung.alleProdukteAusgeben();
+
+        System.out.println();
+        String text = "java bibliotheken";
+        System.out.println(text.toUpperCase());
+        System.out.println("Länge: " + text.length());
+
+        int zahl = Integer.parseInt("25");
+        System.out.println("Wurzel: " + Math.sqrt(zahl));
+    }
+}
+
+
+⸻
+
+5. Beispielhafte Programmausgabe
+
+Alle Produkte:
+Apfelsaft | Getränke | 2.49 EUR | haltbar bis: 10.05.2026
+Brot | Backwaren | 1.99 EUR | haltbar bis: 25.03.2026
+Mineralwasser | Getränke | 0.89 EUR | haltbar bis: 01.01.2027
+
+Gesamtpreis: 5.37 EUR
+
+Nur Kategorie Getränke:
+Apfelsaft | Getränke | 2.49 EUR | haltbar bis: 10.05.2026
+Mineralwasser | Getränke | 0.89 EUR | haltbar bis: 01.01.2027
+
+Kategorien:
+Getränke
+Backwaren
+
+Produkte in der Map:
+Apfelsaft -> Apfelsaft | Getränke | 2.49 EUR | haltbar bis: 10.05.2026
+Brot -> Brot | Backwaren | 1.99 EUR | haltbar bis: 25.03.2026
+Mineralwasser -> Mineralwasser | Getränke | 0.89 EUR | haltbar bis: 01.01.2027
+
+
+⸻
+
+Erläuterung der Lösung
+
+Java Standard Library
+
+Die Java Standard Library stellt viele Klassen bereit, die ohne zusätzliche externe Bibliotheken genutzt werden können.
+
+Wichtige Beispiele in der Lösung:
+	•	String aus java.lang für Textverarbeitung
+	•	Math aus java.lang für mathematische Funktionen
+	•	ArrayList, HashSet, HashMap aus java.util für Datenstrukturen
+	•	LocalDate, Period, DateTimeFormatter aus java.time für Datumsverarbeitung
+	•	BigDecimal aus java.math für präzise Preisberechnungen
+
+⸻
+
+java.lang
+
+Das Paket java.lang enthält grundlegende Klassen, die automatisch verfügbar sind.
+
+In der Lösung wird es verwendet für:
+	•	String zur Textverarbeitung
+	•	Integer.parseInt(...) zur Umwandlung eines Texts in eine Zahl
+	•	Math.sqrt(...) zur Berechnung der Quadratwurzel
+
+Diese Klassen gehören zur Basisausstattung fast jedes Java-Programms.
+
+⸻
+
+java.math.BigDecimal
+
+BigDecimal wird verwendet, um Preise exakt zu speichern und zu berechnen.
+
+Beispiel:
+
+BigDecimal summe = summe.add(produkt.getPreis());
+
+Das ist sinnvoll, weil Gleitkommazahlen wie double bei Geldbeträgen zu Rundungsproblemen führen können.
+
+⸻
+
+java.time
+
+Mit LocalDate werden Datumswerte fachlich sauber modelliert.
+
+Beispiel:
+
+LocalDate.of(2026, 5, 10)
+
+Mit DateTimeFormatter werden Datumswerte lesbar ausgegeben.
+Mit Period können Zeitabstände berechnet werden.
+
+Dadurch ist die Datumsverarbeitung klarer und moderner als mit älteren Klassen.
+
+⸻
+
+Java Collections Framework
+
+Das JCF stellt standardisierte Datenstrukturen zur Verfügung.
+
+List
+
+Die List speichert geordnete Elemente und erlaubt Duplikate.
+
+In der Lösung:
+
+private List<Produkt> produkte;
+
+Sie eignet sich hier, weil Produkte in einer geordneten Sammlung verwaltet werden.
+
+Set
+
+Das Set speichert keine doppelten Elemente.
+
+In der Lösung:
+
+Set<String> kategorien = new HashSet<>();
+
+Dadurch werden Kategorien nur einmal ausgegeben.
+
+Map
+
+Die Map ordnet Schlüssel Werten zu.
+
+In der Lösung:
+
+Map<String, Produkt> produktMap = new HashMap<>();
+
+Dadurch kann ein Produkt über seinen Namen zugeordnet werden.
+
+⸻
+
+Sortieren von Daten
+
+Die Produkte werden über Bibliotheksfunktionen sortiert:
+
+Collections.sort(verwaltung.getProdukte(), Comparator.comparing(Produkt::getPreis));
+
+Das zeigt, dass Sortierlogik nicht manuell implementiert werden muss, sondern flexibel über vorhandene Werkzeuge formuliert werden kann.
+
+⸻
+
+Musterlösung – Kontrollfragen
+
+Antworten zur Java Standard Library
+
+1. Was versteht man unter der Java Standard Library?
+Die Java Standard Library ist eine Sammlung bereits vorhandener Klassen und Schnittstellen, die grundlegende und häufig benötigte Funktionen bereitstellt.
+
+2. Warum ist java.lang automatisch verfügbar?
+Weil dieses Paket zu den grundlegendsten Bestandteilen von Java gehört und deshalb automatisch importiert wird.
+
+3. Welche Aufgaben erfüllen java.util, java.time und java.math?
+java.util unterstützt unter anderem Datenstrukturen und Hilfsklassen, java.time verarbeitet Datums- und Zeitangaben, java.math stellt präzise mathematische Klassen wie BigDecimal bereit.
+
+Antworten zu java.lang
+
+4. Welche Rolle spielt die Klasse String?
+Sie dient zur Verarbeitung und Speicherung von Texten.
+
+5. Wofür wird die Klasse Math verwendet?
+Sie stellt mathematische Funktionen wie Runden, Potenzen oder Wurzelberechnungen bereit.
+
+6. Was machen Wrapper-Klassen wie Integer oder Double?
+Sie kapseln primitive Datentypen als Objekte und bieten zusätzliche Methoden.
+
+Antworten zu java.time
+
+7. Warum ist LocalDate für Datumsangaben geeignet?
+Weil es Datumswerte ohne Uhrzeit klar und fachlich passend modelliert.
+
+8. Welche Aufgabe hat DateTimeFormatter?
+Er formatiert Datumswerte in lesbare Textdarstellungen.
+
+9. Wozu dient Period?
+Mit Period können Zeitabstände zwischen zwei Datumswerten berechnet werden.
+
+Antworten zu java.math
+
+10. Warum ist BigDecimal für Geldbeträge oft besser als double?
+Weil BigDecimal exakte Dezimalwerte verarbeiten kann und Rundungsfehler vermeidet.
+
+11. Wie werden Rechenoperationen mit BigDecimal durchgeführt?
+Nicht mit Operatoren wie +, sondern mit Methoden wie add(...), subtract(...) oder multiply(...).
+
+Antworten zum JCF
+
+12. Was ist das Java Collections Framework?
+Es ist ein standardisiertes System für Datenstrukturen und Algorithmen in Java.
+
+13. Worin unterscheiden sich List, Set und Map?
+Eine List ist geordnet und erlaubt Duplikate, ein Set vermeidet Duplikate, eine Map ordnet Schlüssel Werten zu.
+
+14. Wann ist ArrayList sinnvoll?
+Wenn viele Elemente in einer geordneten Liste gespeichert und durchlaufen werden sollen.
+
+15. Wann ist ein HashSet sinnvoll?
+Wenn Werte nur einmal vorkommen sollen.
+
+16. Wofür wird eine HashMap verwendet?
+Zur Speicherung von Schlüssel-Wert-Paaren.
+
+Antworten zur Datenverarbeitung
+
+17. Wie können Objekte in Collections gespeichert werden?
+Zum Beispiel in List, Set oder Map.
+
+18. Wie können Daten sortiert werden?
+Mit Bibliotheksfunktionen wie Collections.sort(...) oder Comparator.
+
+19. Wie können Daten gruppiert oder zugeordnet werden?
+Zum Beispiel mit Map-Strukturen oder durch Filtern nach Eigenschaften.
+
+20. Warum ist die Wahl der passenden Bibliothek wichtig?
+Weil sie Einfluss auf Lesbarkeit, Korrektheit, Effizienz und Wartbarkeit des Programms hat.
+
+⸻
