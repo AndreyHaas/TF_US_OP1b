@@ -1,15 +1,14 @@
 package tag09.fpa.bibliotheken;
 
+
 import org.jetbrains.annotations.NotNull;
+import tag09.wichtigeBibliotheken.Kunde;
+import tag09.wichtigeBibliotheken.KundeVerwaltung;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Set;
-
+import java.util.*;
 
 /**
  * Hauptklasse, die das Zusammenspiel aller Bibliotheken demonstriert
@@ -102,6 +101,52 @@ public class Main {
         for (Veranstaltung v : verwaltung.getAlleVeranstaltungen()) {
             System.out.println(v.getTitel() + ": " + v.getDatum().format(getGermanFormatter()));
         }
+
+        //13. Klasse Kundenverwaltung, Kunde, Sortieren nach Kundennamen in der main-Methode
+        // Kundenverwaltung erstellen
+        KundeVerwaltung kundeVerwaltung = new KundeVerwaltung(new ArrayList<>());
+
+        // Kunden mit verschiedenen Kategorien erstellen
+        Kunde kunde1 = new Kunde(1001, "Anna Schmidt", "Economy");
+        Kunde kunde2 = new Kunde(1002, "Thomas Weber", "Business");
+        Kunde kunde3 = new Kunde(1003, "Maria Fischer", "Economy");
+        Kunde kunde4 = new Kunde(1004, "Dr. Klaus Richter", "Business");
+        Kunde kunde5 = new Kunde(1005, "Lisa Hoffmann", "Economy");
+        Kunde kunde6 = new Kunde(1006, "Christian Bauer", "Premium");
+
+        // Kunden zur Verwaltung hinzufügen
+        kundeVerwaltung.kundeHinzufuegen(kunde1);
+        kundeVerwaltung.kundeHinzufuegen(kunde2);
+        kundeVerwaltung.kundeHinzufuegen(kunde3);
+        kundeVerwaltung.kundeHinzufuegen(kunde4);
+        kundeVerwaltung.kundeHinzufuegen(kunde5);
+        kundeVerwaltung.kundeHinzufuegen(kunde6);
+
+        // 1. Alle Kunden ausgeben
+        kundeVerwaltung.alleKundenAusgeben();
+
+        // 2. Gefilterte Ausgabe nach Kategorie "Business"
+        kundeVerwaltung.kundenNachKategorieAusgeben("Business");
+
+        // 3. Gefilterte Ausgabe nach Kategorie "Economy"
+        kundeVerwaltung.kundenNachKategorieAusgeben("Economy");
+
+        // 4. Gefilterte Ausgabe nach nicht vorhandener Kategorie
+        kundeVerwaltung.kundenNachKategorieAusgeben("Gold");
+
+        // 5. Sortieren nach Kundennamen
+        System.out.println("\n" + "=".repeat(50));
+        kundeVerwaltung.sortiereNachNamen();
+        kundeVerwaltung.alleKundenAusgeben();
+
+        // 6. Sortieren nach Kundennummer (ID)
+        kundeVerwaltung.sortiereNachId();
+        kundeVerwaltung.alleKundenAusgeben();
+
+        // Alternative: Ausgabe mit sortierten Methoden
+        System.out.println("\n" + "=".repeat(50));
+        kundeVerwaltung.ausgegebenSortiertNachNamen();
+        kundeVerwaltung.ausgegebenSortiertNachId();
     }
 
     private static @NotNull DateTimeFormatter getGermanFormatter() {

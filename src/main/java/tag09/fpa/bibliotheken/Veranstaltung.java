@@ -62,6 +62,8 @@ public class Veranstaltung {
     /**
      * Berechnet den Preis mit Rabatt
      * Verwendung von multiply(), subtract() und divide()
+     *
+     * @param anzahlTickets wie viel Tickets hat Kunde
      */
     public BigDecimal berechneRabattPreis(int anzahlTickets) {
         BigDecimal rabattProzent = BigDecimal.ZERO;
@@ -98,6 +100,8 @@ public class Veranstaltung {
 
     /**
      * Erhöht den Preis um einen bestimmten Prozentsatz (z.B. Preisanpassung)
+     *
+     * @param prozent Wert von % der Preis erhöht
      */
     public void erhoehePreisUmProzent(int prozent) {
         BigDecimal prozentFaktor = new BigDecimal(prozent);
@@ -147,9 +151,16 @@ public class Veranstaltung {
     /**
      * Vergleicht zwei Preise miteinander
      * compareTo() ist die korrekte Methode für BigDecimal-Vergleiche
+     *
+     * @param andere - ein Link zu einer Veranstaltung
      */
     public boolean istTeurerAls(Veranstaltung andere) {
-        return this.preis.compareTo(andere.getPreis()) > 0;
+        boolean istTeurerAls = false;
+        if (andere != null) {
+            istTeurerAls = this.preis.compareTo(andere.getPreis()) > 0;
+        }
+
+        return istTeurerAls;
     }
 
     public String beschreibe() {
